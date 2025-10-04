@@ -3,16 +3,17 @@ import {
   Container,
   Typography,
   Box,
-  Grid,
   Card,
-  CardContent,
   Avatar,
   Dialog,
   DialogTitle,
   DialogContent,
   IconButton,
+  Stack,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import CloseIcon from "@mui/icons-material/Close";
+
 import atash from "../assets/atash.jpg";
 import sharifi from "../assets/sharifi.jpg";
 import arezoomand from "../assets/arezoomand.jpg";
@@ -20,7 +21,6 @@ import emami from "../assets/emami.jpg";
 import hooman from "../assets/hooman.jpg";
 import mashreghi from "../assets/mashreghi.jpg";
 import rastegari from "../assets/rastegari.jpg";
-
 
 const teamMembers = [
   {
@@ -180,7 +180,7 @@ export default function About() {
         {/* Team Section */}
         <Box sx={{ mt: 8 }}>
           <Typography variant="h4" align="center" gutterBottom>
-            تیم ما
+            هیئت مدیره
           </Typography>
           <Typography
             align="center"
@@ -190,26 +190,50 @@ export default function About() {
             تیم بهمند متشکل از حسابداران رسمی و کارشناسان خبره مالی است.
           </Typography>
 
-          <Grid container spacing={4}>
+          {/* CSS Grid Layout */}
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+              },
+              gap: 4,
+              gridAutoRows: "1fr", // کارت‌ها هم‌ارتفاع
+            }}
+          >
             {teamMembers.map((member, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                style={{ height: "100%" }}
+              >
                 <Card
                   onClick={() => handleOpen(member)}
                   sx={{
+                    height: "100%", // 👈 همه کارت‌ها هم‌ارتفاع
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
                     textAlign: "center",
-                    p: 3,
-                    borderRadius: 3,
+                    borderRadius: 4,
                     cursor: "pointer",
+                    boxShadow: 3,
                     transition: "0.3s",
-                    "&:hover": { boxShadow: 6, transform: "translateY(-6px)" },
+                    mt: 2,
                   }}
                 >
                   <Avatar
                     src={member.avatar}
                     alt={member.name}
                     sx={{
-                      width: 90,
-                      height: 90,
+                      width: { xs: 70, md: 90 },
+                      height: { xs: 70, md: 90 },
                       mx: "auto",
                       mb: 2,
                       bgcolor: "primary.main",
@@ -222,28 +246,65 @@ export default function About() {
                     {member.role}
                   </Typography>
                 </Card>
-              </Grid>
+              </motion.div>
             ))}
-          </Grid>
+          </Box>
         </Box>
 
         {/* Dialog for details */}
-        <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          maxWidth="sm"
+          fullWidth
+          sx={{ direction: "rtl" }}
+        >
           <DialogTitle
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              direction: "rtl",
+              textAlign: "right",
+            }}
           >
             {selectedMember?.name}
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </DialogTitle>
-          <DialogContent>
-            <Typography
-              component="pre"
-              sx={{ whiteSpace: "pre-wrap", fontFamily: "inherit" }}
-            >
-              {selectedMember?.details}
-            </Typography>
+          <DialogContent
+            sx={{
+              direction: "rtl",
+              textAlign: "right",
+            }}
+          >
+            {selectedMember && (
+              <Stack spacing={2} alignItems="center">
+                <Avatar
+                  src={selectedMember.avatar}
+                  alt={selectedMember.name}
+                  sx={{
+                    width: { xs: 100, sm: 120, md: 140 },
+                    height: { xs: 100, sm: 120, md: 140 },
+                  }}
+                />
+                <Typography variant="subtitle1" color="text.secondary">
+                  {selectedMember.role}
+                </Typography>
+                <Typography
+                  component="pre"
+                  sx={{
+                    whiteSpace: "pre-wrap",
+                    fontFamily: "inherit",
+                    width: "100%",
+                    fontSize: { xs: "0.85rem", sm: "0.95rem" },
+                  }}
+                >
+                  {selectedMember.details}
+                </Typography>
+              </Stack>
+            )}
           </DialogContent>
         </Dialog>
       </Container>

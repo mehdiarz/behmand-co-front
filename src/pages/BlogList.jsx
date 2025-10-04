@@ -1,110 +1,135 @@
 import React, { useEffect, useState } from "react";
 import {
   Container,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
   Typography,
   Chip,
   Stack,
+  Box,
   TextField,
-  Button,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import Masonry from "@mui/lab/Masonry";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function BlogList() {
-  const [items, setItems] = useState([]);
-  const [q, setQ] = useState("");
-  const [tag, setTag] = useState("");
-  const navigate = useNavigate();
-
-  const fetchBlogs = async () => {
-    const res = await fetch("http://localhost:5000/api/blogs");
-    const data = await res.json();
-    // اگر بک‌اند آرایه برگردونه
-    let blogs = Array.isArray(data) ? data : [];
-    // فیلتر ساده سمت کلاینت
-    if (q)
-      blogs = blogs.filter((b) => b.title.includes(q) || b.excerpt.includes(q));
-    if (tag) blogs = blogs.filter((b) => (b.tags || []).includes(tag));
-    setItems(blogs);
-  };
+  const [blogs, setBlogs] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetchBlogs();
-  }, [q, tag]);
+    (async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/blogs");
+        const data = await res.json();
+        setBlogs(data);
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+      }
+    })();
+  }, []);
+
+  // فیلتر بر اساس عنوان یا تگ
+  const filteredBlogs = blogs.filter((blog) => {
+    const titleMatch = blog.title.toLowerCase().includes(search.toLowerCase());
+    const tagMatch = (blog.tags || []).some((tag) =>
+      tag.toLowerCase().includes(search.toLowerCase()),
+    );
+    return titleMatch || tagMatch;
+  });
 
   return (
     <Container sx={{ py: 6, mt: 5 }}>
-      <Typography variant="h4" fontWeight={700} gutterBottom>
-        بلاگ
+      <Typography variant="h4" gutterBottom fontWeight={700}>
+        آخرین مقالات
       </Typography>
 
-      <Stack direction={{ xs: "column", md: "row" }} spacing={2} sx={{ mb: 3 }}>
-        <TextField
-          fullWidth
-          placeholder="جستجو..."
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-        />
-        <TextField
-          fullWidth
-          placeholder="فیلتر بر اساس تگ"
-          value={tag}
-          onChange={(e) => setTag(e.target.value)}
-        />
-        <Button
-          variant="outlined"
-          onClick={() => {
-            setQ("");
-            setTag("");
-            fetchBlogs();
-          }}
-        >
-          پاکسازی
-        </Button>
-      </Stack>
+      {/* فیلد جستجو */}
+      <TextField
+        fullWidth
+        placeholder="جستجو بر اساس عنوان یا تگ..."
+        variant="outlined"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        sx={{ mb: 4 }}
+      />
 
-      <Grid container spacing={3}>
-        {items.map((b) => (
-          <Grid item xs={12} sm={6} md={4} key={b._id}>
-            <Card
-              sx={{ cursor: "pointer" }}
-              onClick={() => navigate(`/blog/${b.slug}`)}
+      <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
+        <AnimatePresence>
+          {filteredBlogs.map((blog, i) => (
+            <motion.div
+              key={blog._id}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.9 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {b.coverImage?.filePath && (
-                <CardMedia
-                  component="img"
-                  height="180"
-                  image={`http://localhost:5000/${b.coverImage.filePath}`}
-                  alt={b.title}
+              <Box
+                component={Link}
+                to={`/blog/${blog.slug}`}
+                sx={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  borderRadius: 2,
+                  overflow: "hidden",
+                  display: "block",
+                  boxShadow: 2,
+                  transition: "0.3s",
+                  "&:hover": { boxShadow: 6 },
+                }}
+              >
+                <img
+                  src={`http://localhost:5000/${blog.coverImage?.filePath}`}
+                  alt={blog.title}
+                  style={{
+                    width: "100%",
+                    display: "block",
+                    height: "250px",
+                    objectFit: "cover",
+                  }}
                 />
-              )}
-              <CardContent>
-                <Typography variant="h6" fontWeight={700}>
-                  {b.title}
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  {new Date(b.publishedAt).toLocaleDateString("fa-IR")}
-                </Typography>
-                <Typography sx={{ mt: 1 }} color="text.secondary">
-                  {b.excerpt}
-                </Typography>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  sx={{ mt: 1, flexWrap: "wrap" }}
-                >
-                  {(b.tags || []).map((t, i) => (
-                    <Chip key={`${b._id}-${t}-${i}`} label={t} size="small" />
-                  ))}
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                <Box sx={{ p: 2 }}>
+                  <Typography variant="h6" gutterBottom>
+                    {blog.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {blog.excerpt ||
+                      blog.content.replace(/<[^>]+>/g, "").slice(0, 150) +
+                        "..."}
+                  </Typography>
+
+                  <Stack
+                    direction="row"
+                    spacing={1}
+                    sx={{ mt: 1, flexWrap: "wrap" }}
+                  >
+                    {(blog.tags || []).map((t, i) => (
+                      <Chip key={i} label={t} size="small" />
+                    ))}
+                  </Stack>
+
+                  <Typography
+                    variant="body2"
+                    color="primary"
+                    sx={{ mt: 2, fontWeight: "bold" }}
+                  >
+                    ادامه مطلب →
+                  </Typography>
+                </Box>
+              </Box>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </Masonry>
     </Container>
   );
 }

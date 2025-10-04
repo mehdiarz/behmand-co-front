@@ -29,19 +29,18 @@ export default function AboutSlider({ images = [], interval = 4000 }) {
         display: "flex",
         justifyContent: "center",
         width: "100%",
-
       }}
     >
       <Box
         {...handlers}
         sx={{
           position: "relative",
-          width: '100%',
-          maxWidth: 1000,
-          height: { xs: 220, md: 400 },
+          width: "100%",
+          height: { xs: 240, sm: 320, md: 400 }, // 👈 ریسپانسیو
           overflow: "hidden",
           borderRadius: 3,
           boxShadow: 4,
+          backgroundColor: "#000", // 👈 پس‌زمینه برای فضای خالی
         }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
@@ -59,9 +58,10 @@ export default function AboutSlider({ images = [], interval = 4000 }) {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "fill", // 👈 تصویر کامل بدون کراپ
               display: "block",
               borderRadius: "inherit",
+
             }}
           />
         </AnimatePresence>

@@ -128,6 +128,7 @@ export default function AboutSection() {
               color="success"
               size="large"
               href="/about"
+              sx={{ml: {xs:10, md: 65}}}
             >
               بیشتر بدانید
             </Button>
@@ -146,11 +147,10 @@ export default function AboutSection() {
               borderRadius: 3,
               overflow: "hidden",
               boxShadow: 6,
-              width: { xs: 300, md: 1000 },
-              height: { xs: 200, md: 400 },
-              maxWidth: { xs: "100%" }, // 👈 عریض‌تر در دسکتاپ
+              width: {xs:"100%", md :"55%"},
+              height: {xs:"230px", md:"400px"},
               mx: "auto",
-              aspectRatio: "16/9",
+
             }}
           >
             <AboutSlider images={[about1, about2, about3, about4, about5]} />

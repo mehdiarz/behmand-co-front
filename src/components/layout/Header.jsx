@@ -13,13 +13,14 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion"; // 👈 اضافه شد
 import logo from "../../assets/default-logo.png";
 
 const navItems = [
   { label: "خانه", path: "/" },
   { label: "درباره ما", path: "/about" },
   { label: "خدمات", path: "/services" },
-  { label: "مقالات", path: "/blog" }, // 👈 اضافه شد
+  { label: "مقالات", path: "/blog" },
   { label: "فرصت‌های شغلی", path: "/resumeForm" },
   { label: "تماس با ما", path: "/contact" },
 ];
@@ -82,15 +83,19 @@ export default function Header() {
             </IconButton>
           </Box>
 
-          {/* لوگو */}
+          {/* لوگو با انیمیشن */}
           <Box
             component={Link}
             to="/"
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <img
+            <motion.img
+              key={location.pathname} // 👈 باعث میشه هر بار صفحه عوض شد دوباره انیمیشن اجرا بشه
               src={logo}
               alt="لوگوی موسسه حسابرسی بهمند"
+              initial={{ y: -80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               style={{ height: "55px", objectFit: "contain" }}
             />
           </Box>
