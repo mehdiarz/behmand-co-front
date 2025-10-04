@@ -25,7 +25,7 @@ export default function BlogDetail() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/blogs/slug/${slug}`);
+        const res = await fetch(`https://behmand-co-server.onrender.com/api/blogs/slug/${slug}`);
         if (!res.ok) throw new Error("خطا در دریافت بلاگ");
         const data = await res.json();
         setBlog(data);
@@ -52,7 +52,7 @@ export default function BlogDetail() {
           }}
         >
           <img
-            src={`http://localhost:5000/${blog.coverImage.filePath}`}
+            src={`https://behmand-co-server.onrender.com:5000/${blog.coverImage.filePath}`}
             alt={blog.title}
             style={{
               width: "100%",
@@ -97,7 +97,7 @@ export default function BlogDetail() {
               <Button
                 key={i}
                 variant="outlined"
-                href={`http://localhost:5000/${f.filePath}`}
+                href={`https://behmand-co-server.onrender.com:5000/${f.filePath}`}
                 target="_blank"
               >
                 دانلود: {f.fileName}

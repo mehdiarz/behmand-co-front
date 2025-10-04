@@ -29,7 +29,7 @@ export default function AdminBlogForm() {
     if (id) {
       (async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+          const res = await fetch(`https://behmand-co-server.onrender.com/api/blogs/${id}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -79,8 +79,8 @@ export default function AdminBlogForm() {
     attachments.forEach((f) => fd.append("attachments", f));
 
     const url = id
-      ? `http://localhost:5000/api/blogs/${id}`
-      : "http://localhost:5000/api/blogs";
+      ? `https://behmand-co-server.onrender.com/api/blogs/${id}`
+      : "https://behmand-co-server.onrender.com/api/blogs";
     const method = id ? "PATCH" : "POST";
 
     try {

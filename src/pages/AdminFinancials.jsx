@@ -22,7 +22,7 @@ export default function AdminFinancials() {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/financials", {
+        const res = await fetch("https://behmand-co-server.onrender.com/api/financials", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         const data = await res.json();
@@ -43,7 +43,7 @@ export default function AdminFinancials() {
     formData.append("file", file);
 
     try {
-      await fetch("http://localhost:5000/api/financials", {
+      await fetch("https://behmand-co-server.onrender.com/api/financials", {
         method: "POST",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         body: formData,
@@ -56,7 +56,7 @@ export default function AdminFinancials() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/financials/${id}`, {
+      await fetch(`https://behmand-co-server.onrender.com/api/financials/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
@@ -118,7 +118,7 @@ export default function AdminFinancials() {
                       <Button
                         variant="outlined"
                         size="small"
-                        href={`http://localhost:5000/${f.filePath}`}
+                        href={`https://behmand-co-server.onrender.com/${f.filePath}`}
                         target="_blank"
                       >
                         دانلود

@@ -28,7 +28,7 @@ export default function AdminMessages() {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/messages", {
+      const res = await fetch("https://behmand-co-server.onrender.com/api/messages", {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       const data = await res.json();
@@ -50,7 +50,7 @@ export default function AdminMessages() {
 
     if (!msg.read) {
       try {
-        await fetch(`http://localhost:5000/api/messages/${msg._id}/read`, {
+        await fetch(`https://behmand-co-server.onrender.com/api/messages/${msg._id}/read`, {
           method: "PATCH",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
@@ -75,7 +75,7 @@ export default function AdminMessages() {
     if (!ok) return;
 
     try {
-      await fetch(`http://localhost:5000/api/messages/${id}`, {
+      await fetch(`https://behmand-co-server.onrender.com/api/messages/${id}`, {
         method: "DELETE",
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });

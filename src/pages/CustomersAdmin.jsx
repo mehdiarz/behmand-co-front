@@ -28,7 +28,7 @@ export default function CustomersAdmin() {
   // گرفتن لیست مشتری‌ها
   const fetchCustomers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/customers", {
+      const res = await fetch("https://behmand-co-server.onrender.com/api/customers", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const data = await res.json();
@@ -49,7 +49,7 @@ export default function CustomersAdmin() {
     try {
       if (editCustomer) {
         // ویرایش
-        await fetch(`http://localhost:5000/api/customers/${editCustomer._id}`, {
+        await fetch(`https://behmand-co-server.onrender.com/api/customers/${editCustomer._id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default function CustomersAdmin() {
         });
       } else {
         // افزودن
-        await fetch("http://localhost:5000/api/customers", {
+        await fetch("https://behmand-co-server.onrender.com/api/customers", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export default function CustomersAdmin() {
   // حذف مشتری
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/customers/${id}`, {
+      await fetch(`https://behmand-co-server.onrender.com/api/customers/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

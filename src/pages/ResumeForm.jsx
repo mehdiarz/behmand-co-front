@@ -32,7 +32,7 @@ export default function ResumeForm() {
     try {
       const data = new FormData();
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
-      const res = await fetch("http://localhost:5000/api/resume", {
+      const res = await fetch("https://behmand-co-server.onrender.com/api/resume", {
         method: "POST",
         body: data,
       });

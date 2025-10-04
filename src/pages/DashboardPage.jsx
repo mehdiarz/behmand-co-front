@@ -24,18 +24,18 @@ export default function DashboardPage() {
       try {
         const [customersRes, resumesRes, messagesRes, blogsRes] =
           await Promise.all([
-            fetch("http://localhost:5000/api/customers"),
-            fetch("http://localhost:5000/api/resumes", {
+            fetch("https://behmand-co-server.onrender.com/api/customers"),
+            fetch("https://behmand-co-server.onrender.com/api/resumes", {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
             }),
-            fetch("http://localhost:5000/api/messages", {
+            fetch("https://behmand-co-server.onrender.com/api/messages", {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
             }),
-            fetch("http://localhost:5000/api/blogs"),
+            fetch("https://behmand-co-server.onrender.com/api/blogs"),
           ]);
 
         const customers = await customersRes.json();

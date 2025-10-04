@@ -21,7 +21,7 @@ export default function AdminBlogs() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/blogs");
+      const res = await fetch("https://behmand-co-server.onrender.com/api/blogs");
       const data = await res.json();
       setBlogs(data);
     } catch (err) {
@@ -41,7 +41,7 @@ export default function AdminBlogs() {
     );
     if (!ok) return;
     try {
-      await fetch(`http://localhost:5000/api/blogs/${id}`, {
+      await fetch(`https://behmand-co-server.onrender.com/api/blogs/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

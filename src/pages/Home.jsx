@@ -46,7 +46,7 @@ export default function Home() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/blogs?limit=3");
+                const res = await fetch("https://behmand-co-server.onrender.com/api/blogs?limit=3");
                 const data = await res.json();
                 setBlogs(data.items || data); // بسته به خروجی API
             } catch (err) {

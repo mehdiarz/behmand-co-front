@@ -24,7 +24,7 @@ export default function AdminResumes() {
 
   const fetchResumes = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/resumes", {
+      const res = await fetch("https://behmand-co-server.onrender.com/api/resumes", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -47,7 +47,7 @@ export default function AdminResumes() {
 
   const download = async (id, fileName) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/resumes/${id}/file`, {
+      const res = await fetch(`https://behmand-co-server.onrender.com/api/resumes/${id}/file`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -69,7 +69,7 @@ export default function AdminResumes() {
 
   const changeStatus = async (id, status) => {
     try {
-      await fetch(`http://localhost:5000/api/resumes/${id}/status`, {
+      await fetch(`https://behmand-co-server.onrender.com/api/resumes/${id}/status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
