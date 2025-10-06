@@ -13,6 +13,9 @@ import {
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function BlogSection() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
@@ -20,7 +23,7 @@ export default function BlogSection() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("https://behmand-co-server.onrender.com/api/blogs");
+        const res = await fetch(`${API_URL}/api/blogs`);
         const data = await res.json();
         setBlogs(Array.isArray(data) ? data.slice(0, 3) : []);
       } catch (err) {
@@ -94,7 +97,7 @@ export default function BlogSection() {
                 {b.coverImage?.filePath && (
                   <CardMedia
                     component="img"
-                    image={`https://behmand-co-server.onrender.com:5000/${b.coverImage.filePath}`}
+                    image={`${API_URL}/${b.coverImage.filePath}`}
                     alt={b.title}
                     sx={{
                       height: 220,

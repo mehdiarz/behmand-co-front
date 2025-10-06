@@ -11,6 +11,9 @@ import Masonry from "@mui/lab/Masonry";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState("");
@@ -18,7 +21,7 @@ export default function BlogList() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("https://behmand-co-server.onrender.com/api/blogs");
+        const res = await fetch(`${API_URL}/api/blogs`);
         const data = await res.json();
         setBlogs(data);
       } catch (err) {
@@ -79,7 +82,7 @@ export default function BlogList() {
                 }}
               >
                 <img
-                  src={`https://behmand-co-server.onrender.com/${blog.coverImage?.filePath}`}
+                  src={`${API_URL}/${blog.coverImage?.filePath}`}
                   alt={blog.title}
                   style={{
                     width: "100%",

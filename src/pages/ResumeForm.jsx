@@ -8,6 +8,9 @@ import {
   CircularProgress,
 } from "@mui/material";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function ResumeForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +35,7 @@ export default function ResumeForm() {
     try {
       const data = new FormData();
       Object.entries(formData).forEach(([k, v]) => data.append(k, v));
-      const res = await fetch("https://behmand-co-server.onrender.com/api/resume", {
+      const res = await fetch(`${API_URL}/api/resume`, {
         method: "POST",
         body: data,
       });

@@ -18,6 +18,9 @@ import {
   DialogActions,
 } from "@mui/material";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function CustomersAdmin() {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,7 +31,7 @@ export default function CustomersAdmin() {
   // گرفتن لیست مشتری‌ها
   const fetchCustomers = async () => {
     try {
-      const res = await fetch("https://behmand-co-server.onrender.com/api/customers", {
+      const res = await fetch(`${API_URL}/api/customers`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const data = await res.json();
@@ -49,7 +52,7 @@ export default function CustomersAdmin() {
     try {
       if (editCustomer) {
         // ویرایش
-        await fetch(`https://behmand-co-server.onrender.com/api/customers/${editCustomer._id}`, {
+        await fetch(`${API_URL}/api/customers/${editCustomer._id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +62,7 @@ export default function CustomersAdmin() {
         });
       } else {
         // افزودن
-        await fetch("https://behmand-co-server.onrender.com/api/customers", {
+        await fetch(`${API_URL}/api/customers`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -80,7 +83,7 @@ export default function CustomersAdmin() {
   // حذف مشتری
   const handleDelete = async (id) => {
     try {
-      await fetch(`https://behmand-co-server.onrender.com/api/customers/${id}`, {
+      await fetch(`${API_URL}/api/customers/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

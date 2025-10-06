@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Container, TextField, Button, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function AdminLogin() {
   const [username, setUser] = useState("");
   const [password, setPass] = useState("");
@@ -12,7 +14,7 @@ export default function AdminLogin() {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("https://behmand-co-server.onrender.com/api/admin/login", {
+      const res = await fetch(`${API_URL}/api/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

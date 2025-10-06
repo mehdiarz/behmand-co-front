@@ -17,6 +17,8 @@ import {
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function CustomersPage() {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
@@ -28,7 +30,7 @@ export default function CustomersPage() {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await fetch("https://behmand-co-server.onrender.com/api/customers");
+        const res = await fetch(`${API_URL}/api/customers`);
         const data = await res.json();
         setCustomers(data);
       } catch (err) {

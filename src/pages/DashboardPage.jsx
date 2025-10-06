@@ -15,6 +15,9 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import ArticleIcon from "@mui/icons-material/Article";
 import { useNavigate } from "react-router-dom";
 
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function DashboardPage() {
   const [stats, setStats] = useState(null);
   const navigate = useNavigate();
@@ -24,18 +27,18 @@ export default function DashboardPage() {
       try {
         const [customersRes, resumesRes, messagesRes, blogsRes] =
           await Promise.all([
-            fetch("https://behmand-co-server.onrender.com/api/customers"),
-            fetch("https://behmand-co-server.onrender.com/api/resumes", {
+            fetch(`${API_URL}/api/customers`),
+            fetch(`${API_URL}/api/resumes`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
             }),
-            fetch("https://behmand-co-server.onrender.com/api/messages", {
+            fetch(`${API_URL}/api/messages`, {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               },
             }),
-            fetch("https://behmand-co-server.onrender.com/api/blogs"),
+            fetch(`${API_URL}/api/blogs`),
           ]);
 
         const customers = await customersRes.json();

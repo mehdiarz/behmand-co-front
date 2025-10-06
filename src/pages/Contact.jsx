@@ -16,6 +16,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { motion } from "framer-motion";
 import { Alert } from "@mui/material";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -50,7 +52,7 @@ export default function ContactPage() {
     if (!validate()) return;
 
     try {
-      const res = await fetch("https://behmand-co-server.onrender.com/api/messages", {
+      const res = await fetch(`${API_URL}/api/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

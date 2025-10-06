@@ -18,6 +18,8 @@ import {
   ContentCopy,
 } from "@mui/icons-material";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function BlogDetail() {
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
@@ -25,7 +27,7 @@ export default function BlogDetail() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`https://behmand-co-server.onrender.com/api/blogs/slug/${slug}`);
+        const res = await fetch(`${API_URL}/api/blogs/slug/${slug}`);
         if (!res.ok) throw new Error("خطا در دریافت بلاگ");
         const data = await res.json();
         setBlog(data);
@@ -52,7 +54,7 @@ export default function BlogDetail() {
           }}
         >
           <img
-            src={`https://behmand-co-server.onrender.com:5000/${blog.coverImage.filePath}`}
+            src={`${API_URL}/${blog.coverImage.filePath}`}
             alt={blog.title}
             style={{
               width: "100%",
@@ -97,7 +99,7 @@ export default function BlogDetail() {
               <Button
                 key={i}
                 variant="outlined"
-                href={`https://behmand-co-server.onrender.com:5000/${f.filePath}`}
+                href={`${API_URL}/${f.filePath}`}
                 target="_blank"
               >
                 دانلود: {f.fileName}

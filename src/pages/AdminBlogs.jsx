@@ -14,6 +14,9 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function AdminBlogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +24,7 @@ export default function AdminBlogs() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("https://behmand-co-server.onrender.com/api/blogs");
+      const res = await fetch(`${API_URL}/api/blogs`);
       const data = await res.json();
       setBlogs(data);
     } catch (err) {
@@ -41,7 +44,7 @@ export default function AdminBlogs() {
     );
     if (!ok) return;
     try {
-      await fetch(`https://behmand-co-server.onrender.com/api/blogs/${id}`, {
+      await fetch(`${API_URL}/api/blogs/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });

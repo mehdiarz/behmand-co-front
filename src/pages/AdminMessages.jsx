@@ -18,6 +18,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function AdminMessages() {
   const [messages, setMessages] = useState([]);
@@ -28,7 +29,7 @@ export default function AdminMessages() {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch("https://behmand-co-server.onrender.com/api/messages", {
+      const res = await fetch(`${API_URL}/api/messages`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       const data = await res.json();
@@ -50,7 +51,7 @@ export default function AdminMessages() {
 
     if (!msg.read) {
       try {
-        await fetch(`https://behmand-co-server.onrender.com/api/messages/${msg._id}/read`, {
+        await fetch(`${API_URL}/api/messages/${msg._id}/read`, {
           method: "PATCH",
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
@@ -75,7 +76,7 @@ export default function AdminMessages() {
     if (!ok) return;
 
     try {
-      await fetch(`https://behmand-co-server.onrender.com/api/messages/${id}`, {
+      await fetch(`${API_URL}/api/messages/${id}`, {
         method: "DELETE",
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });

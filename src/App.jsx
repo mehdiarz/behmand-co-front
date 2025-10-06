@@ -26,7 +26,7 @@ import AdminBlogs from "./pages/AdminBlogs.jsx";
 import AdminBlogForm from "./pages/AdminBlogForm.jsx";
 
 function App() {
-  return (
+    return (
     <BrowserRouter>
       <Routes>
         {/* صفحات عمومی سایت */}

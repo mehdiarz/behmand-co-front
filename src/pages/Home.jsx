@@ -35,6 +35,9 @@ import HeroSection from "../components/hero/HeroSection.jsx";
 import {useNavigate} from "react-router-dom";
 import BlogSection from "../components/about/BlogSection.jsx";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function Home() {
   const logos = [
     { src: bankShahr, alt: "بانک شهر" },
@@ -46,7 +49,7 @@ export default function Home() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch("https://behmand-co-server.onrender.com/api/blogs?limit=3");
+                const res = await fetch(`${API_URL}/api/blogs?limit=3`);
                 const data = await res.json();
                 setBlogs(data.items || data); // بسته به خروجی API
             } catch (err) {

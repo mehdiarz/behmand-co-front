@@ -10,6 +10,9 @@ import {
 } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 export default function AdminBlogForm() {
   const { id } = useParams(); // اگر id وجود داشته باشه یعنی ویرایش
   const navigate = useNavigate();
@@ -29,7 +32,7 @@ export default function AdminBlogForm() {
     if (id) {
       (async () => {
         try {
-          const res = await fetch(`https://behmand-co-server.onrender.com/api/blogs/${id}`, {
+          const res = await fetch(`${API_URL}/api/blogs/${id}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -79,8 +82,8 @@ export default function AdminBlogForm() {
     attachments.forEach((f) => fd.append("attachments", f));
 
     const url = id
-      ? `https://behmand-co-server.onrender.com/api/blogs/${id}`
-      : "https://behmand-co-server.onrender.com/api/blogs";
+      ? `${API_URL}/api/blogs/${id}`
+      : `${API_URL}/api/blogs`;
     const method = id ? "PATCH" : "POST";
 
     try {

@@ -14,6 +14,8 @@ import {
   CircularProgress,
 } from "@mui/material";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function AdminFinancials() {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +24,7 @@ export default function AdminFinancials() {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const res = await fetch("https://behmand-co-server.onrender.com/api/financials", {
+        const res = await fetch(`${API_URL}/api/financials`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         const data = await res.json();
@@ -43,7 +45,7 @@ export default function AdminFinancials() {
     formData.append("file", file);
 
     try {
-      await fetch("https://behmand-co-server.onrender.com/api/financials", {
+      await fetch(`${API_URL}/api/financials`, {
         method: "POST",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         body: formData,
@@ -56,7 +58,7 @@ export default function AdminFinancials() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`https://behmand-co-server.onrender.com/api/financials/${id}`, {
+      await fetch(`${API_URL}/api/financials/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
@@ -118,7 +120,7 @@ export default function AdminFinancials() {
                       <Button
                         variant="outlined"
                         size="small"
-                        href={`https://behmand-co-server.onrender.com/${f.filePath}`}
+                        href={`${API_URL}/${f.filePath}`}
                         target="_blank"
                       >
                         دانلود

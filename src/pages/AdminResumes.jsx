@@ -11,6 +11,9 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import app from "../App.jsx";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function AdminResumes() {
   const [items, setItems] = useState([]);
@@ -24,7 +27,7 @@ export default function AdminResumes() {
 
   const fetchResumes = async () => {
     try {
-      const res = await fetch("https://behmand-co-server.onrender.com/api/resumes", {
+      const res = await fetch(`${API_URL}/api/resumes`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -47,7 +50,7 @@ export default function AdminResumes() {
 
   const download = async (id, fileName) => {
     try {
-      const res = await fetch(`https://behmand-co-server.onrender.com/api/resumes/${id}/file`, {
+      const res = await fetch(`${API_URL}/api/resumes/${id}/file`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -69,7 +72,7 @@ export default function AdminResumes() {
 
   const changeStatus = async (id, status) => {
     try {
-      await fetch(`https://behmand-co-server.onrender.com/api/resumes/${id}/status`, {
+      await fetch(`${API_URL}/api/resumes/${id}/status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
