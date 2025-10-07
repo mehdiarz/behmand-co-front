@@ -341,27 +341,26 @@ export default function About() {
     <Box sx={{ py: { xs: 6, md: 8 }, mt: 10, mb: 10 }}>
       <Container maxWidth="lg">
         {/* Title */}
-          <motion.div
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Typography
+            variant="h3"
+            align="center"
+            gutterBottom
+            sx={{
+              fontWeight: 800,
+              mb: { xs: 6, md: 8 },
+              color: "#111", // 🔥 رنگ مشکی ظریف و خوانا
+              textShadow: "0 2px 4px rgba(0,0,0,0.2)", // سایه ظریف برای عمق
+              letterSpacing: "0.5px",
+            }}
           >
-              <Typography
-                  variant="h3"
-                  align="center"
-                  gutterBottom
-                  sx={{
-                      fontWeight: 800,
-                      mb: { xs: 6, md: 8 },
-                      color: "#111", // 🔥 رنگ مشکی ظریف و خوانا
-                      textShadow: "0 2px 4px rgba(0,0,0,0.2)", // سایه ظریف برای عمق
-                      letterSpacing: "0.5px",
-                  }}
-              >
-                  درباره ما
-              </Typography>
-          </motion.div>
-
+            درباره ما
+          </Typography>
+        </motion.div>
 
         {/* بخش معرفی موسسه */}
         <Box
@@ -414,28 +413,58 @@ export default function About() {
             }}
           >
             مؤسسه حسابرسی بهمند در آذرماه سال ۱۳۵۸ توسط مرحوم اصغر هشی تأسیس و
-            تحت شماره ۲۰۳۵ در اداره ثبت شرکتهای تهران به ثبت رسیده است...
+            تحت شماره ۲۰۳۵ در اداره ثبت شرکتهای تهران به ثبت رسیده است.
           </Typography>
         </Box>
 
         {/* بخش ویژه مرحوم اصغر هشی */}
         <Box sx={{ textAlign: "center", my: 8, px: 2 }}>
-          <Avatar
-            src={asghar}
-            alt="مرحوم اصغر هشی"
-            variant="square" // 👈 مربعی
+          <Box
             sx={{
-              width: { xs: 180, sm: 220, md: 250 },
-              height: { xs: 180, sm: 220, md: 250 },
-              mx: "auto",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
               mb: 3,
-              borderRadius: 3, // کمی گوشه‌ها گرد برای حس مدرن
-              background: "rgba(255,255,255,0.25)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255,255,255,0.3)",
-              boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
             }}
-          />
+          >
+            <Box
+              sx={{
+                position: "relative",
+                borderRadius: 3,
+                background: "rgba(255,255,255,0.25)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255,255,255,0.3)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                overflow: "hidden",
+                p: 0, // 👈 حذف کامل padding تا هیچ فاصله‌ای نباشه
+                display: "inline-block",
+                transition: "all 0.4s ease",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                  boxShadow: "0 12px 36px rgba(0,0,0,0.25)",
+                  background: "rgba(255,255,255,0.35)",
+                },
+              }}
+            >
+              <Box
+                component="img"
+                src={asghar}
+                alt="مرحوم اصغر هشی"
+                sx={{
+                  display: "block",
+                  width: "100%",
+                  height: "auto", // 👈 حفظ نسبت تصویر
+                  maxWidth: { xs: 280, sm: 320, md: 380 },
+                  borderRadius: 3,
+                  transition: "transform 0.4s ease",
+                  "&:hover": {
+                    transform: "scale(1.05)", // 👈 افکت subtle روی خود عکس
+                  },
+                }}
+              />
+            </Box>
+          </Box>
+
           <Typography variant="h5" gutterBottom>
             مرحوم اصغر هشی
           </Typography>
@@ -447,7 +476,7 @@ export default function About() {
               textAlign: "justify",
               lineHeight: 2,
               fontSize: { xs: "0.9rem", md: "1rem" },
-                mb: { xs: 6, md: 8 },
+              mb: { xs: 6, md: 8 },
             }}
           >
             مرحوم اصغر هشی در سال ۱۳۲۹ در اصفهان متولد شد. تحصیلات ابتدائی و
@@ -498,8 +527,8 @@ export default function About() {
               lineHeight: 2,
               fontWeight: 700,
               fontSize: { xs: "0.9rem", md: "1rem" },
-                mb: { xs: 6, md: 10 },
-                px: { xs: 2, md: 0 },
+              mb: { xs: 6, md: 10 },
+              px: { xs: 2, md: 0 },
             }}
           >
             شرکاء مؤسسه در حال حا ضر آقایان رضا آتش، علی مشرقی آرانی،هومن هشی،
