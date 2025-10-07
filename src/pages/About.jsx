@@ -250,8 +250,10 @@ function TeamRow({ members, handleOpen }) {
               sx={{
                 width: "100%",
                 maxWidth: 260,
-                minHeight: 220,
-                p: { xs: 2, sm: 3 },
+                minHeight: { xs: 180, sm: 220 },
+                pl: { xs: 2, sm: 3 },
+                pr: { xs: 2, sm: 3 },
+                pt: { xs: 2, sm: 3 },
                 borderRadius: 5,
                 textAlign: "center",
                 cursor: "pointer",
