@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion"; // 👈 اضافه شد
+import { motion } from "framer-motion";
 import logo from "../../assets/default-logo.png";
 
 const navItems = [
@@ -27,11 +27,25 @@ const navItems = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
   };
+
+  // ✅ تشخیص اسکرول
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const drawer = (
     <Box sx={{ width: 250, p: 2 }} onClick={handleDrawerToggle}>
@@ -62,16 +76,34 @@ export default function Header() {
 
   return (
     <>
-      <AppBar
-        position="fixed"
-        elevation={1}
-        sx={{
-          bgcolor: "#fff",
-          color: "text.primary",
-          borderBottom: "1px solid #eee",
+      <motion.div
+        animate={{
+          height: isScrolled ? 52 : 65, // 👈 ارتفاع متغیر با اسکرول
+          boxShadow: isScrolled
+            ? "0 2px 10px rgba(0,0,0,0.1)"
+            : "0 1px 3px rgba(0,0,0,0.05)",
+          backgroundColor: "#fff",
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1100,
+          display: "flex",
+          alignItems: "center",
         }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            minHeight: "unset", // برای جلوگیری از ارتفاع پیش‌فرض MUI
+            width: "100%",
+            px: { xs: 2, md: 5 },
+          }}
+        >
           {/* موبایل */}
           <Box sx={{ display: { xs: "block", md: "none" } }}>
             <IconButton
@@ -90,13 +122,17 @@ export default function Header() {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <motion.img
-              key={location.pathname} // 👈 باعث میشه هر بار صفحه عوض شد دوباره انیمیشن اجرا بشه
+              key={location.pathname}
               src={logo}
               alt="لوگوی موسسه حسابرسی بهمند"
-              initial={{ y: -80, opacity: 0 }}
+              initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              style={{ height: "55px", objectFit: "contain" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              style={{
+                height: isScrolled ? "40px" : "55px", // 👈 کوچکتر شدن لوگو
+                objectFit: "contain",
+                transition: "height 0.3s ease",
+              }}
             />
           </Box>
 
@@ -124,9 +160,7 @@ export default function Header() {
                     bgcolor: "primary.main",
                     transition: "width 0.3s",
                   },
-                  "&:hover:after": {
-                    width: "100%",
-                  },
+                  "&:hover:after": { width: "100%" },
                 }}
               >
                 {item.label}
@@ -134,7 +168,7 @@ export default function Header() {
             ))}
           </Box>
         </Toolbar>
-      </AppBar>
+      </motion.div>
 
       {/* Drawer موبایل */}
       <Drawer

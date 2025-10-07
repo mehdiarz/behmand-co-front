@@ -372,53 +372,53 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Testimonials Section */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "grey.50" }}>
-        <Container>
-          <Typography variant="h4" align="center" gutterBottom>
-            نظرات مشتریان
-          </Typography>
-          <Grid
-            container
-            columns={12}
-            columnSpacing={4}
-            rowSpacing={4}
-            sx={{ mt: 2 }}
-          >
-            {[1, 2, 3].map((i) => (
-              <Grid
-                key={i}
-                sx={{ gridColumn: { xs: "span 12", md: "span 4" } }}
-              >
-                <Card variant="outlined" sx={{ height: "100%" }}>
-                  <CardContent>
-                    <Stack
-                      direction="row"
-                      spacing={2}
-                      alignItems="center"
-                      sx={{ mb: 2 }}
-                    >
-                      <Avatar />
-                      <Box>
-                        <Typography variant="subtitle1">
-                          نام مشتری {i}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          شرکت نمونه
-                        </Typography>
-                      </Box>
-                    </Stack>
-                    <Typography color="text.secondary">
-                      لورم ایپسوم متن ساختگی است برای نمایش نظر مشتری درباره
-                      کیفیت خدمات و همکاری حرفه‌ای با تیم بهمند.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+      {/*<Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "grey.50" }}>*/}
+      {/*  <Container>*/}
+      {/*    <Typography variant="h4" align="center" gutterBottom>*/}
+      {/*      نظرات مشتریان*/}
+      {/*    </Typography>*/}
+      {/*    <Grid*/}
+      {/*      container*/}
+      {/*      columns={12}*/}
+      {/*      columnSpacing={4}*/}
+      {/*      rowSpacing={4}*/}
+      {/*      sx={{ mt: 2 }}*/}
+      {/*    >*/}
+      {/*      {[1, 2, 3].map((i) => (*/}
+      {/*        <Grid*/}
+      {/*          key={i}*/}
+      {/*          sx={{ gridColumn: { xs: "span 12", md: "span 4" } }}*/}
+      {/*        >*/}
+      {/*          <Card variant="outlined" sx={{ height: "100%" }}>*/}
+      {/*            <CardContent>*/}
+      {/*              <Stack*/}
+      {/*                direction="row"*/}
+      {/*                spacing={2}*/}
+      {/*                alignItems="center"*/}
+      {/*                sx={{ mb: 2 }}*/}
+      {/*              >*/}
+      {/*                <Avatar />*/}
+      {/*                <Box>*/}
+      {/*                  <Typography variant="subtitle1">*/}
+      {/*                    نام مشتری {i}*/}
+      {/*                  </Typography>*/}
+      {/*                  <Typography variant="caption" color="text.secondary">*/}
+      {/*                    شرکت نمونه*/}
+      {/*                  </Typography>*/}
+      {/*                </Box>*/}
+      {/*              </Stack>*/}
+      {/*              <Typography color="text.secondary">*/}
+      {/*                لورم ایپسوم متن ساختگی است برای نمایش نظر مشتری درباره*/}
+      {/*                کیفیت خدمات و همکاری حرفه‌ای با تیم بهمند.*/}
+      {/*              </Typography>*/}
+      {/*            </CardContent>*/}
+      {/*          </Card>*/}
+      {/*        </Grid>*/}
+      {/*      ))}*/}
+      {/*    </Grid>*/}
+      {/*  </Container>*/}
+      {/*</Box>*/}
+
 
       {/* Blog / Articles Section */}
         {/*<Box sx={{ py: { xs: 6, md: 8 } }}>
