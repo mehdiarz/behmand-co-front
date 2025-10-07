@@ -24,7 +24,7 @@ import rastegari from "../assets/rastegari.jpg";
 
 const teamMembers = [
   {
-    name: "جناب آقای رضا آتش",
+    name: "رضا آتش",
     role: "شریک و عضو هیات مدیره",
     avatar: atash,
     details: `
@@ -42,7 +42,7 @@ const teamMembers = [
     `,
   },
   {
-    name: "جناب آقای علی مشرفی آرائی",
+    name: "علی مشرقی",
     role: "شریک و عضو هیات مدیره",
     avatar: mashreghi,
     details: `
@@ -59,7 +59,7 @@ const teamMembers = [
     `,
   },
   {
-    name: "جناب آقای هومن هشی",
+    name: "هومن هشی",
     role: "شریک و عضو هیات مدیره",
     avatar: hooman,
     details: `
@@ -79,7 +79,7 @@ const teamMembers = [
     `,
   },
   {
-    name: "جناب آقای محمد رضا آرزومند",
+    name: "محمد رضا آرزومند",
     role: "شریک",
     avatar: arezoomand,
     details: `
@@ -95,7 +95,7 @@ const teamMembers = [
     `,
   },
   {
-    name: "جناب آقای احمد شریفی قزوینی",
+    name: "احمد شریفی",
     role: "شریک",
     avatar: sharifi,
     details: `
@@ -113,7 +113,7 @@ const teamMembers = [
     `,
   },
   {
-    name: "جناب آقای نادر رستگاری",
+    name: "نادر رستگاری",
     role: "شریک",
     avatar: rastegari,
     details: `
@@ -129,7 +129,7 @@ const teamMembers = [
     `,
   },
   {
-    name: "جناب آقای رسول دوازده امامی",
+    name: "رسول دوازده امامی",
     role: "شریک",
     avatar: emami,
     details: `
