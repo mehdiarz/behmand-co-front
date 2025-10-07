@@ -25,7 +25,7 @@ export default function Footer() {
     >
       <Grid container spacing={6} justifyContent="center">
         {/* ستون معرفی */}
-        <Grid item xs={12} md={3} ml={1}>
+        <Grid  xs={12} md={3} ml={2}>
           <Typography variant="h6" gutterBottom>
             موسسه حسابرسی بهمند
           </Typography>
@@ -36,7 +36,7 @@ export default function Footer() {
         </Grid>
 
         {/* ستون پیوندها */}
-        <Grid item xs={12} md={3}>
+        <Grid  xs={12} md={3}>
           <Typography variant="h6" gutterBottom>
             پیوندها
           </Typography>
@@ -86,7 +86,7 @@ export default function Footer() {
         </Grid>
 
         {/* ستون تماس با ما */}
-        <Grid item xs={12} md={3}>
+        <Grid  xs={12} md={3}>
           <Typography variant="h6" gutterBottom>
             تماس با ما
           </Typography>
@@ -204,7 +204,7 @@ export default function Footer() {
         </Grid>
 
         {/* ستون شبکه‌های اجتماعی */}
-        <Grid item xs={12} md={3}>
+        <Grid  xs={12} md={3}>
           <Typography variant="h6" gutterBottom>
             ما را دنبال کنید
           </Typography>
