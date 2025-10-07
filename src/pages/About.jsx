@@ -24,6 +24,7 @@ import emami from "../assets/emami.jpg";
 import hooman from "../assets/hooman.jpg";
 import mashreghi from "../assets/mashreghi.jpg";
 import rastegari from "../assets/rastegari.jpg";
+import noAvatar from "../assets/noAvatar.png";
 
 const teamMembers = [
   {
@@ -83,7 +84,7 @@ const teamMembers = [
   },
   {
     name: "محمد رضا آرزومند",
-    role: "شریک",
+    role: "شریک و عضو هیات مدیره",
     avatar: arezoomand,
     details: `
 🎓 مدارک تحصیلی:
@@ -99,7 +100,7 @@ const teamMembers = [
   },
   {
     name: "احمد شریفی",
-    role: "شریک",
+    role: "شریک و عضو هیات مدیره",
     avatar: sharifi,
     details: `
 🎓 مدارک تحصیلی:
@@ -117,7 +118,7 @@ const teamMembers = [
   },
   {
     name: "نادر رستگاری",
-    role: "شریک",
+    role: "شریک و عضو هیات مدیره",
     avatar: rastegari,
     details: `
 🎓 مدارک تحصیلی:
@@ -133,7 +134,7 @@ const teamMembers = [
   },
   {
     name: "رسول دوازده امامی",
-    role: "شریک",
+    role: "شریک و عضو هیات مدیره",
     avatar: emami,
     details: `
 🎓 مدارک تحصیلی:
@@ -151,7 +152,7 @@ const teamMembers = [
   {
     name: "محمد رضارحمانیان",
     role: "شریک",
-    avatar: emami,
+    avatar: noAvatar,
     details: `
 🎓 مدارک تحصیلی:
 - لیسانس حسابداری از دانشگاه آزاد اسلامی
@@ -167,7 +168,7 @@ const teamMembers = [
   {
     name: "سجاد دل پاک",
     role: "شریک",
-    avatar: emami,
+    avatar: noAvatar,
     details: `
 🎓 مدارک تحصیلی:
 - فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
@@ -184,7 +185,7 @@ const teamMembers = [
   {
     name: "علی رحمتی",
     role: "شریک",
-    avatar: emami,
+    avatar: noAvatar,
     details: `
 🎓 مدارک تحصیلی:
 - فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
@@ -338,11 +339,29 @@ export default function About() {
 
   return (
     <Box sx={{ py: { xs: 6, md: 8 }, mt: 10, mb: 10 }}>
-      <Container>
+      <Container maxWidth="lg">
         {/* Title */}
-        <Typography variant="h3" align="center" gutterBottom>
-          درباره ما
-        </Typography>
+          <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+          >
+              <Typography
+                  variant="h3"
+                  align="center"
+                  gutterBottom
+                  sx={{
+                      fontWeight: 800,
+                      mb: { xs: 6, md: 8 },
+                      color: "#111", // 🔥 رنگ مشکی ظریف و خوانا
+                      textShadow: "0 2px 4px rgba(0,0,0,0.2)", // سایه ظریف برای عمق
+                      letterSpacing: "0.5px",
+                  }}
+              >
+                  درباره ما
+              </Typography>
+          </motion.div>
+
 
         {/* بخش معرفی موسسه */}
         <Box
@@ -428,7 +447,7 @@ export default function About() {
               textAlign: "justify",
               lineHeight: 2,
               fontSize: { xs: "0.9rem", md: "1rem" },
-              mb: 4,
+                mb: { xs: 6, md: 8 },
             }}
           >
             مرحوم اصغر هشی در سال ۱۳۲۹ در اصفهان متولد شد. تحصیلات ابتدائی و
@@ -456,6 +475,21 @@ export default function About() {
             قرار می داد و از این طریق به بالا بردن نقش مستقل حسابرس کمک نمود.
           </Typography>
           <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{
+              fontWeight: 800,
+              mb: { xs: 4, md: 6 },
+              mt: { xs: 8, md: 15 },
+              background: "linear-gradient(90deg, #1b5e20, #66bb6a)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            شرکای مؤسسه در حال حاضر
+          </Typography>
+          <Typography
             color="text.secondary"
             sx={{
               maxWidth: 900,
@@ -464,6 +498,8 @@ export default function About() {
               lineHeight: 2,
               fontWeight: 700,
               fontSize: { xs: "0.9rem", md: "1rem" },
+                mb: { xs: 6, md: 10 },
+                px: { xs: 2, md: 0 },
             }}
           >
             شرکاء مؤسسه در حال حا ضر آقایان رضا آتش، علی مشرقی آرانی،هومن هشی،
@@ -477,51 +513,9 @@ export default function About() {
 
         {/* بخش هیئت مدیره */}
         <Box sx={{ mt: 10 }}>
-          <Typography variant="h4" align="center" gutterBottom>
-            هیئت مدیره
-          </Typography>
-          <Typography
-            align="center"
-            color="text.secondary"
-            sx={{ maxWidth: 700, mx: "auto", mb: 5 }}
-          >
-            شرکای مؤسسه در حال حاضر
-          </Typography>
           <TeamRow members={firstRow} handleOpen={handleOpen} />
           <TeamRow members={secondRow} handleOpen={handleOpen} />
           <TeamRow members={thirdRow} handleOpen={handleOpen} />
-          {/* نمایش اعضا در چند ردیف */}
-          {/*<Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2,1fr)", md: "repeat(3,1fr)" }, gap: 4 }}>*/}
-          {/*    {teamMembers.map((member, i) => (*/}
-          {/*        <motion.div*/}
-          {/*            key={i}*/}
-          {/*            whileHover={{ scale: 1.05 }}*/}
-          {/*            whileTap={{ scale: 0.97 }}*/}
-          {/*            initial={{ opacity: 0, y: 30 }}*/}
-          {/*            animate={{ opacity: 1, y: 0 }}*/}
-          {/*            transition={{ duration: 0.4, delay: i * 0.1 }}*/}
-          {/*        >*/}
-          {/*            <Card*/}
-          {/*                onClick={() => handleOpen(member)}*/}
-          {/*                sx={{*/}
-          {/*                    p: 3,*/}
-          {/*                    textAlign: "center",*/}
-          {/*                    borderRadius: 4,*/}
-          {/*                    cursor: "pointer",*/}
-          {/*                    boxShadow: 3,*/}
-          {/*                }}*/}
-          {/*            >*/}
-          {/*                <Avatar src={member.avatar} alt={member.name} sx={{ width: 90, height: 90, mx: "auto", mb: 2 }} />*/}
-          {/*                <Typography variant="subtitle1" fontWeight={600}>*/}
-          {/*                    {member.name}*/}
-          {/*                </Typography>*/}
-          {/*                <Typography variant="body2" color="text.secondary">*/}
-          {/*                    {member.role}*/}
-          {/*                </Typography>*/}
-          {/*            </Card>*/}
-          {/*        </motion.div>*/}
-          {/*    ))}*/}
-          {/*</Box>*/}
         </Box>
 
         {/* Dialog جزئیات اعضا */}
