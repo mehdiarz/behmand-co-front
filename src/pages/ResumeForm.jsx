@@ -455,7 +455,7 @@ export default function ResumeFormFinal() {
                         value={formData.gender}
                         onChange={handleChange}
                         SelectProps={selectMenuProps}
-                        sx={{ minWidth: { xs: "100%", sm: 140 } }}
+                        sx={{ minWidth: { xs: 100, sm: 140 } }}
                         {...tfBase}
                       >
                         <MenuItem value="زن">زن</MenuItem>
@@ -472,7 +472,7 @@ export default function ResumeFormFinal() {
                         value={formData.maritalStatus}
                         onChange={handleChange}
                         SelectProps={selectMenuProps}
-                        sx={{ minWidth: { xs: "100%", sm: 140 } }}
+                        sx={{ minWidth: { xs: 100, sm: 140 } }}
                         {...tfBase}
                       >
                         <MenuItem value="مجرد">مجرد</MenuItem>
@@ -512,7 +512,7 @@ export default function ResumeFormFinal() {
                         value={formData.militaryStatus}
                         onChange={handleChange}
                         SelectProps={selectMenuProps}
-                        sx={{ minWidth: { xs: "100%", sm: 160 } }}
+                        sx={{ minWidth: { xs: 100, sm: 160 } }}
                         {...tfBase}
                       >
                         <MenuItem value="معاف">معاف</MenuItem>
@@ -716,6 +716,7 @@ export default function ResumeFormFinal() {
                               )
                             }
                             SelectProps={selectMenuProps}
+                            sx={{ minWidth: { xs: 100, sm: 140 } }}
                             {...tfBase}
                           >
                             <MenuItem value="عالی">عالی</MenuItem>
@@ -738,6 +739,7 @@ export default function ResumeFormFinal() {
                               )
                             }
                             SelectProps={selectMenuProps}
+                            sx={{ minWidth: { xs: 100, sm: 140 } }}
                             {...tfBase}
                           >
                             <MenuItem value="عالی">عالی</MenuItem>
@@ -798,6 +800,7 @@ export default function ResumeFormFinal() {
                           required
                           value={formData.jobRequested}
                           onChange={handleChange}
+                          sx={{ minWidth: { xs: 311, sm: 260 } }}
                           {...tfBase}
                         />
                       </Grid>
@@ -809,6 +812,7 @@ export default function ResumeFormFinal() {
                           required
                           value={formData.jobExperienceDuration}
                           onChange={handleChange}
+                          sx={{ minWidth: { xs: 311, sm: 260 } }}
                           {...tfBase}
                         />
                       </Grid>
@@ -822,6 +826,7 @@ export default function ResumeFormFinal() {
                           value={formData.willingToWorkIn}
                           onChange={handleChange}
                           SelectProps={selectMenuProps}
+                          sx={{ minWidth: { xs: 311, sm: 260 } }}
                           {...tfBase}
                         >
                           <MenuItem value="تهران">تهران</MenuItem>
@@ -839,6 +844,7 @@ export default function ResumeFormFinal() {
                           required
                           value={formData.monthsPerYearInOtherCity}
                           onChange={handleChange}
+                          sx={{ minWidth: { xs: 311, sm: 534 } }}
                           {...tfBase}
                         />
                       </Grid>
