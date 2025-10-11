@@ -19,17 +19,32 @@ import {
   Snackbar,
   Alert,
   useMediaQuery,
+  Tooltip,
 } from "@mui/material";
 import { AddCircleOutline, RemoveCircleOutline } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import theme, { cacheRtl } from "../mui/theme.js";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import dayjs from "dayjs";
 import "dayjs/locale/fa";
+import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
+// import moment from "moment-jalaali";
+import "moment/locale/fa";
+// import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
+// import { AdapterMomentJalaali } from "@mui/x-date-pickers-jalaali/AdapterMomentJalaali";
+import { AdapterDateFnsJalali } from "@mui/x-date-pickers/AdapterDateFnsJalali";
+import { format } from "date-fns-jalali";
 
-dayjs.locale("fa");
+// moment.loadPersian({ dialect: "persian-modern" });
+
+// import dayjs from "dayjs";
+// import jalaliday from "jalaliday";
+// import "dayjs/locale/fa";
+//
+// dayjs.extend(jalaliday);
+// dayjs.locale("fa");
+// dayjs.calendar("jalali");
+//
+// dayjs.locale("fa");
 
 const API_URL = import.meta.env.VITE_API_URL || "";
 
@@ -49,7 +64,7 @@ export default function ResumeFormFinal() {
     // اطلاعات فردی
     name: "",
     family: "",
-    birthDate: null,
+    birthDate: new Date(),
     birthPlace: "",
     residenceAddress: "",
     phoneHome: "",
@@ -63,7 +78,13 @@ export default function ResumeFormFinal() {
     militaryStatus: "",
     // تحصیلات
     educations: [
-      { institute: "", startDate: null, endDate: null, major: "", degree: "" },
+      {
+        institute: "",
+        startDate: new Date(),
+        endDate: new Date(),
+        major: "",
+        degree: "",
+      },
     ],
     // زبانها
     languages: [{ name: "", reading: "", writing: "" }],
@@ -101,7 +122,7 @@ export default function ResumeFormFinal() {
 
   const [formData, setFormData] = useState(initialState);
 
-  // helpers for Menu RTL
+  // helpers for Menu RTL - keep consistent minWidth for better readability
   const selectMenuProps = {
     MenuProps: {
       PaperProps: {
@@ -218,7 +239,7 @@ export default function ResumeFormFinal() {
 
       fd.append(
         "birthDate",
-        formData.birthDate ? formData.birthDate.format("YYYY-MM-DD") : "",
+        formData.birthDate ? format(formData.birthDate, "yyyy-MM-dd") : "",
       );
 
       // arrays as JSON strings (server side: if needs specific names, adjust)
@@ -227,8 +248,8 @@ export default function ResumeFormFinal() {
         JSON.stringify(
           formData.educations.map((edu) => ({
             ...edu,
-            startDate: edu.startDate ? edu.startDate.format("YYYY-MM-DD") : "",
-            endDate: edu.endDate ? edu.endDate.format("YYYY-MM-DD") : "",
+            startDate: edu.startDate ? format(edu.startDate, "yyyy-MM-dd") : "",
+            endDate: edu.endDate ? format(edu.endDate, "yyyy-MM-dd") : "",
           })) || [],
         ),
       );
@@ -243,12 +264,12 @@ export default function ResumeFormFinal() {
       console.log(">>> formData (preview):", {
         ...formData,
         birthDate: formData.birthDate
-          ? formData.birthDate.format("YYYY-MM-DD")
+          ? format(formData.birthDate, "yyyy-MM-dd")
           : null,
         educations: formData.educations.map((edu) => ({
           ...edu,
-          startDate: edu.startDate ? edu.startDate.format("YYYY-MM-DD") : null,
-          endDate: edu.endDate ? edu.endDate.format("YYYY-MM-DD") : null,
+          startDate: edu.startDate ? format(edu.startDate, "yyyy-MM-dd") : null,
+          endDate: edu.endDate ? format(edu.endDate, "yyyy-MM-dd") : null,
         })),
         file: formData.file
           ? { name: formData.file.name, size: formData.file.size }
@@ -298,7 +319,7 @@ export default function ResumeFormFinal() {
     inputProps: { style: { textAlign: "right" } },
     InputLabelProps: { shrink: true },
     disabled: submitted,
-    sx: { mb: { xs: 2, md: 0 } },
+    sx: { mb: 2 },
   };
 
   const tabs = [
@@ -314,13 +335,15 @@ export default function ResumeFormFinal() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fa">
+        <LocalizationProvider dateAdapter={AdapterDateFnsJalali}>
           <Container
             maxWidth="lg"
             sx={{
-              mt: 15,
+              mt: 8,
               py: { xs: 3, md: 6 },
-              minHeight: { xs: "80vh", md: "100vh" },
+              minHeight: { xs: "auto", md: "100vh" },
+              bgcolor: "#f7f9fb",
+              borderRadius: 3,
             }}
             dir="rtl"
           >
@@ -328,7 +351,7 @@ export default function ResumeFormFinal() {
               sx={{
                 p: { xs: 2, md: 4 },
                 borderRadius: 3,
-                boxShadow: "0 8px 30px rgba(16,24,40,0.06)",
+                boxShadow: "0 8px 30px rgba(16,24,40,0.04)",
                 backgroundColor: "#ffffff",
               }}
               elevation={0}
@@ -350,6 +373,7 @@ export default function ResumeFormFinal() {
                     onChange={(e) => setTab(Number(e.target.value))}
                     fullWidth
                     size="small"
+                    sx={{ mb: 1 }}
                   >
                     {tabs.map((t, i) => (
                       <MenuItem key={i} value={i}>
@@ -358,28 +382,36 @@ export default function ResumeFormFinal() {
                     ))}
                   </TextField>
                 ) : (
-                  <Tabs
-                    value={tab}
-                    onChange={(e, v) => setTab(v)}
-                    variant="fullWidth"
-                    scrollButtons={false}
+                  <Paper
+                    elevation={1}
                     sx={{
-                      mb: 1,
-                      "& .MuiTab-root": {
-                        fontWeight: 700,
-                        textTransform: "none",
-                      },
-                      "& .MuiTabs-indicator": {
-                        backgroundColor: "primary.main",
-                        height: 3,
-                        borderRadius: 2,
-                      },
+                      mb: 2,
+                      borderRadius: 3,
+                      overflow: "hidden",
                     }}
                   >
-                    {tabs.map((t, i) => (
-                      <Tab key={i} label={t} />
-                    ))}
-                  </Tabs>
+                    <Tabs
+                      value={tab}
+                      onChange={(e, v) => setTab(v)}
+                      variant={isMobile ? "scrollable" : "fullWidth"}
+                      scrollButtons="auto"
+                      sx={{
+                        "& .MuiTab-root": {
+                          fontWeight: 700,
+                          textTransform: "none",
+                        },
+                        "& .MuiTabs-indicator": {
+                          backgroundColor: "primary.main",
+                          height: 3,
+                          borderRadius: 2,
+                        },
+                      }}
+                    >
+                      {tabs.map((t, i) => (
+                        <Tab key={i} label={t} />
+                      ))}
+                    </Tabs>
+                  </Paper>
                 )}
               </Box>
 
@@ -398,206 +430,227 @@ export default function ResumeFormFinal() {
                   sx={{
                     overflowY: "auto",
                     maxHeight: { xs: "auto", md: "70vh" },
+                    pr: { md: 1 }, // ensure no content-hidden by scrollbar
                   }}
                 >
                   {/* TAB 0: اطلاعات فردی */}
                   {tab === 0 && (
-                    <Grid container spacing={{ xs: 2, md: 3 }}>
-                      <Grid item xs={12} sm={6} md={4} mt={3}>
-                        <TextField
-                          label="نام"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                    <Paper
+                      variant="outlined"
+                      sx={{
+                        p: { xs: 1.5, md: 2 },
+                        mb: isMobile ? 2 : 3,
+                        borderRadius: 3,
+                        borderColor: "divider",
+                        backgroundColor: "rgba(250,250,250,0.6)",
+                      }}
+                      elevation={0}
+                    >
+                      <Grid container spacing={2} mt={3}>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="نام"
+                            name="name"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4} mt={3}>
-                        <TextField
-                          label="نام خانوادگی"
-                          name="family"
-                          required
-                          value={formData.family}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="نام خانوادگی"
+                            name="family"
+                            required
+                            value={formData.family}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4} mt={3}>
-                        <DatePicker
-                          label="تاریخ تولد"
-                          value={formData.birthDate}
-                          onChange={(newValue) =>
-                            handleDateChange("birthDate", newValue)
-                          }
-                          slotProps={{
-                            textField: { ...tfBase, required: true },
-                          }}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <DatePicker
+                            label="تاریخ تولد"
+                            value={formData.birthDate}
+                            onChange={(newValue) =>
+                              handleDateChange("birthDate", newValue)
+                            }
+                            slotProps={{
+                              textField: { ...tfBase, required: true },
+                            }}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4} mt={3}>
-                        <TextField
-                          label="محل تولد"
-                          name="birthPlace"
-                          required
-                          value={formData.birthPlace}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="محل تولد"
+                            name="birthPlace"
+                            required
+                            value={formData.birthPlace}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} mt={3}>
-                        <TextField
-                          label="آدرس محل سکونت"
-                          name="residenceAddress"
-                          required
-                          value={formData.residenceAddress}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12}>
+                          <TextField
+                            label="آدرس محل سکونت"
+                            name="residenceAddress"
+                            required
+                            value={formData.residenceAddress}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4}>
-                        <TextField
-                          label="تلفن محل سکونت"
-                          name="phoneHome"
-                          required
-                          value={formData.phoneHome}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="تلفن محل سکونت"
+                            name="phoneHome"
+                            required
+                            value={formData.phoneHome}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4}>
-                        <TextField
-                          label="موبایل"
-                          name="mobile"
-                          required
-                          value={formData.mobile}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="موبایل"
+                            name="mobile"
+                            required
+                            value={formData.mobile}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4}>
-                        <TextField
-                          label="آدرس و تلفن محل کار"
-                          name="workAddressPhone"
-                          required
-                          value={formData.workAddressPhone}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="آدرس و تلفن محل کار"
+                            name="workAddressPhone"
+                            required
+                            value={formData.workAddressPhone}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4}>
-                        <TextField
-                          label="آدرس ایمیل"
-                          name="email"
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="آدرس ایمیل"
+                            name="email"
+                            type="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid  xs={12} sm={6} md={4} width={100} >
-                        <TextField
-                          fullWidth
-                          select
-                          label="جنسیت"
-                          name="gender"
-                          required
-                          value={formData.gender}
-                          onChange={handleChange}
-                          SelectProps={selectMenuProps}
-                          sx={{ minWidth: 150 }}
-                          {...tfBase}
-                        >
-                          <MenuItem value="زن">زن</MenuItem>
-                          <MenuItem value="مرد">مرد</MenuItem>
-                        </TextField>
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4} sx={{minWidth:"120px"}}>
+                          <TextField
+                            fullWidth
+                            select
+                            label="جنسیت"
+                            name="gender"
+                            required
+                            value={formData.gender}
+                            onChange={handleChange}
+                            SelectProps={selectMenuProps}
+                            {...tfBase}
+                          >
+                            <MenuItem value="زن">زن</MenuItem>
+                            <MenuItem value="مرد">مرد</MenuItem>
+                          </TextField>
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4} width={100}>
-                        <TextField
-                          select
-                          label="وضعیت تاهل"
-                          name="maritalStatus"
-                          required
-                          value={formData.maritalStatus}
-                          onChange={handleChange}
-                          SelectProps={selectMenuProps}
-                          {...tfBase}
-                        >
-                          <MenuItem value="مجرد">مجرد</MenuItem>
-                          <MenuItem value="متأهل">متأهل</MenuItem>
-                        </TextField>
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4} sx={{minWidth:"130px"}} >
+                          <TextField
+                            select
+                            label="وضعیت تاهل"
+                            name="maritalStatus"
+                            required
+                            value={formData.maritalStatus}
+                            onChange={handleChange}
+                            SelectProps={selectMenuProps}
+                            {...tfBase}
+                          >
+                            <MenuItem value="مجرد">مجرد</MenuItem>
+                            <MenuItem value="متأهل">متأهل</MenuItem>
+                          </TextField>
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4}>
-                        <TextField
-                          label="تعداد فرزندان"
-                          name="childrenCount"
-                          required
-                          value={formData.childrenCount}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="تعداد فرزندان"
+                            name="childrenCount"
+                            required
+                            value={formData.childrenCount}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4}>
-                        <TextField
-                          label="مذهب"
-                          name="religion"
-                          required
-                          value={formData.religion}
-                          onChange={handleChange}
-                          {...tfBase}
-                        />
-                      </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <TextField
+                            label="مذهب"
+                            name="religion"
+                            required
+                            value={formData.religion}
+                            onChange={handleChange}
+                            {...tfBase}
+                          />
+                        </Grid>
 
-                      <Grid item xs={12} sm={6} md={4} width={110}>
-                        <TextField
-                          select
-                          label="وضعیت سربازی"
-                          name="militaryStatus"
-                          required
-                          value={formData.militaryStatus}
-                          onChange={handleChange}
-                          SelectProps={selectMenuProps}
-                          {...tfBase}
-                        >
-                          <MenuItem value="معاف">معاف</MenuItem>
-                          <MenuItem value="انجام شده">انجام شده</MenuItem>
-                          <MenuItem value="غیر مشمول">غیر مشمول</MenuItem>
-                        </TextField>
+                        <Grid item xs={12} sm={6} md={4} sx={{minWidth:"120px"}}>
+                          <TextField
+                            select
+                            label="وضعیت سربازی"
+                            name="militaryStatus"
+                            required
+                            value={formData.militaryStatus}
+                            onChange={handleChange}
+                            SelectProps={selectMenuProps}
+                            {...tfBase}
+                          >
+                            <MenuItem value="معاف">معاف</MenuItem>
+                            <MenuItem value="انجام شده">انجام شده</MenuItem>
+                            <MenuItem value="غیر مشمول">غیر مشمول</MenuItem>
+                          </TextField>
+                        </Grid>
                       </Grid>
-                    </Grid>
+                    </Paper>
                   )}
 
                   {/* TAB 1: تحصیلات */}
                   {tab === 1 && (
                     <Box>
+                      <Typography
+                        variant="h6"
+                        sx={{ mb: 2, fontWeight: 700, color: "primary.main" }}
+                      >
+                        سوابق تحصیلی
+                      </Typography>
                       {formData.educations.map((edu, idx) => (
                         <Paper
                           key={idx}
                           variant="outlined"
                           sx={{
                             p: { xs: 1.5, md: 2 },
-                            mb: 3,
-                            borderRadius: 2,
+                            mb: isMobile ? 2 : 3,
+                            borderRadius: 3,
+                            borderColor: "divider",
+                            backgroundColor: "rgba(250,250,250,0.6)",
                           }}
                           elevation={0}
                         >
                           <Grid
                             container
-                            spacing={{ xs: 2, md: 3 }}
+                            spacing={2}
                             alignItems="center"
+                            mt={3}
                           >
                             <Grid item xs={12} sm={6} md={4}>
                               <TextField
@@ -689,30 +742,34 @@ export default function ResumeFormFinal() {
                             <Grid item xs={12} sx={{ textAlign: "left" }}>
                               {!submitted && (
                                 <>
-                                  <IconButton
-                                    title="افزودن"
-                                    onClick={() =>
-                                      addArrayItem("educations", {
-                                        institute: "",
-                                        startDate: null,
-                                        endDate: null,
-                                        major: "",
-                                        degree: "",
-                                      })
-                                    }
-                                  >
-                                    <AddCircleOutline />
-                                  </IconButton>
-                                  {formData.educations.length > 1 && (
+                                  <Tooltip title="افزودن مورد جدید">
                                     <IconButton
-                                      color="error"
-                                      title="حذف"
+                                      color="primary"
                                       onClick={() =>
-                                        removeArrayItem("educations", idx)
+                                        addArrayItem("educations", {
+                                          institute: "",
+                                          startDate: new Date(),
+                                          endDate: new Date(),
+                                          major: "",
+                                          degree: "",
+                                        })
                                       }
                                     >
-                                      <RemoveCircleOutline />
+                                      <AddCircleOutline />
                                     </IconButton>
+                                  </Tooltip>
+
+                                  {formData.educations.length > 1 && (
+                                    <Tooltip title="حذف">
+                                      <IconButton
+                                        color="error"
+                                        onClick={() =>
+                                          removeArrayItem("educations", idx)
+                                        }
+                                      >
+                                        <RemoveCircleOutline />
+                                      </IconButton>
+                                    </Tooltip>
                                   )}
                                 </>
                               )}
@@ -730,188 +787,226 @@ export default function ResumeFormFinal() {
                         زبان‌ها
                       </Typography>
                       {formData.languages.map((lang, idx) => (
-                        <Grid
-                          container
-                          spacing={{ xs: 2, md: 3 }}
+                        <Paper
                           key={idx}
-                          sx={{ mb: 3 }}
-                          alignItems="center"
+                          variant="outlined"
+                          sx={{
+                            p: { xs: 1.5, md: 2 },
+                            mb: isMobile ? 2 : 3,
+                            borderRadius: 3,
+                            borderColor: "divider",
+                            backgroundColor: "rgba(250,250,250,0.6)",
+                          }}
+                          elevation={0}
                         >
-                          <Grid item xs={12} sm={4}>
+                          <Grid
+                            container
+                            spacing={2}
+                            key={idx}
+                            alignItems="center"
+                            mt={3}
+                          >
+                            <Grid item xs={12} sm={4}>
+                              <TextField
+                                label="نام زبان"
+                                required
+                                value={lang.name}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "languages",
+                                    idx,
+                                    "name",
+                                    e.target.value,
+                                  )
+                                }
+                                {...tfBase}
+                              />
+                            </Grid>
+                            <Grid item xs={12} sm={4} sx={{minWidth:"120px"}}>
+                              <TextField
+                                select
+                                label="خواندن"
+                                required
+                                value={lang.reading}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "languages",
+                                    idx,
+                                    "reading",
+                                    e.target.value,
+                                  )
+                                }
+                                SelectProps={selectMenuProps}
+                                {...tfBase}
+                              >
+                                <MenuItem value="عالی">عالی</MenuItem>
+                                <MenuItem value="خوب">خوب</MenuItem>
+                                <MenuItem value="متوسط">متوسط</MenuItem>
+                              </TextField>
+                            </Grid>
+                            <Grid item xs={12} sm={4} sx={{minWidth:"120px"}}>
+                              <TextField
+                                select
+                                label="نوشتن"
+                                required
+                                value={lang.writing}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "languages",
+                                    idx,
+                                    "writing",
+                                    e.target.value,
+                                  )
+                                }
+                                SelectProps={selectMenuProps}
+                                {...tfBase}
+                              >
+                                <MenuItem value="عالی">عالی</MenuItem>
+                                <MenuItem value="خوب">خوب</MenuItem>
+                                <MenuItem value="متوسط">متوسط</MenuItem>
+                              </TextField>
+                            </Grid>
+
+                            <Grid item xs={12} sx={{ textAlign: "left" }}>
+                              {!submitted && (
+                                <>
+                                  <Tooltip title="افزودن زبان">
+                                    <IconButton
+                                      color="primary"
+                                      onClick={() =>
+                                        addArrayItem("languages", {
+                                          name: "",
+                                          reading: "",
+                                          writing: "",
+                                        })
+                                      }
+                                    >
+                                      <AddCircleOutline />
+                                    </IconButton>
+                                  </Tooltip>
+
+                                  {formData.languages.length > 1 && (
+                                    <Tooltip title="حذف زبان">
+                                      <IconButton
+                                        color="error"
+                                        onClick={() =>
+                                          removeArrayItem("languages", idx)
+                                        }
+                                      >
+                                        <RemoveCircleOutline />
+                                      </IconButton>
+                                    </Tooltip>
+                                  )}
+                                </>
+                              )}
+                            </Grid>
+                          </Grid>
+                        </Paper>
+                      ))}
+                      <Paper
+                        variant="outlined"
+                        sx={{
+                          p: { xs: 1.5, md: 2 },
+                          mb: isMobile ? 2 : 3,
+                          borderRadius: 3,
+                          borderColor: "divider",
+                          backgroundColor: "rgba(250,250,250,0.6)",
+                        }}
+                        elevation={0}
+                      >
+                        <TextField
+                          label="سایر اطلاعات (مهارت‌ها)"
+                          name="skills"
+                          fullWidth
+                          required
+                          multiline
+                          rows={4}
+                          value={formData.skills}
+                          onChange={handleChange}
+                          {...tfBase}
+                          sx={{ mb: 3, mt: 3 }}
+                        />
+
+                        <Grid container spacing={2} sx={{ mt: 1,minWidth:"200px" }}>
+                          <Grid item xs={12} sm={6} md={4}>
                             <TextField
-                              label="نام زبان"
+                              label="شغل مورد درخواست"
+                              name="jobRequested"
                               required
-                              value={lang.name}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "languages",
-                                  idx,
-                                  "name",
-                                  e.target.value,
-                                )
-                              }
+                              value={formData.jobRequested}
+                              onChange={handleChange}
                               {...tfBase}
                             />
                           </Grid>
-                          <Grid item xs={12} sm={4} width={100}>
+
+                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:"200px"}}>
+                            <TextField
+                              label="مدت تجربه در شغل مورد درخواست"
+                              name="jobExperienceDuration"
+                              required
+                              value={formData.jobExperienceDuration}
+                              onChange={handleChange}
+                              {...tfBase}
+                            />
+                          </Grid>
+
+                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:"200px"}}>
                             <TextField
                               select
-                              label="خواندن"
+                              label="برای انجام وظایف مایل به کار در"
+                              name="willingToWorkIn"
                               required
-                              value={lang.reading}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "languages",
-                                  idx,
-                                  "reading",
-                                  e.target.value,
-                                )
-                              }
+                              value={formData.willingToWorkIn}
+                              onChange={handleChange}
                               SelectProps={selectMenuProps}
                               {...tfBase}
                             >
-                              <MenuItem value="عالی">عالی</MenuItem>
-                              <MenuItem value="خوب">خوب</MenuItem>
-                              <MenuItem value="متوسط">متوسط</MenuItem>
+                              <MenuItem value="تهران">تهران</MenuItem>
+                              <MenuItem value="شهرستان">شهرستان</MenuItem>
+                              <MenuItem value="تهران و شهرستان">
+                                تهران و شهرستان
+                              </MenuItem>
                             </TextField>
                           </Grid>
-                          <Grid item xs={12} sm={4} width={100}>
+
+                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:{xs:280,md:300}}}>
                             <TextField
-                              select
-                              label="نوشتن"
+                              label="مدتی که در طول یکسال می‌توانم در شهرستان کار کنم (ماه)"
+                              name="monthsPerYearInOtherCity"
                               required
-                              value={lang.writing}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "languages",
-                                  idx,
-                                  "writing",
-                                  e.target.value,
-                                )
-                              }
-                              SelectProps={selectMenuProps}
+                              value={formData.monthsPerYearInOtherCity}
+                              onChange={handleChange}
                               {...tfBase}
-                            >
-                              <MenuItem value="عالی">عالی</MenuItem>
-                              <MenuItem value="خوب">خوب</MenuItem>
-                              <MenuItem value="متوسط">متوسط</MenuItem>
-                            </TextField>
-                          </Grid>
-
-                          <Grid item xs={12} sx={{ textAlign: "left" }}>
-                            {!submitted && (
-                              <>
-                                <IconButton
-                                  onClick={() =>
-                                    addArrayItem("languages", {
-                                      name: "",
-                                      reading: "",
-                                      writing: "",
-                                    })
-                                  }
-                                >
-                                  <AddCircleOutline />
-                                </IconButton>
-                                {formData.languages.length > 1 && (
-                                  <IconButton
-                                    color="error"
-                                    onClick={() =>
-                                      removeArrayItem("languages", idx)
-                                    }
-                                  >
-                                    <RemoveCircleOutline />
-                                  </IconButton>
-                                )}
-                              </>
-                            )}
+                            />
                           </Grid>
                         </Grid>
-                      ))}
-
-                      <TextField
-                        label="سایر اطلاعات (مهارت‌ها)"
-                        name="skills"
-                        fullWidth
-                        required
-                        multiline
-                        rows={4}
-                        value={formData.skills}
-                        onChange={handleChange}
-                        {...tfBase}
-                        sx={{ mb: 3 }}
-                      />
-
-                      <Grid container spacing={{ xs: 2, md: 3 }} sx={{ mt: 1 }}>
-                        <Grid item xs={12} sm={6} md={4}>
-                          <TextField
-                            label="شغل مورد درخواست"
-                            name="jobRequested"
-                            required
-                            value={formData.jobRequested}
-                            onChange={handleChange}
-                            {...tfBase}
-                          />
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={4}>
-                          <TextField
-                            label="مدت تجربه در شغل مورد درخواست"
-                            name="jobExperienceDuration"
-                            required
-                            value={formData.jobExperienceDuration}
-                            onChange={handleChange}
-                            {...tfBase}
-                          />
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={4} width={200}>
-                          <TextField
-                            select
-                            label="برای انجام وظایف مایل به کار در"
-                            name="willingToWorkIn"
-                            required
-                            value={formData.willingToWorkIn}
-                            onChange={handleChange}
-                            SelectProps={selectMenuProps}
-                            {...tfBase}
-                          >
-                            <MenuItem value="تهران">تهران</MenuItem>
-                            <MenuItem value="شهرستان">شهرستان</MenuItem>
-                            <MenuItem value="تهران و شهرستان">
-                              تهران و شهرستان
-                            </MenuItem>
-                          </TextField>
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={4}>
-                          <TextField
-                            label="مدتی که در طول یکسال می‌توانم در شهرستان کار کنم (ماه)"
-                            name="monthsPerYearInOtherCity"
-                            required
-                            value={formData.monthsPerYearInOtherCity}
-                            onChange={handleChange}
-                            {...tfBase}
-                          />
-                        </Grid>
-                      </Grid>
+                      </Paper>
                     </Box>
                   )}
 
                   {/* TAB 3: سوابق کاری */}
                   {tab === 3 && (
                     <Box>
+                      <Typography
+                        variant="h6"
+                        sx={{ mb: 2, fontWeight: 700, color: "primary.main" }}
+                      >
+                        سوابق کاری
+                      </Typography>
                       {formData.workHistories.map((w, idx) => (
                         <Paper
                           key={idx}
                           variant="outlined"
                           sx={{
                             p: { xs: 1.5, md: 2 },
-                            mb: 3,
-                            borderRadius: 2,
+                            mb: isMobile ? 2 : 3,
+                            borderRadius: 3,
+                            borderColor: "divider",
+                            backgroundColor: "rgba(250,250,250,0.6)",
                           }}
                           elevation={0}
                         >
-                          <Grid container spacing={{ xs: 2, md: 3 }}>
+                          <Grid container spacing={2} mt={3}>
                             <Grid item xs={12} sm={6} md={4}>
                               <TextField
                                 label="مدت (ماه - سال)"
@@ -1081,7 +1176,7 @@ export default function ResumeFormFinal() {
                                   )
                                 }
                                 {...tfBase}
-                                sx={{ mb: 3 }}
+                                sx={{ mb: 2 }}
                               />
                             </Grid>
 
@@ -1105,34 +1200,40 @@ export default function ResumeFormFinal() {
                             <Grid item xs={12} sx={{ textAlign: "left" }}>
                               {!submitted && (
                                 <>
-                                  <IconButton
-                                    onClick={() =>
-                                      addArrayItem("workHistories", {
-                                        period: "",
-                                        company: "",
-                                        activityType: "",
-                                        employeesCount: "",
-                                        manager: "",
-                                        position: "",
-                                        supervisedCount: "",
-                                        salaryStart: "",
-                                        salaryEnd: "",
-                                        description: "",
-                                        reasonForLeaving: "",
-                                      })
-                                    }
-                                  >
-                                    <AddCircleOutline />
-                                  </IconButton>
-                                  {formData.workHistories.length > 1 && (
+                                  <Tooltip title="افزودن مورد جدید">
                                     <IconButton
-                                      color="error"
+                                      color="primary"
                                       onClick={() =>
-                                        removeArrayItem("workHistories", idx)
+                                        addArrayItem("workHistories", {
+                                          period: "",
+                                          company: "",
+                                          activityType: "",
+                                          employeesCount: "",
+                                          manager: "",
+                                          position: "",
+                                          supervisedCount: "",
+                                          salaryStart: "",
+                                          salaryEnd: "",
+                                          description: "",
+                                          reasonForLeaving: "",
+                                        })
                                       }
                                     >
-                                      <RemoveCircleOutline />
+                                      <AddCircleOutline />
                                     </IconButton>
+                                  </Tooltip>
+
+                                  {formData.workHistories.length > 1 && (
+                                    <Tooltip title="حذف">
+                                      <IconButton
+                                        color="error"
+                                        onClick={() =>
+                                          removeArrayItem("workHistories", idx)
+                                        }
+                                      >
+                                        <RemoveCircleOutline />
+                                      </IconButton>
+                                    </Tooltip>
                                   )}
                                 </>
                               )}
@@ -1150,112 +1251,126 @@ export default function ResumeFormFinal() {
                         معرف‌ها
                       </Typography>
                       {formData.referees.map((r, idx) => (
-                        <Grid
-                          container
-                          spacing={{ xs: 2, md: 3 }}
+                        <Paper
                           key={idx}
-                          sx={{ mb: 3 }}
+                          variant="outlined"
+                          sx={{
+                            p: { xs: 1.5, md: 2 },
+                            mb: isMobile ? 2 : 3,
+                            borderRadius: 3,
+                            borderColor: "divider",
+                            backgroundColor: "rgba(250,250,250,0.6)",
+                          }}
+                          elevation={0}
                         >
-                          <Grid item xs={12} sm={6} md={4}>
-                            <TextField
-                              label="نام و نام خانوادگی"
-                              required
-                              value={r.name}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "referees",
-                                  idx,
-                                  "name",
-                                  e.target.value,
-                                )
-                              }
-                              {...tfBase}
-                            />
-                          </Grid>
+                          <Grid container spacing={2} key={idx} mt={3}>
+                            <Grid item xs={12} sm={6} md={4}>
+                              <TextField
+                                label="نام و نام خانوادگی"
+                                required
+                                value={r.name}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "referees",
+                                    idx,
+                                    "name",
+                                    e.target.value,
+                                  )
+                                }
+                                {...tfBase}
+                              />
+                            </Grid>
 
-                          <Grid item xs={12} sm={6} md={4}>
-                            <TextField
-                              label="محل کار"
-                              required
-                              value={r.workplace}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "referees",
-                                  idx,
-                                  "workplace",
-                                  e.target.value,
-                                )
-                              }
-                              {...tfBase}
-                            />
-                          </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                              <TextField
+                                label="محل کار"
+                                required
+                                value={r.workplace}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "referees",
+                                    idx,
+                                    "workplace",
+                                    e.target.value,
+                                  )
+                                }
+                                {...tfBase}
+                              />
+                            </Grid>
 
-                          <Grid item xs={12} sm={6} md={4}>
-                            <TextField
-                              label="سمت"
-                              required
-                              value={r.position}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "referees",
-                                  idx,
-                                  "position",
-                                  e.target.value,
-                                )
-                              }
-                              {...tfBase}
-                            />
-                          </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                              <TextField
+                                label="سمت"
+                                required
+                                value={r.position}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "referees",
+                                    idx,
+                                    "position",
+                                    e.target.value,
+                                  )
+                                }
+                                {...tfBase}
+                              />
+                            </Grid>
 
-                          <Grid item xs={12} sm={6} md={4}>
-                            <TextField
-                              label="شماره تلفن"
-                              required
-                              value={r.phone}
-                              onChange={(e) =>
-                                updateArrayItem(
-                                  "referees",
-                                  idx,
-                                  "phone",
-                                  e.target.value,
-                                )
-                              }
-                              {...tfBase}
-                            />
-                          </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                              <TextField
+                                label="شماره تلفن"
+                                required
+                                value={r.phone}
+                                onChange={(e) =>
+                                  updateArrayItem(
+                                    "referees",
+                                    idx,
+                                    "phone",
+                                    e.target.value,
+                                  )
+                                }
+                                {...tfBase}
+                              />
+                            </Grid>
 
-                          <Grid item xs={12} sx={{ textAlign: "left" }}>
-                            {!submitted && (
-                              <>
-                                <IconButton
-                                  onClick={() =>
-                                    addArrayItem("referees", {
-                                      name: "",
-                                      workplace: "",
-                                      position: "",
-                                      phone: "",
-                                    })
-                                  }
-                                >
-                                  <AddCircleOutline />
-                                </IconButton>
-                                {formData.referees.length > 1 && (
-                                  <IconButton
-                                    color="error"
-                                    onClick={() =>
-                                      removeArrayItem("referees", idx)
-                                    }
-                                  >
-                                    <RemoveCircleOutline />
-                                  </IconButton>
-                                )}
-                              </>
-                            )}
+                            <Grid item xs={12} sx={{ textAlign: "left" }}>
+                              {!submitted && (
+                                <>
+                                  <Tooltip title="افزودن معرف">
+                                    <IconButton
+                                      color="primary"
+                                      onClick={() =>
+                                        addArrayItem("referees", {
+                                          name: "",
+                                          workplace: "",
+                                          position: "",
+                                          phone: "",
+                                        })
+                                      }
+                                    >
+                                      <AddCircleOutline />
+                                    </IconButton>
+                                  </Tooltip>
+
+                                  {formData.referees.length > 1 && (
+                                    <Tooltip title="حذف معرف">
+                                      <IconButton
+                                        color="error"
+                                        onClick={() =>
+                                          removeArrayItem("referees", idx)
+                                        }
+                                      >
+                                        <RemoveCircleOutline />
+                                      </IconButton>
+                                    </Tooltip>
+                                  )}
+                                </>
+                              )}
+                            </Grid>
                           </Grid>
-                        </Grid>
+                        </Paper>
                       ))}
 
-                      <Grid container spacing={{ xs: 2, md: 3 }} sx={{ mt: 2 }}>
+                      <Grid container spacing={2} sx={{ mt: 1 }}>
                         <Grid item xs={12}>
                           <TextField
                             label="سایر توضیحاتی که لازم می‌دانید"
@@ -1276,65 +1391,72 @@ export default function ResumeFormFinal() {
                   {/* TAB 5: بارگذاری رزومه */}
                   {tab === 5 && (
                     <Box>
-                      <Grid
-                        container
-                        spacing={{ xs: 2, md: 3 }}
-                        alignItems="center"
+                      <Paper
+                        variant="outlined"
+                        sx={{
+                          p: { xs: 1.5, md: 2 },
+                          mb: isMobile ? 2 : 3,
+                          borderRadius: 3,
+                          borderColor: "divider",
+                          backgroundColor: "rgba(250,250,250,0.6)",
+                        }}
+                        elevation={0}
                       >
-                        <Grid item xs={12}>
-                          <Button
-                            variant="outlined"
-                            component="label"
-                            fullWidth
-                            disabled={submitted}
-                            sx={{
-                              justifyContent: "space-between",
-                              textTransform: "none",
-                              borderRadius: 2,
-                              py: 1.5,
-                              mb: 2,
-                            }}
-                          >
-                            <span style={{ textAlign: "right", flex: 1 }}>
-                              {formData.file
-                                ? formData.file.name
-                                : "انتخاب فایل رزومه (PDF, DOC, DOCX)"}
-                            </span>
-                            <input
-                              type="file"
-                              hidden
-                              name="file"
-                              accept=".pdf,.doc,.docx"
-                              onChange={(e) => handleChange(e)}
-                              required
-                            />
-                          </Button>
-                        </Grid>
+                        <Grid container spacing={2} alignItems="center" mt={3}>
+                          <Grid item xs={12}>
+                            <Button
+                              variant="outlined"
+                              component="label"
+                              fullWidth
+                              disabled={submitted}
+                              sx={{
+                                justifyContent: "space-between",
+                                textTransform: "none",
+                                borderRadius: 2,
+                                py: 1.5,
+                              }}
+                            >
+                              <span style={{ textAlign: "right", flex: 1 }}>
+                                {formData.file
+                                  ? formData.file.name
+                                  : "انتخاب فایل رزومه (PDF, DOC, DOCX)"}
+                              </span>
+                              <input
+                                type="file"
+                                hidden
+                                name="file"
+                                accept=".pdf,.doc,.docx"
+                                onChange={(e) => handleChange(e)}
+                                required
+                              />
+                            </Button>
+                          </Grid>
 
-                        <Grid item xs={12}>
-                          <Button
-                            type="submit"
-                            variant={submitted ? "contained" : "contained"}
-                            color={submitted ? "success" : "primary"}
-                            fullWidth
-                            disabled={loading || submitted}
-                            sx={{
-                              py: 1.5,
-                              fontWeight: 800,
-                              borderRadius: 2,
-                              textTransform: "none",
-                            }}
-                          >
-                            {loading ? (
-                              <CircularProgress size={20} />
-                            ) : submitted ? (
-                              "ارسال انجام شده"
-                            ) : (
-                              "ارسال نهایی"
-                            )}
-                          </Button>
+                          <Grid item xs={12}>
+                            <Button
+                              type="submit"
+                              variant="contained"
+                              color={submitted ? "success" : "primary"}
+                              fullWidth
+                              disabled={loading || submitted}
+                              sx={{
+                                py: 1.5,
+                                fontWeight: 800,
+                                borderRadius: 2,
+                                textTransform: "none",
+                              }}
+                            >
+                              {loading ? (
+                                <CircularProgress size={20} />
+                              ) : submitted ? (
+                                "ارسال انجام شده"
+                              ) : (
+                                "ارسال نهایی"
+                              )}
+                            </Button>
+                          </Grid>
                         </Grid>
-                      </Grid>
+                      </Paper>
                     </Box>
                   )}
                 </Box>
