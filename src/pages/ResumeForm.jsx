@@ -969,7 +969,7 @@ export default function ResumeFormFinal() {
                             </TextField>
                           </Grid>
 
-                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:{xs:280,md:300}}}>
+                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:{xs:290,md:300}}}>
                             <TextField
                               label="مدتی که در طول یکسال می‌توانم در شهرستان کار کنم (ماه)"
                               name="monthsPerYearInOtherCity"
