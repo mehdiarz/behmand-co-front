@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
@@ -10,303 +10,835 @@ import {
   Box,
   Card,
   CardContent,
-  CardMedia,
   Chip,
   Stack,
-  Avatar,
-  Divider,
+  Modal,
+  Fade,
+  alpha,
+  useTheme,
 } from "@mui/material";
-import CalculateIcon from "@mui/icons-material/Calculate";
-import ShowChartIcon from "@mui/icons-material/ShowChart";
-import PaidIcon from "@mui/icons-material/Paid";
-import SecurityIcon from "@mui/icons-material/Security";
-import TimelineIcon from "@mui/icons-material/Timeline";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import AboutSlider from "../components/slider/AboutSlider.jsx";
+import {
+  Calculate,
+  ShowChart,
+  Paid,
+  Security,
+  Timeline,
+  SupportAgent,
+  ArrowForward,
+  Groups,
+  Assignment,
+  TrendingUp,
+  EmojiPeople,
+  PlayArrow,
+  Pause,
+} from "@mui/icons-material";
 import { motion } from "framer-motion";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-
 import bankShahr from "../assets/shahrLogo.png";
 import bankGardeshgari from "../assets/gardeshgariLogo.png";
-import heroSection from "../assets/heroSection.jpeg";
-import bgImage from "../assets/abourBg.png";
+import naftBandar from "../assets/naftBandar.png";
+import bimeNovin from "../assets/bimeNovin.png";
+import bimeMa from "../assets/bimeMa.png";
+import zarMakaron from "../assets/zarMakaron.png";
+import maadiran from "../assets/maadiran.png";
 import AboutSection from "../components/about/AboutSection.jsx";
-import HeroSection from "../components/hero/HeroSection.jsx";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import BlogSection from "../components/about/BlogSection.jsx";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
+const modalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: { xs: "95%", sm: 600, md: 700 },
+  bgcolor: "background.paper",
+  borderRadius: 4,
+  boxShadow: 24,
+  p: 4,
+  maxHeight: "80vh",
+  overflowY: "auto",
+  border: "1px solid",
+  borderColor: "divider",
+};
+
+// تصاویر با کیفیت برای اسلایدشو
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+];
 
 export default function Home() {
+  const theme = useTheme();
   const logos = [
     { src: bankShahr, alt: "بانک شهر" },
     { src: bankGardeshgari, alt: "بانک گردشگری" },
+    { src: naftBandar, alt: "پالایش نفت بندر عباس" },
+    { src: bimeNovin, alt: "بیمه نوین" },
+    { src: bimeMa, alt: "بیمه ما" },
+    { src: zarMakaron, alt: "زر ماکارون" },
+    { src: maadiran, alt: "مادیران" },
   ];
-    const [blogs, setBlogs] = useState([]);
-    const navigate = useNavigate();
+  const [blogs, setBlogs] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        (async () => {
-            try {
-                const res = await fetch(`${API_URL}/api/blogs?limit=3`);
-                const data = await res.json();
-                setBlogs(data.items || data); // بسته به خروجی API
-            } catch (err) {
-                console.error("Error fetching blogs:", err);
-            }
-        })();
-    }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch(`${API_URL}/api/blogs?limit=3`);
+        const data = await res.json();
+        setBlogs(data.items || data);
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+      }
+    })();
+  }, []);
+
+  // اتوپلی اسلایدشو
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  const handleOpenModal = (service) => {
+    setSelectedService(service);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedService(null);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+    setIsPlaying(false);
+    setTimeout(() => setIsPlaying(true), 5000);
+  };
+
+  const services = [
+    {
+      icon: <Calculate sx={{ fontSize: 48, color: "primary.main" }} />,
+      title: "حسابرسی صورت‌های مالی",
+      desc: "ارزیابی بی‌طرفانه صورت‌های مالی براساس استانداردهای روز جهانی.",
+      fullDesc:
+        "این خدمت شامل بررسی دقیق صورت‌های مالی، ترازنامه، سود و زیان و جریان وجوه نقد است. با استفاده از روش‌های پیشرفته حسابرسی، اطمینان حاصل می‌شود که گزارش‌ها عاری از تحریفات عمده هستند و با استانداردهای حسابداری سازگار می‌باشند.",
+      color: "primary",
+    },
+    {
+      icon: <Timeline sx={{ fontSize: 48, color: "success.main" }} />,
+      title: "حسابرسی داخلی",
+      desc: "بهبود کنترل‌های داخلی و کاهش ریسک‌های عملیاتی با رویکرد داده‌محور.",
+      fullDesc:
+        "حسابرسی داخلی بر ارزیابی فرآیندهای داخلی، کنترل‌ها و سیستم‌های اطلاعاتی تمرکز دارد. هدف، شناسایی نقاط ضعف، پیشنهاد بهبودها و کمک به مدیریت در دستیابی به اهداف سازمانی است.",
+      color: "success",
+    },
+    {
+      icon: <Paid sx={{ fontSize: 48, color: "warning.main" }} />,
+      title: "مشاوره مالیاتی",
+      desc: "برنامه‌ریزی و بهینه‌سازی مالیات با رعایت قوانین و مقررات بین‌المللی.",
+      fullDesc:
+        "مشاوره مالیاتی شامل تحلیل قوانین مالیاتی جاری، برنامه‌ریزی برای کاهش بار مالیاتی قانونی، تهیه اظهارنامه‌ها و نمایندگی در برابر مقامات مالیاتی است.",
+      color: "warning",
+    },
+    {
+      icon: <ShowChart sx={{ fontSize: 48, color: "secondary.main" }} />,
+      title: "تحلیل و بودجه‌ریزی",
+      desc: "تحلیل عملکرد و تدوین بودجه برای رشد پایدار و استراتژیک.",
+      fullDesc:
+        "این خدمت شامل تحلیل داده‌های مالی گذشته، پیش‌بینی روندهای آینده و تهیه بودجه‌های عملیاتی و سرمایه‌ای است تا سازمان بتواند منابع خود را بهینه تخصیص دهد.",
+      color: "secondary",
+    },
+    {
+      icon: <Security sx={{ fontSize: 48, color: "info.main" }} />,
+      title: "حاکمیت شرکتی",
+      desc: "طراحی ساختارهای نظارتی و گزارشگری برای شفافیت بیشتر و اعتمادساز.",
+      fullDesc:
+        "خدمات حاکمیت شرکتی بر ایجاد سیستم‌های نظارت، کمیته‌های حسابرسی و سیاست‌های اخلاقی تمرکز دارد تا شفافیت و پاسخگویی در سازمان افزایش یابد.",
+      color: "info",
+    },
+    {
+      icon: <SupportAgent sx={{ fontSize: 48, color: "error.main" }} />,
+      title: "پشتیبانی مالی",
+      desc: "همراهی مستمر در گزارشگری و تصمیم‌سازی مالی با ابزارهای پیشرفته.",
+      fullDesc:
+        "پشتیبانی مالی شامل خدمات مداوم مانند تهیه گزارش‌های مدیریتی، تحلیل نسبت‌های مالی و مشاوره در تصمیم‌گیری‌های استراتژیک است.",
+      color: "error",
+    },
+  ];
+
+  const features = [
+    {
+      icon: <Groups sx={{ fontSize: 48, color: "primary.main" }} />,
+      title: "استانداردهای حرفه‌ای",
+      desc: "رعایت آیین رفتار حرفه‌ای و استقلال در تمام خدمات با تمرکز بر کیفیت جهانی.",
+    },
+    {
+      icon: <Assignment sx={{ fontSize: 48, color: "primary.main" }} />,
+      title: "تیم مجرب",
+      desc: "کارشناسان با تجربه در حوزه‌های حسابرسی، مالیات و مدیریت استراتژیک.",
+    },
+    {
+      icon: <TrendingUp sx={{ fontSize: 48, color: "primary.main" }} />,
+      title: "شفافیت و اعتماد",
+      desc: "گزارش‌های دقیق برای تصمیم‌گیری مطمئن و پایدار.",
+    },
+    {
+      icon: <EmojiPeople sx={{ fontSize: 48, color: "primary.main" }} />,
+      title: "پوشش کامل خدمات",
+      desc: "از حسابرسی تا مشاوره مالی و مالیاتی با رویکرد نوآورانه.",
+    },
+  ];
+
   return (
-    <>
+    <Box sx={{ overflow: "hidden", bgcolor: "background.default" }}>
+      {/* Hero Section با اسلایدشو */}
+      <Box
+        sx={{
+          minHeight: "100vh",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* اسلایدشو */}
         <Box
-            sx={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url(${bgImage})`,
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          }}
+        >
+          {HERO_IMAGES.map((image, index) => (
+            <Box
+              key={index}
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                opacity: index === currentSlide ? 1 : 0,
+                transition: "opacity 1s ease-in-out",
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundAttachment: "fixed",
-                color: "#fff",
-            }}
-        >
-            {/* Hero Section */}
-            <HeroSection />
-
-            {/* About Section */}
-            <AboutSection />
+              }}
+            />
+          ))}
         </Box>
 
-        {/* Blog Section (بیرون از Box چون بک‌گراند خودش رو داشته باشه) */}
-        <BlogSection />
-
-
-        {/* Services Section — Grid v2 with equal widths & heights */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "grey.50" }}>
-        <Container>
-          <Typography variant="h4" align="center" gutterBottom>
-            خدمات ما
-          </Typography>
-          <Typography
-            align="center"
-            color="text.secondary"
-            sx={{ mb: 5, maxWidth: 800, mx: "auto" }}
+        {/* کنترل‌های اسلایدشو */}
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 40,
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: 1,
+            zIndex: 10,
+          }}
+        >
+          {HERO_IMAGES.map((_, index) => (
+            <Box
+              key={index}
+              onClick={() => goToSlide(index)}
+              sx={{
+                width: 12,
+                height: 12,
+                borderRadius: "50%",
+                backgroundColor:
+                  index === currentSlide
+                    ? "primary.main"
+                    : "rgba(255, 255, 255, 0.5)",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor:
+                    index === currentSlide
+                      ? "primary.dark"
+                      : "rgba(255, 255, 255, 0.7)",
+                },
+              }}
+            />
+          ))}
+          <Button
+            onClick={() => setIsPlaying(!isPlaying)}
+            sx={{
+              minWidth: "auto",
+              width: 32,
+              height: 32,
+              borderRadius: "50%",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              color: "white",
+              ml: 2,
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.3)",
+              },
+            }}
           >
-            مجموعه‌ای کامل از خدمات مالی و حسابرسی برای پاسخ‌گویی به نیازهای
-            متفاوت کسب‌وکارها.
-          </Typography>
+            {isPlaying ? (
+              <Pause fontSize="small" />
+            ) : (
+              <PlayArrow fontSize="small" />
+            )}
+          </Button>
+        </Box>
 
-          <Grid
-            container
-            columns={12}
-            columnSpacing={4}
-            rowSpacing={4}
-            alignItems="center"
-            sx={{ alignItems: "center", justifyContent: "center" }}
-          >
-            {[
-              {
-                icon: <CalculateIcon color="primary" sx={{ fontSize: 48 }} />,
-                title: "حسابرسی صورت‌های مالی",
-                desc: "ارزیابی بی‌طرفانه صورت‌های مالی براساس استانداردهای روز.",
-              },
-              {
-                icon: <TimelineIcon color="success" sx={{ fontSize: 48 }} />,
-                title: "حسابرسی داخلی",
-                desc: "بهبود کنترل‌های داخلی و کاهش ریسک‌های عملیاتی.",
-              },
-              {
-                icon: <PaidIcon color="warning" sx={{ fontSize: 48 }} />,
-                title: "مشاوره مالیاتی",
-                desc: "برنامه‌ریزی و بهینه‌سازی مالیات با رعایت قوانین و مقررات.",
-              },
-              {
-                icon: <ShowChartIcon color="secondary" sx={{ fontSize: 48 }} />,
-                title: "تحلیل و بودجه‌ریزی",
-                desc: "تحلیل عملکرد و تدوین بودجه برای رشد پایدار.",
-              },
-              {
-                icon: <SecurityIcon color="info" sx={{ fontSize: 48 }} />,
-                title: "حاکمیت شرکتی",
-                desc: "طراحی ساختارهای نظارتی و گزارشگری برای شفافیت بیشتر.",
-              },
-              {
-                icon: <SupportAgentIcon color="error" sx={{ fontSize: 48 }} />,
-                title: "پشتیبانی مالی",
-                desc: "همراهی مستمر در گزارشگری و تصمیم‌سازی مالی.",
-              },
-            ].map((s, i) => (
-              <Grid
-                key={i}
-                sx={{
-                  gridColumn: { xs: "span 12", sm: "span 6", md: "span 4" },
-                  display: "flex",
-                }}
+        {/* محتوای Hero */}
+        <Container
+          maxWidth="lg"
+          sx={{
+            position: "relative",
+            zIndex: 2,
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Grid container spacing={4} alignItems="center">
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
               >
-                <Card
-                  variant="outlined"
+                <Chip
+                  label="موسسه معتبر حسابرسی"
                   sx={{
-                    flex: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    transition: "0.3s",
-                    "&:hover": { boxShadow: 4, transform: "translateY(-4px)" },
-                    alignItems: "center",
-                    justifyContent: "center",
+                    background:
+                      "linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1))",
+                    color: "white",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    px: 3,
+                    py: 1,
+                    backdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                    mb: 3,
+                  }}
+                />
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontWeight: 900,
+                    fontSize: { xs: "2.5rem", md: "3.5rem" },
+                    lineHeight: 1.2,
+                    mb: 3,
+                    color: "white",
+                    textShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
                   }}
                 >
-                  <CardContent
+                  موسسه حسابرسی
+                  <Box
+                    component="span"
                     sx={{
-                      textAlign: "center",
-                      py: 4,
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      flexGrow: 1,
+                      display: "block",
+                      background: "linear-gradient(135deg, #66bb6a, #388e3c)",
+                      backgroundClip: "text",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
                     }}
                   >
-                    {/* آیکن با ارتفاع ثابت */}
+                    بهمند
+                  </Box>
+                </Typography>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    mb: 4,
+                    color: "rgba(255, 255, 255, 0.9)",
+                    maxWidth: 600,
+                    lineHeight: 1.6,
+                    fontWeight: 400,
+                    fontSize: { xs: "1.2rem", md: "1.4rem" },
+                  }}
+                >
+                  ارائه خدمات تخصصی حسابرسی، مالی و مشاوره‌ای با استانداردهای
+                  بین‌المللی و بیش از ۱۵ سال تجربه
+                </Typography>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={3}>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    endIcon={<ArrowForward />}
+                    href="/contact"
+                    sx={{
+                      background: "linear-gradient(135deg, #66bb6a, #388e3c)",
+                      borderRadius: 3,
+                      px: 4,
+                      py: 1.5,
+                      fontSize: "1.1rem",
+                      fontWeight: 700,
+                      boxShadow: "0 8px 24px rgba(56,142,60,0.4)",
+                      "&:hover": {
+                        background: "linear-gradient(135deg, #388e3c, #2e7d32)",
+                        boxShadow: "0 12px 32px rgba(56,142,60,0.6)",
+                        transform: "translateY(-2px)",
+                      },
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    شروع همکاری
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    href="/about"
+                    sx={{
+                      borderRadius: 3,
+                      px: 4,
+                      py: 1.5,
+                      fontSize: "1.1rem",
+                      fontWeight: 700,
+                      borderColor: "white",
+                      color: "white",
+                      borderWidth: 2,
+                      "&:hover": {
+                        bgcolor: "rgba(255, 255, 255, 0.1)",
+                        borderColor: "white",
+                        borderWidth: 2,
+                        transform: "translateY(-2px)",
+                      },
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    درباره ما
+                  </Button>
+                </Stack>
+              </motion.div>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Blog Section */}
+      <BlogSection />
+
+      {/* Services Section - طراحی مدرن */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          bgcolor: "background.default",
+          position: "relative",
+        }}
+      >
+        <Container maxWidth="lg">
+          {/* Header */}
+          <Box sx={{ textAlign: "center", mb: 8 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Chip
+                label="خدمات تخصصی"
+                sx={{
+                  mb: 3,
+                  px: 3,
+                  py: 1,
+                  fontSize: "0.9rem",
+                  fontWeight: 700,
+                  background: "linear-gradient(135deg, #388e3c, #66bb6a)",
+                  color: "white",
+                }}
+              />
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 900,
+                  color: "text.primary",
+                  fontSize: { xs: "2.5rem", md: "3rem" },
+                  mb: 3,
+                }}
+              >
+                خدمات حرفه‌ای ما
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "text.secondary",
+                  maxWidth: 800,
+                  mx: "auto",
+                  lineHeight: 1.8,
+                  fontWeight: 400,
+                }}
+              >
+                مجموعه‌ای کامل از خدمات مالی و حسابرسی برای پاسخ‌گویی به نیازهای
+                متفاوت کسب‌وکارها
+              </Typography>
+            </motion.div>
+          </Box>
+
+          {/* Services Grid */}
+          <Grid container spacing={3}       sx={{
+              justifyContent: "center",
+              alignItems: "stretch"
+          }}>
+            {services.map((service, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index} sx={{ width: 500 }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card
+                    onClick={() => handleOpenModal(service)}
+                    sx={{
+                      height: "100%",
+                      cursor: "pointer",
+                      borderRadius: 4,
+                      border: "1px solid",
+                      borderColor: "divider",
+                      background:
+                        "linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%)",
+                      transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                      overflow: "visible",
+                      position: "relative",
+                      "&:before": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "4px",
+                        background: `linear-gradient(90deg, ${theme.palette[service.color].main}, ${theme.palette[service.color].light})`,
+                        borderTopLeftRadius: 16,
+                        borderTopRightRadius: 16,
+                        transform: "scaleX(0)",
+                        transition: "transform 0.4s ease",
+                      },
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: "0 24px 48px rgba(0,0,0,0.12)",
+                        "&:before": {
+                          transform: "scaleX(1)",
+                        },
+                        "& .service-icon": {
+                          transform: "scale(1.1)",
+                          background: `linear-gradient(135deg, ${theme.palette[service.color].main}20, ${theme.palette[service.color].light}20)`,
+                        },
+                      },
+                    }}
+                  >
+                    <CardContent
+                      sx={{
+                        p: 4,
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      {/* Icon */}
+                      <Box
+                        className="service-icon"
+                        sx={{
+                          width: 80,
+                          height: 80,
+                          borderRadius: 2,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          mb: 3,
+                          mx: "auto",
+                          transition: "all 0.4s ease",
+                          background: `linear-gradient(135deg, ${theme.palette[service.color].main}10, ${theme.palette[service.color].light}10)`,
+                          border: `1px solid ${theme.palette[service.color].main}20`,
+                        }}
+                      >
+                        {service.icon}
+                      </Box>
+
+                      {/* Content */}
+                      <Box sx={{ flexGrow: 1 }}>
+                        <Typography
+                          variant="h5"
+                          sx={{
+                            mb: 2,
+                            fontWeight: 700,
+                            color: "text.primary",
+                          }}
+                        >
+                          {service.title}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{ color: "text.secondary", lineHeight: 1.7 }}
+                        >
+                          {service.desc}
+                        </Typography>
+                      </Box>
+
+                      {/* CTA */}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          color: `${service.color}.main`,
+                          fontWeight: 600,
+                          mt: "auto",
+                        }}
+                      >
+                        <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                          اطلاعات بیشتر
+                        </Typography>
+                        <ArrowForward
+                          sx={{
+                            fontSize: 18,
+                            mr: 1,
+                            transition: "transform 0.3s ease",
+                          }}
+                        />
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Why Choose Us Section - طراحی مدرن */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          background: "linear-gradient(135deg, #ffffff 0%, #f8fbf8 100%)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <Box sx={{ textAlign: "center", mb: 8 }}>
+              <Chip
+                label="مزایای ما"
+                sx={{
+                  mb: 3,
+                  px: 3,
+                  py: 1,
+                  fontSize: "0.9rem",
+                  fontWeight: 700,
+                  background: "linear-gradient(135deg, #388e3c, #66bb6a)",
+                  color: "white",
+                }}
+              />
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 900,
+                  color: "primary.dark",
+                  fontSize: { xs: "2.5rem", md: "3rem" },
+                  mb: 3,
+                }}
+              >
+                چرا بهمند؟
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "text.secondary",
+                  maxWidth: 800,
+                  mx: "auto",
+                  lineHeight: 1.8,
+                  fontWeight: 400,
+                }}
+              >
+                ترکیب تجربه، استانداردهای حرفه‌ای و نگاه داده‌محور برای ایجاد
+                اعتماد و تصمیم‌های بهتر در دنیای رقابتی امروز.
+              </Typography>
+            </Box>
+          </motion.div>
+
+          <Grid container spacing={4}       sx={{
+              justifyContent: "center", // مرکز کردن کل گرید
+              alignItems: "stretch"
+          }}>
+            {features.map((feature, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index} sx={{ width: 500 }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card
+                    sx={{
+                      height: "100%",
+                      p: 4,
+                      borderRadius: 4,
+                      background:
+                        "linear-gradient(135deg, #ffffff 0%, #fafafa 100%)",
+                      border: "1px solid",
+                      borderColor: "divider",
+                      transition: "all 0.3s ease",
+                      textAlign: "center",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow: "0 16px 32px rgba(0,0,0,0.1)",
+                      },
+                    }}
+                  >
                     <Box
                       sx={{
-                        height: 60,
-                        width: 500,
+                        width: 80,
+                        height: 80,
+                        borderRadius: "50%",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        mb: 2,
+                        mb: 3,
+                        mx: "auto",
+                        background:
+                          "linear-gradient(135deg, #388e3c20, #66bb6a20)",
+                        color: "primary.main",
                       }}
                     >
-                      {s.icon}
+                      {feature.icon}
                     </Box>
-
-                    {/* عنوان با ارتفاع ثابت */}
                     <Typography
-                      variant="h6"
+                      variant="h5"
                       sx={{
-                        minHeight: 40,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
                         mb: 2,
+                        fontWeight: 700,
+                        color: "primary.dark",
                       }}
                     >
-                      {s.title}
+                      {feature.title}
                     </Typography>
-
-                    {/* توضیح؛ دو خط clamp برای ارتفاع یکنواخت */}
                     <Typography
                       color="text.secondary"
                       sx={{
-                        textAlign: "center",
                         lineHeight: 1.7,
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                        minHeight: 48,
+                        fontSize: "0.95rem",
                       }}
                     >
-                      {s.desc}
+                      {feature.desc}
                     </Typography>
-
-                    {/* Spacer برای پر کردن ارتفاع باقی‌مانده */}
-                    <Box sx={{ flexGrow: 1 }} />
-                  </CardContent>
-                </Card>
+                  </Card>
+                </motion.div>
               </Grid>
             ))}
           </Grid>
         </Container>
       </Box>
 
-      {/* Why Us Section */}
-      <Box sx={{ py: { xs: 6, md: 8 } }}>
-        <Container>
-          <Typography variant="h4" align="center" gutterBottom>
-            چرا بهمند؟
-          </Typography>
-          <Typography
-            align="center"
-            color="text.secondary"
-            sx={{ mb: 5, maxWidth: 800, mx: "auto" }}
-          >
-            ترکیب تجربه، استانداردهای حرفه‌ای و نگاه داده‌محور برای ایجاد اعتماد
-            و تصمیم‌های بهتر.
-          </Typography>
+      {/* Stats Section - طراحی مدرن */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          background: "linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%)",
+          color: "white",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Background Pattern */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `
+                            radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)
+                        `,
+            pointerEvents: "none",
+          }}
+        />
 
-          <Grid container columns={12} columnSpacing={4} rowSpacing={4}>
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <Grid container spacing={6} justifyContent="center">
             {[
+              { label: "سال تجربه", value: 15, suffix: "+", icon: "📅" },
               {
-                title: "استانداردهای حرفه‌ای",
-                desc: "رعایت آیین رفتار حرفه‌ای و استقلال در تمام خدمات.",
+                label: "پروژه‌های حسابرسی",
+                value: 250,
+                suffix: "+",
+                icon: "📊",
               },
-              {
-                title: "تیم مجرب",
-                desc: "کارشناسان با تجربه در حوزه‌های حسابرسی، مالیات و مدیریت.",
-              },
-              {
-                title: "شفافیت و اعتماد",
-                desc: "گزارش‌های دقیق برای تصمیم‌گیری مطمئن.",
-              },
-              {
-                title: "پوشش کامل خدمات",
-                desc: "از حسابرسی تا مشاوره مالی و مالیاتی.",
-              },
-            ].map((f, i) => (
-              <Grid
-                key={i}
-                sx={{ gridColumn: { xs: "span 12", sm: "span 6" } }}
-              >
-                <Stack spacing={1.5}>
-                  <Typography variant="h6">{f.title}</Typography>
-                  <Typography color="text.secondary">{f.desc}</Typography>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Stats Section */}
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "grey.100" }}>
-        <Container>
-          <Grid
-            container
-            columns={12}
-            columnSpacing={4}
-            rowSpacing={4}
-            justifyContent="center"
-          >
-            {[
-              { label: "سال تجربه", value: 15, suffix: "+" },
-              { label: "پروژه‌های حسابرسی", value: 250, suffix: "+" },
-              { label: "مشتریان فعال", value: 120, suffix: "+" },
-              { label: "کارشناسان متخصص", value: 30, suffix: "+" },
-            ].map((st, i) => {
+              { label: "مشتریان فعال", value: 120, suffix: "+", icon: "👥" },
+              { label: "کارشناسان متخصص", value: 30, suffix: "+", icon: "🎓" },
+            ].map((stat, i) => {
               const { ref, inView } = useInView({
                 triggerOnce: true,
-                threshold: 0.3,
+                threshold: 0.2,
               });
               return (
-                <Grid
-                  key={i}
-                  ref={ref}
-                  sx={{
-                    gridColumn: { xs: "span 6", md: "span 3" },
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography variant="h3">
-                    {inView ? (
-                      <CountUp
-                        start={0}
-                        end={st.value}
-                        duration={2}
-                        suffix={st.suffix}
-                      />
-                    ) : (
-                      "0"
-                    )}
-                  </Typography>
-                  <Typography color="text.secondary">{st.label}</Typography>
+                <Grid item xs={6} sm={3} key={i} ref={ref}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{
+                      duration: 0.8,
+                      delay: i * 0.2,
+                      ease: "easeOut",
+                    }}
+                    style={{ textAlign: "center" }}
+                  >
+                    <Box
+                      sx={{
+                        fontSize: "3rem",
+                        mb: 2,
+                        filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))",
+                      }}
+                    >
+                      {stat.icon}
+                    </Box>
+                    <Typography
+                      variant="h2"
+                      sx={{
+                        fontWeight: 900,
+                        fontSize: { xs: "2.5rem", md: "3rem" },
+                        mb: 1,
+                        textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                      }}
+                    >
+                      {inView ? (
+                        <CountUp
+                          start={0}
+                          end={stat.value}
+                          duration={2.5}
+                          suffix={stat.suffix}
+                        />
+                      ) : (
+                        "0"
+                      )}
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 600,
+                        opacity: 0.9,
+                        fontSize: { xs: "1rem", md: "1.2rem" },
+                      }}
+                    >
+                      {stat.label}
+                    </Typography>
+                  </motion.div>
                 </Grid>
               );
             })}
@@ -314,200 +846,270 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Clients / Partners Section */}
-
-      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "grey.50" }}>
-        <Container>
+      {/* Customers Section - طراحی مدرن */}
+      <Box
+        sx={{
+          py: { xs: 8, md: 12 },
+          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
+        }}
+      >
+        <Container maxWidth="lg">
           <Stack
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             justifyContent="space-between"
             alignItems="center"
-            sx={{ mb: 3 }}
+            sx={{ mb: 8 }}
           >
-            <Typography variant="h5">برخی از مشتریان ما</Typography>
-            <Button variant="text" href="/customers">
+            <Box>
+              <Chip
+                label="مشتریان ما"
+                sx={{
+                  mb: 2,
+                  px: 3,
+                  py: 1,
+                  fontSize: "0.9rem",
+                  fontWeight: 700,
+                  background: "linear-gradient(135deg, #388e3c, #66bb6a)",
+                  color: "white",
+                }}
+              />
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 900,
+                  color: "primary.dark",
+                  fontSize: { xs: "2rem", md: "2.5rem" },
+                }}
+              >
+                برخی از مشتریان ما
+              </Typography>
+            </Box>
+            <Button
+              variant="outlined"
+              color="primary"
+              href="/customers"
+              endIcon={<ArrowForward />}
+              sx={{
+                borderRadius: 3,
+                px: 4,
+                py: 1,
+                fontWeight: 600,
+                borderWidth: 2,
+                mt: { xs: 2, sm: 0 },
+                "&:hover": {
+                  borderWidth: 2,
+                  transform: "translateY(-2px)",
+                },
+                transition: "all 0.3s ease",
+              }}
+            >
               مشاهده بیشتر
             </Button>
           </Stack>
 
-          <Grid
-            container
-            spacing={3}
-            alignItems="center"
-            justifyContent="center"
-          >
-            {logos.map((l, i) => (
-              <Grid key={i} item xs={6} sm={3}>
-                <Box
-                  sx={{
-                    bgcolor: "background.paper",
-                    borderRadius: 2,
-                    boxShadow: 1,
-                    height: { xs: 100, sm: 120, md: 140 },
-                    width: { xs: 100, sm: 120, md: 140 },
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    p: 2,
-                    transition: "all 0.3s ease",
-                    "&:hover": {
-                      transform: "scale(1.08)",
-                      boxShadow: 4,
-                    },
-                  }}
+          <Grid container spacing={4} justifyContent="center">
+            {logos.map((logo, i) => (
+              <Grid item xs={6} sm={4} md={3} key={i}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  <img
-                    src={l.src}
-                    alt={l.alt}
-                    style={{
-                      maxWidth: "80%",
-                      maxHeight: "80%",
-                      objectFit: "contain",
+                  <Box
+                    sx={{
+                      bgcolor: "white",
+                      borderRadius: 4,
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+                      height: { xs: 120, sm: 140 },
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      p: 4,
+                      transition: "all 0.3s ease",
+                      border: "1px solid",
+                      borderColor: "divider",
+                      "&:hover": {
+                        boxShadow: "0 16px 32px rgba(0,0,0,0.12)",
+                        transform: "translateY(-4px)",
+                      },
                     }}
-                  />
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/*<Box sx={{ py: { xs: 6, md: 8 }, bgcolor: "grey.50" }}>*/}
-      {/*  <Container>*/}
-      {/*    <Typography variant="h4" align="center" gutterBottom>*/}
-      {/*      نظرات مشتریان*/}
-      {/*    </Typography>*/}
-      {/*    <Grid*/}
-      {/*      container*/}
-      {/*      columns={12}*/}
-      {/*      columnSpacing={4}*/}
-      {/*      rowSpacing={4}*/}
-      {/*      sx={{ mt: 2 }}*/}
-      {/*    >*/}
-      {/*      {[1, 2, 3].map((i) => (*/}
-      {/*        <Grid*/}
-      {/*          key={i}*/}
-      {/*          sx={{ gridColumn: { xs: "span 12", md: "span 4" } }}*/}
-      {/*        >*/}
-      {/*          <Card variant="outlined" sx={{ height: "100%" }}>*/}
-      {/*            <CardContent>*/}
-      {/*              <Stack*/}
-      {/*                direction="row"*/}
-      {/*                spacing={2}*/}
-      {/*                alignItems="center"*/}
-      {/*                sx={{ mb: 2 }}*/}
-      {/*              >*/}
-      {/*                <Avatar />*/}
-      {/*                <Box>*/}
-      {/*                  <Typography variant="subtitle1">*/}
-      {/*                    نام مشتری {i}*/}
-      {/*                  </Typography>*/}
-      {/*                  <Typography variant="caption" color="text.secondary">*/}
-      {/*                    شرکت نمونه*/}
-      {/*                  </Typography>*/}
-      {/*                </Box>*/}
-      {/*              </Stack>*/}
-      {/*              <Typography color="text.secondary">*/}
-      {/*                لورم ایپسوم متن ساختگی است برای نمایش نظر مشتری درباره*/}
-      {/*                کیفیت خدمات و همکاری حرفه‌ای با تیم بهمند.*/}
-      {/*              </Typography>*/}
-      {/*            </CardContent>*/}
-      {/*          </Card>*/}
-      {/*        </Grid>*/}
-      {/*      ))}*/}
-      {/*    </Grid>*/}
-      {/*  </Container>*/}
-      {/*</Box>*/}
-
-
-      {/* Blog / Articles Section */}
-        {/*<Box sx={{ py: { xs: 6, md: 8 } }}>
-        <Container>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            sx={{ mb: 3 }}
-          >
-            <Typography variant="h4">مقالات اخیر</Typography>
-            <Button variant="text" href="/blog">
-              مشاهده همه
-            </Button>
-          </Stack>
-
-          <Grid container columns={12} columnSpacing={4} rowSpacing={4}>
-            {blogs.map((b) => (
-              <Grid
-                key={b._id}
-                sx={{ gridColumn: { xs: "span 12", md: "span 4" } }}
-              >
-                <Card
-                  variant="outlined"
-                  sx={{ cursor: "pointer" }}
-                  onClick={() => navigate(`/blog/${b.slug}`)}
-                >
-                  {b.coverImage?.filePath && (
-                    <CardMedia
-                      component="img"
-                      height="160"
-                      image={`http://localhost:5000/${b.coverImage.filePath}`}
-                      alt={b.title}
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      style={{
+                        maxWidth: "90%",
+                        maxHeight: "90%",
+                        objectFit: "contain",
+                        filter: "grayscale(100%)",
+                        transition: "filter 0.3s ease",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.target.style.filter = "grayscale(0%)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.target.style.filter = "grayscale(100%)")
+                      }
                     />
-                  )}
-                  <CardContent>
-                    <Typography variant="h6">{b.title}</Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      {b.excerpt}
-                    </Typography>
-                    <Stack direction="row" spacing={1} flexWrap="wrap">
-                      {(b.tags || []).map((t) => (
-                        <Chip key={t} size="small" label={t} />
-                      ))}
-                    </Stack>
-                  </CardContent>
-                </Card>
+                  </Box>
+                </motion.div>
               </Grid>
             ))}
           </Grid>
         </Container>
       </Box>
-      */}
-      {/* Contact CTA Section */}
+
+      {/* CTA Section */}
       <Box
         sx={{
-          bgcolor: "primary.main",
+          background: "linear-gradient(135deg, #66bb6a 0%, #388e3c 100%)",
           color: "white",
-          py: { xs: 6, md: 8 },
+          py: { xs: 8, md: 12 },
           textAlign: "center",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <Container>
-          <Typography variant="h5" gutterBottom>
-            آماده شروع همکاری هستید؟
-          </Typography>
-          <Typography sx={{ maxWidth: 700, mx: "auto" }}>
-            برای دریافت مشاوره اولیه و بررسی نیازهای کسب‌وکار شما، با ما تماس
-            بگیرید یا درخواست خود را ثبت کنید.
-          </Typography>
-          <Stack
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-            sx={{ mt: 3 }}
+        {/* Background Pattern */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `
+                            radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%)
+                        `,
+            pointerEvents: "none",
+          }}
+        />
+
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            <Button
-              variant="contained"
-              sx={{ bgcolor: "white", color: "primary.main" }}
-              href="/contact"
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: 900,
+                fontSize: { xs: "2.5rem", md: "3rem" },
+                mb: 3,
+              }}
             >
-              تماس با ما
-            </Button>
-            <Button variant="outlined" color="inherit" href="/services">
-              خدمات
-            </Button>
-          </Stack>
+              آماده شروع همکاری هستید؟
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                maxWidth: 800,
+                mx: "auto",
+                mb: 6,
+                lineHeight: 1.8,
+                fontWeight: 400,
+                opacity: 0.9,
+                fontSize: { xs: "1.1rem", md: "1.3rem" },
+              }}
+            >
+              برای دریافت مشاوره اولیه و بررسی نیازهای کسب‌وکار شما، با ما تماس
+              بگیرید یا درخواست خود را ثبت کنید.
+            </Typography>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={3}
+              justifyContent="center"
+            >
+              <Button
+                variant="contained"
+                size="large"
+                href="/contact"
+                endIcon={<ArrowForward />}
+                sx={{
+                  borderRadius: 3,
+                  px: 6,
+                  py: 1.5,
+                  fontSize: "1.1rem",
+                  fontWeight: 700,
+                  background:
+                    "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+                  "&:hover": {
+                    background:
+                      "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)",
+                    boxShadow: "0 12px 32px rgba(0,0,0,0.6)",
+                  },
+                }}
+              >
+                تماس با ما
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                href="/services"
+                sx={{
+                  borderRadius: 3,
+                  px: 6,
+                  py: 1.5,
+                  fontSize: "1.1rem",
+                  fontWeight: 700,
+                  borderColor: "white",
+                  color: "white",
+                  borderWidth: 2,
+                  "&:hover": {
+                    bgcolor: "rgba(255,255,255,0.1)",
+                    borderColor: "white",
+                    borderWidth: 2,
+                  },
+                }}
+              >
+                خدمات ما
+              </Button>
+            </Stack>
+          </motion.div>
         </Container>
       </Box>
-    </>
+
+      {/* Modal for Service Details */}
+      <Modal open={openModal} onClose={handleCloseModal} closeAfterTransition>
+        <Fade in={openModal}>
+          <Box sx={modalStyle}>
+            {selectedService && (
+              <>
+                <Box sx={{ display: "flex", alignItems: "center", mb: 4 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      borderRadius: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      mr: 3,
+                      background: `linear-gradient(135deg, ${theme.palette[selectedService.color].main}20, ${theme.palette[selectedService.color].light}20)`,
+                    }}
+                  >
+                    {selectedService.icon}
+                  </Box>
+                  <Typography variant="h3" sx={{ fontWeight: 700 }}>
+                    {selectedService.title}
+                  </Typography>
+                </Box>
+                <Typography
+                  color="text.secondary"
+                  sx={{ lineHeight: 1.8, fontSize: "1.1rem" }}
+                >
+                  {selectedService.fullDesc}
+                </Typography>
+              </>
+            )}
+          </Box>
+        </Fade>
+      </Modal>
+    </Box>
   );
 }

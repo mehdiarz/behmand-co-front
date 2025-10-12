@@ -24,9 +24,10 @@ import AdminFinancials from "./pages/AdminFinancials.jsx";
 import CustomersAdmin from "./pages/CustomersAdmin.jsx";
 import AdminBlogs from "./pages/AdminBlogs.jsx";
 import AdminBlogForm from "./pages/AdminBlogForm.jsx";
+import GalleryPage from "./pages/GalleryPage.jsx";
 
 function App() {
-    return (
+  return (
     <BrowserRouter>
       <Routes>
         {/* صفحات عمومی سایت */}
@@ -34,6 +35,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="gallery" element={<GalleryPage />} />
           <Route path="resumeForm" element={<ResumeForm />} />
           <Route path="customers" element={<CustomersPage />} />
           <Route path="contact" element={<Contact />} />
