@@ -889,8 +889,8 @@ export default function Home() {
             alignItems={{ xs: "flex-start", sm: "center" }}
             sx={{
               mb: { xs: 6, md: 8 },
-              justifyContent: { xs: "center" },
-              alignItems: { xs: "stretch" },
+              justifyContent: { xs: "center", md: "space-between" },
+              alignItems: { xs: "stretch",md: "center" },
             }}
             spacing={{ xs: 3, sm: 0 }}
           >
