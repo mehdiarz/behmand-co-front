@@ -138,7 +138,7 @@ export default function GalleryPage() {
                 minHeight: "100vh",
                 background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
                 pt: { xs: 1, sm: 2 },
-                mt: { xs: 2, sm: 3 },
+                mt: { xs: 4, sm: 5 },
             }}
         >
             <Container
@@ -192,7 +192,7 @@ export default function GalleryPage() {
                                 lineHeight: 1.2,
                             }}
                         >
-                            گالری حرفه‌ای
+                            گالری تصاویر
                             <Box
                                 component="span"
                                 sx={{
@@ -330,6 +330,8 @@ export default function GalleryPage() {
                     sx={{
                         mb: { xs: 4, sm: 6 },
                         px: { xs: 0.5, sm: 0 },
+                        justifyContent: "center",
+                        alignItems: "stretch",
                     }}
                 >
                     {filteredImages.map((image, index) => (
