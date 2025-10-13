@@ -26,6 +26,8 @@ import mashreghi from "../assets/mashreghi.jpg";
 import rastegari from "../assets/rastegari.jpg";
 import noAvatar from "../assets/noAvatar.png";
 
+import OrganizationalChart from "../components/OrganizationalChart";
+
 const teamMembers = [
   {
     name: "رضا آتش",
@@ -547,6 +549,8 @@ export default function About() {
           <TeamRow members={secondRow} handleOpen={handleOpen} />
           <TeamRow members={thirdRow} handleOpen={handleOpen} />
         </Box>
+
+          <OrganizationalChart />
 
         {/* Dialog جزئیات اعضا */}
         <Dialog
