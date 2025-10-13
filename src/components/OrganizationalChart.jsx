@@ -70,13 +70,13 @@ const OrganizationalChart = () => {
       education: "لیسانس و فوق لیسانس و دو نفر دانشجو",
     },
     {
-      role: "همکاران اداری/Office",
+      role: "همکاران اداری/Administrative staff",
       count: 9,
       color: "#a4de6c",
       education: "-",
     },
     {
-      role: "کارشناس رایانه / Computer expert",
+      role: "کارشناس رایانه / Computer specialist",
       count: 2,
       color: "#d0ed57",
       education: "-",
