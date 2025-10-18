@@ -24,7 +24,7 @@ function Providers({ children }) {
   const cache = direction === "rtl" ? cacheRtl : cacheLtr;
 
   return (
-    <CacheProvider value={cache}>
+    <CacheProvider key={direction} value={cache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
