@@ -1,0 +1,194 @@
+{
+  "brand": {
+    "name": "Behmand",
+    "full": "Behmand Auditing Institute"
+  },
+  "header": {
+    "logoAlt": "Behmand Auditing Institute logo"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Behmand Auditing Institute",
+    "subtitle": "Provider of audit, financial advisory and tax services for small businesses to large organizations",
+    "badge": "Trusted auditing firm",
+    "cta": {
+      "start": "Start Cooperation",
+      "about": "About Us"
+    }
+  },
+  "home": {
+    "services": {
+      "chip": "Specialized Services",
+      "title": "Our Professional Services",
+      "subtitle": "A complete set of financial and audit services to meet the diverse needs of organizations and businesses",
+      "more": "Learn more"
+    },
+    "customers": {
+      "chip": "Our Clients",
+      "title": "Some of our clients",
+      "more": "View more",
+      "moreAll": "View all clients"
+    },
+    "whyUs": {
+      "chip": "Our Advantages",
+      "title": "Why Behmand?",
+      "subtitle": "Combining experience, professional standards and data-driven approach to build trust and make better decisions in today's competitive world. Long history of providing audit and inspection services for 46 years"
+    },
+    "features": {
+      "standards": {
+        "title": "Professional Standards",
+        "desc": "Adherence to professional ethics and independence in all services with focus on global quality."
+      },
+      "team": {
+        "title": "Experienced Team",
+        "desc": "Experts with experience in auditing, taxation and strategic management."
+      },
+      "transparency": {
+        "title": "Transparency and Trust",
+        "desc": "Accurate reports for confident and sustainable decision-making."
+      },
+      "coverage": {
+        "title": "Comprehensive Services",
+        "desc": "Audit and inspection of companies, organizations, institutions and other financial-related services"
+      }
+    },
+    "stats": {
+      "years": "Years of experience",
+      "audits": "Auditing projects",
+      "clients": "Active clients",
+      "staff": "Total institute staff"
+    },
+    "cta": {
+      "title": "Ready to start working together?",
+      "subtitle": "Contact us or submit your request to receive an initial consultation and review your business needs.",
+      "contact": "Contact us",
+      "services": "Our services"
+    }
+  },
+  "about": {
+    "chip": "About Us",
+    "title": "Auditing Institute",
+    "subtitle": "Leading in providing specialized inspection and audit, financial and advisory services based on Iranian accounting and auditing standards",
+    "tabs": {
+      "vision": {
+        "label": "History",
+        "text": "Behmand Auditing Institute was established in 1979 and registered under number 2035 in Tehran Companies Registration Office and has been active for about 46 years in the field of inspection and auditing and other financial-related services."
+      },
+      "mission": {
+        "label": "Partners and Managers",
+        "text": "The total number of institute managers is 24 people, of which 10 are partners of the institute.\n\nThe average work experience of partners is about 31 years and the average work experience of other institute managers is about 10 years."
+      },
+      "values": {
+        "label": "Values",
+        "text": "Commitment to professional ethics, accuracy and precision, continuous innovation, and long-term relationships with customers are the fundamental values of Behmand Institute."
+      }
+    },
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Number of institute projects",
+      "reports": "Reports issued in 2024"
+    },
+    "cta": "Learn More",
+    "intro": "Behmand Auditing Institute was established in December 1979 by the late Asghar Hoshi and registered under number 2035 in the Tehran Companies Registration Office.",
+    "founder": {
+      "name": "Late Asghar Hoshi",
+      "bio": "Asghar Hoshi was born in 1950 in Isfahan. He completed his primary and secondary education at Mofid School and Saadi High School in Isfahan. He continued his university studies in 1969 at the Oil Company Accounting College in Tehran and obtained a master's degree in accounting in 1974. From his student days, he worked at the Deghigh Auditing Institute under professors such as Mr. Shahrokh Behnam and the late Sajadi Nejad, and progressed to the position of management and partnership of the institute. In 1979, in collaboration with other professors, he established Behmand Auditing Institute and managed the institute until the end of his life. Asghar Hoshi was one of the professors of accounting and auditing in the country. He started teaching accounting courses in 1974 at the Higher School of Commerce and continued at Allameh, Alzahra, Shahid Beheshti universities and the Faculty of Economics and Finance. Asghar Hoshi, both at the university and at Deghigh and Behmand institutes, played an effective role in educating and training multiple generations of accounting and auditing students in the country. During this period, as an inspector and auditor, he collaborated with hundreds of large and small companies and public and private institutions and played a role in improving the effective management of these companies and institutions. From 1974 onwards, he was a member of the Iranian Association of Certified Public Accountants, the Association of Chartered Accountants, the Iranian Association of Certified Public Accountants, the Iranian Accounting Association and the Association of Official Experts of the Judiciary, and played an effective role in professional affairs and the development of tax laws. He is considered one of the pioneers and veterans of the accounting and auditing profession in the country. Throughout his life, Asghar Hoshi was an independent person committed to ethical and professional principles, and always placed public interests and professional principles at the forefront of his considerations, thus helping to enhance the role of the independent auditor."
+    },
+    "currentPartners": {
+      "title": "Current Institute Partners",
+      "description": "The current partners of the institute are Mr. Reza Atash, Ali Mashreghi Arani, Hooman Hoshi, Mohammad Reza Arezoomand Somaye Sarai, Ahmad Reza Sharifi Qazvini, Nader Rastegari, Rasul Davazdah Emami, Mohammad Reza Rahmanian, Sajjad Delpak and Ali Rahmati. Behmand Auditing Institute is one of the member institutes of the Iranian Association of Certified Public Accountants, the Association of Chartered Accountants and the Iranian Accounting Association, and is a trusted auditor of the Securities and Exchange Organization."
+    }
+  },
+  "blog": {
+    "title": "Recent Articles",
+    "subtitle": "Latest analyses and specialized content in auditing and finance",
+    "cta": "View All Articles"
+  },
+  "services": {
+    "audit": {
+      "title": "Audit Services",
+      "desc": "Including various types of auditing and review of financial statements...",
+      "fullDesc": "Including various types of auditing and review of financial statements, examination of prospective financial information, agreed-upon procedures, special audits, operational audits, tax audits, insurance audits."
+    },
+    "internalAudit": {
+      "title": "Internal Audit",
+      "desc": "Financial reporting based on Securities and Exchange Organization guidelines and integrated COSO concepts",
+      "fullDesc": "Providing internal audit reports especially in the area of internal controls governing financial reporting based on Securities and Exchange Organization guidelines and integrated COSO concepts"
+    },
+    "tax": {
+      "title": "Financial and Tax Accounting Services",
+      "desc": "Tax planning and optimization in compliance with Iranian laws and regulations.",
+      "fullDesc": "Tax consulting includes analysis of current tax laws, planning for legal tax burden reduction, preparation of tax returns and representation before tax authorities."
+    },
+    "legalInspection": {
+      "title": "Legal Inspection",
+      "desc": "Legal inspection services include detailed examination of financial documents, accounting reports and company performance to ensure activities comply with current country laws and regulations.",
+      "fullDesc": "Legal inspection is conducted according to Article 148 of the amended Commercial Code and aims to protect the rights of shareholders and stakeholders. In this process, the legal inspector is required to independently review financial statements, contracts and board decisions and provide a transparent and impartial report. This report can include risk assessment, corrective suggestions and analysis of the company's financial system strengths and weaknesses. The result of this inspection is an important tool for management and shareholder decision-making and plays a key role in increasing transparency and public trust."
+    },
+    "financialConsulting": {
+      "title": "Financial Management Consulting",
+      "desc": "Providing specialized consulting for financial resource optimization, capital productivity increase and economic risk reduction.",
+      "fullDesc": "Financial management consulting services include analysis of the organization's current financial situation, design of investment strategies, cash flow management and providing cost reduction solutions. In this process, financial consultants help managers make more informed decisions by carefully examining financial statements, budgeting and economic forecasts. The main goal of these services is to increase profitability, create financial stability and support sustainable business growth. Financial management consulting can also include guidance on project financing, debt management and optimal capital structure design."
+    },
+    "liquidation": {
+      "title": "Liquidation Supervision",
+      "desc": "Supervision of liquidation managers' performance and providing transparent reports to the general assembly according to Article 218 of the Commercial Code.",
+      "fullDesc": "According to Article 218 of the amended Commercial Code, the liquidation supervisor is required to supervise all actions and operations of the company's liquidation managers. This supervision includes reviewing documents, contracts and decisions related to the liquidation process to ensure all matters are conducted within the legal framework and for the benefit of stakeholders. Finally, the supervisor must provide a comprehensive and impartial report of the examination results to the company's general assembly to ensure transparency and accountability in the liquidation process."
+    },
+    "arbitration": {
+      "title": "Financial Arbitration",
+      "desc": "Resolution of financial and contractual disputes outside the court with an impartial arbitrator's ruling.",
+      "fullDesc": "Financial arbitration is a private and consensual method for resolving financial and contractual disputes that, instead of going to court, is conducted by selecting an impartial arbitrator. In this process, documents, financial reports and contract terms are examined and an enforceable ruling is issued. Advantages of arbitration include greater speed, confidentiality, lower costs and the possibility of selecting a financial expert arbitrator. This approach helps parties resolve disputes with minimal business disruption and maximum certainty."
+    },
+    "valuation": {
+      "title": "Stock and Share Valuation",
+      "desc": "Determining fair value of stocks and shares using specialized valuation methods.",
+      "fullDesc": "Stock and share valuation involves determining the fair value of ownership in joint-stock and non-joint-stock companies based on accepted approaches like income approach (DCF), market comparison approach and cost approach/net asset value. In this process, financial statements, cash flows, capital structure, risks and growth prospects are examined to provide a reliable basis for transactions, capital attraction, partner exit, mergers/acquisitions and dispute resolution. The valuation output is provided as a documented, transparent and reliable report."
+    }
+  },
+  "contact": {
+    "address": "Flat 18, 4th Floor, No. 114, Ghaem-magham Ave, Tehran, Iran",
+    "phoneNumbers": ["02188305391", "02188843708", "02188320129"],
+    "fax": "02188844685",
+    "email": "info@behmand.com",
+    "postalCode": "1586936145",
+    "form": {
+      "errors": {
+        "firstName": "First name is required",
+        "lastName": "Last name is required",
+        "phone": "Please enter a valid phone number",
+        "message": "Message must be at least 10 characters"
+      },
+      "success": "Your message has been sent successfully ✅",
+      "error": "❌ Error sending message"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Behmand Auditing Institute",
+      "desc": "Provider of independent audit, financial and tax advisory services for small and large companies with a focus on innovation and trust."
+    },
+    "followUs": "Follow us",
+    "quickLinks": "Quick links",
+    "usefulLinks": "Useful links",
+    "contact": "Contact us",
+    "postalCode": "Postal Code:",
+    "crafted": "Crafted with ❤️",
+    "copyright": "{{year}} Behmand Auditing Institute. All rights reserved."
+  },
+  "useful": {
+    "iacpa": "Iranian Association of Certified Public Accountants",
+    "seo": "Securities and Exchange Organization of Iran",
+    "audit": "Audit Organization of Iran",
+    "ifrs": "IFRS - International Standards",
+    "cbi": "Central Bank of Iran"
+  }
+}

@@ -20,66 +20,124 @@ import {
   Legend,
   Tooltip,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 const OrganizationalChart = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
 
+  // داده‌های پرسنل به صورت دو زبانه
   const personnelData = [
     {
-      role: "شريك/Partner",
+      role: {
+        fa: "شريك",
+        en: "Partner",
+      },
       count: 10,
       color: "#8884d8",
-      education: "لیسانس، فوق لیسانس و دکتری",
+      education: {
+        fa: "لیسانس، فوق لیسانس و دکتری",
+        en: "Bachelor, Master and PhD",
+      },
     },
     {
-      role: "مدير/Manager",
+      role: {
+        fa: "مدير",
+        en: "Manager",
+      },
       count: 14,
       color: "#82ca9d",
-      education: "لیسانس و فوق لیسانس",
+      education: {
+        fa: "لیسانس و فوق لیسانس",
+        en: "Bachelor and Master",
+      },
     },
     {
-      role: "سرپرست ارشد/Senior Supervisor",
+      role: {
+        fa: "سرپرست ارشد",
+        en: "Senior Supervisor",
+      },
       count: 7,
       color: "#ffc658",
-      education: "لیسانس و فوق لیسانس",
+      education: {
+        fa: "لیسانس و فوق لیسانس",
+        en: "Bachelor and Master",
+      },
     },
     {
-      role: "سرپرست/Supervisor",
+      role: {
+        fa: "سرپرست",
+        en: "Supervisor",
+      },
       count: 10,
       color: "#ff8042",
-      education: "لیسانس و فوق لیسانس",
+      education: {
+        fa: "لیسانس و فوق لیسانس",
+        en: "Bachelor and Master",
+      },
     },
     {
-      role: "حسابرس ارشد/Senior Auditor",
+      role: {
+        fa: "حسابرس ارشد",
+        en: "Senior Auditor",
+      },
       count: 16,
       color: "#0088fe",
-      education: "لیسانس، فوق لیسانس و دکتری",
+      education: {
+        fa: "لیسانس، فوق لیسانس و دکتری",
+        en: "Bachelor, Master and PhD",
+      },
     },
     {
-      role: "حسابرس/Auditor",
+      role: {
+        fa: "حسابرس",
+        en: "Auditor",
+      },
       count: 54,
       color: "#00c49f",
-      education: "لیسانس و فوق لیسانس",
+      education: {
+        fa: "لیسانس و فوق لیسانس",
+        en: "Bachelor and Master",
+      },
     },
     {
-      role: "كمك حسابرس/Auditor Assistant",
+      role: {
+        fa: "كمك حسابرس",
+        en: "Auditor Assistant",
+      },
       count: 10,
       color: "#ffbb28",
-      education: "لیسانس و فوق لیسانس و دو نفر دانشجو",
+      education: {
+        fa: "لیسانس و فوق لیسانس و دو نفر دانشجو",
+        en: "Bachelor and Master and two students",
+      },
     },
     {
-      role: "همکاران اداری/Administrative staff",
+      role: {
+        fa: "همکاران اداری",
+        en: "Administrative staff",
+      },
       count: 9,
       color: "#a4de6c",
-      education: "-",
+      education: {
+        fa: "-",
+        en: "-",
+      },
     },
     {
-      role: "کارشناس رایانه / Computer specialist",
+      role: {
+        fa: "کارشناس رایانه",
+        en: "Computer specialist",
+      },
       count: 2,
       color: "#d0ed57",
-      education: "-",
+      education: {
+        fa: "-",
+        en: "-",
+      },
     },
   ];
 
@@ -88,6 +146,8 @@ const OrganizationalChart = () => {
   const chartData = personnelData.map((item) => ({
     ...item,
     percentage: ((item.count / total) * 100).toFixed(1),
+    displayRole: item.role[language],
+    displayEducation: item.education[language],
   }));
 
   const CustomTooltip = ({ active, payload }) => {
@@ -99,14 +159,18 @@ const OrganizationalChart = () => {
             p: 2,
             background: "rgba(255, 255, 255, 0.95)",
             border: "1px solid #ddd",
+            direction: language === "fa" ? "rtl" : "ltr",
           }}
         >
           <Typography variant="body2" fontWeight="bold">
-            {payload[0].payload.role.split("/")[0]}
+            {payload[0].payload.displayRole}
           </Typography>
-          <Typography variant="body2">تعداد: {payload[0].value}</Typography>
+          <Typography variant="body2">
+            {language === "fa" ? "تعداد:" : "Count:"} {payload[0].value}
+          </Typography>
           <Typography variant="body2" color="primary">
-            درصد: {payload[0].payload.percentage}%
+            {language === "fa" ? "درصد:" : "Percentage:"}{" "}
+            {payload[0].payload.percentage}%
           </Typography>
         </Paper>
       );
@@ -129,7 +193,7 @@ const OrganizationalChart = () => {
           textShadow: "0 2px 4px rgba(0,0,0,0.1)",
         }}
       >
-        ساختار سازمانی
+        {language === "fa" ? "ساختار سازمانی" : "Organizational Structure"}
       </Typography>
 
       <Box
@@ -158,7 +222,9 @@ const OrganizationalChart = () => {
             gutterBottom
             sx={{ fontWeight: 600, mb: 2 }}
           >
-            نمودار توزیع پرسنل
+            {language === "fa"
+              ? "نمودار توزیع پرسنل"
+              : "Personnel Distribution Chart"}
           </Typography>
 
           <ResponsiveContainer width="100%" height={350}>
@@ -168,13 +234,11 @@ const OrganizationalChart = () => {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ role, percentage }) =>
-                  isMobile ? "" : `${percentage}%`
-                }
+                label={({ percentage }) => (isMobile ? "" : `${percentage}%`)}
                 outerRadius={isSmallMobile ? 80 : isMobile ? 100 : 120}
                 fill="#8884d8"
                 dataKey="count"
-                nameKey="role"
+                nameKey="displayRole"
               >
                 {chartData.map((entry, index) => (
                   <Cell
@@ -195,9 +259,9 @@ const OrganizationalChart = () => {
                     paddingLeft: 20,
                     fontSize: "12px",
                   }}
-                  formatter={(value, entry) => (
+                  formatter={(value) => (
                     <span style={{ fontSize: "11px", color: "#333" }}>
-                      {value.split("/")[0]}
+                      {value}
                     </span>
                   )}
                 />
@@ -229,9 +293,7 @@ const OrganizationalChart = () => {
                       borderRadius: "50%",
                     }}
                   />
-                  <Typography variant="caption">
-                    {item.role.split("/")[0]}
-                  </Typography>
+                  <Typography variant="caption">{item.displayRole}</Typography>
                 </Box>
               ))}
             </Box>
@@ -251,7 +313,9 @@ const OrganizationalChart = () => {
             gutterBottom
             sx={{ fontWeight: 600, mb: 2 }}
           >
-            جدول آمار پرسنل
+            {language === "fa"
+              ? "جدول آمار پرسنل"
+              : "Personnel Statistics Table"}
           </Typography>
 
           <TableContainer
@@ -263,6 +327,7 @@ const OrganizationalChart = () => {
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
               borderRadius: 3,
               overflow: "auto",
+              direction: language === "fa" ? "rtl" : "ltr",
             }}
           >
             <Table sx={{ minWidth: isSmallMobile ? 300 : 400 }}>
@@ -279,11 +344,19 @@ const OrganizationalChart = () => {
                     },
                   }}
                 >
-                  <TableCell>ردیف</TableCell>
-                  <TableCell>رده سازمانی</TableCell>
-                  <TableCell>تعداد نفرات</TableCell>
-                  <TableCell>درصد</TableCell>
-                  <TableCell>سطح تحصیلات</TableCell>
+                  <TableCell>{language === "fa" ? "ردیف" : "Row"}</TableCell>
+                  <TableCell>
+                    {language === "fa" ? "رده سازمانی" : "Organizational Level"}
+                  </TableCell>
+                  <TableCell>
+                    {language === "fa" ? "تعداد نفرات" : "Number of Personnel"}
+                  </TableCell>
+                  <TableCell>
+                    {language === "fa" ? "درصد" : "Percentage"}
+                  </TableCell>
+                  <TableCell>
+                    {language === "fa" ? "سطح تحصیلات" : "Education Level"}
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -309,7 +382,7 @@ const OrganizationalChart = () => {
                   >
                     <TableCell>{index + 1}</TableCell>
                     <TableCell sx={{ fontWeight: 600 }}>
-                      {isSmallMobile ? row.role.split("/")[0] : row.role}
+                      {row.displayRole}
                     </TableCell>
                     <TableCell>{row.count}</TableCell>
                     <TableCell sx={{ color: "primary.main", fontWeight: 700 }}>
@@ -322,7 +395,7 @@ const OrganizationalChart = () => {
                         maxWidth: 150,
                       }}
                     >
-                      {row.education}
+                      {row.displayEducation}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -337,7 +410,9 @@ const OrganizationalChart = () => {
                     },
                   }}
                 >
-                  <TableCell colSpan={2}>جمع کل</TableCell>
+                  <TableCell colSpan={2}>
+                    {language === "fa" ? "جمع کل" : "Total"}
+                  </TableCell>
                   <TableCell>{total}</TableCell>
                   <TableCell>100%</TableCell>
                   <TableCell>-</TableCell>

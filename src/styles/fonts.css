@@ -89,3 +89,40 @@
     format("truetype");
 }
 
+/* حالت انگلیسی - فونت لاتین */
+.english-mode {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+/* تنظیمات علائم نگارشی برای انگلیسی */
+.english-mode,
+.english-mode * {
+    unicode-bidi: plaintext;
+}
+
+/* تنظیمات خاص برای Material-UI در حالت انگلیسی */
+.english-mode .MuiTypography-root {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+.english-mode .MuiButton-root {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+.english-mode .MuiInputBase-input {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+.english-mode .MuiChip-root {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+/* برای تایتل‌ها */
+.english-mode h1,
+.english-mode h2,
+.english-mode h3,
+.english-mode h4,
+.english-mode h5,
+.english-mode h6 {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}

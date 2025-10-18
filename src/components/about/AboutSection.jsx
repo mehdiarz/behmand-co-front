@@ -9,65 +9,42 @@ import {
   Button,
   alpha,
   useTheme,
-  Dialog,
-  DialogContent,
-  IconButton,
-  AppBar,
-  Toolbar,
-  useMediaQuery,
 } from "@mui/material";
-import {
-  Close,
-  NavigateBefore,
-  NavigateNext,
-  ZoomIn,
-  ZoomOut,
-} from "@mui/icons-material";
-import { motion, AnimatePresence } from "framer-motion";
-
-import about1 from "../../assets/about1.jpg";
-import about2 from "../../assets/about2.jpeg";
-import about3 from "../../assets/about3.jpeg";
-import about4 from "../../assets/about4.jpeg";
-import about5 from "../../assets/about5.jpeg";
-
-const PROFESSIONAL_IMAGES = [about1, about2, about3, about4, about5];
-
-const tabs = [
-  {
-    key: "vision",
-    label: "تاریخچه",
-    text: "موسسه حسابرسی بهمند از سال ۱۳۵۸ تاسیس و تحت شماره ۲۰۳۵ در اداره ثبت شرکت های تهران به ثبت رسیده است و با سابقه ای در حدود ۴۶ سال در زمینه بازرسی و حسابرسی و سایر خدمات مرتبط با امور مالی در حال فعالیت می باشد.",
-  },
-  {
-    key: "mission",
-    label: "شرکاء و مدیران",
-    text: `تعداد کل مدیران موسسه ۲۴ نفر می باشد که از این تعداد ۱۰ نفر شریک موسسه هستند.\n
-متوسط سابقه کار شرکا حدود ۳۱ سال و متوسط سابقه کار سایر مدیران موسسه حدود ۱۰ سال می باشد.`,
-  },
-  {
-    key: "values",
-    label: "ارزش‌ها",
-    text: "تعهد به اخلاق حرفه‌ای، دقت و صحت، نوآوری مستمر، و روابط بلندمدت با مشتریان از ارزش‌های بنیادین موسسه بهمند می‌باشد.",
-  },
-];
-
-const stats = [
-  { num: 46, suffix: "+", text: "سال تجربه" },
-  { num: 1000, suffix: "+", text: "تعداد کارهای موسسه" },
-  { num: 2000, suffix: "+", text: "گزارشات صادر شده در سال ۱۴۰۳" },
-];
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function AboutSection() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
+  const { t } = useTranslation();
 
   const [activeTab, setActiveTab] = useState("vision");
-  const [counters, setCounters] = useState(stats.map(() => 0));
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [zoomLevel, setZoomLevel] = useState(1);
+  const [counters, setCounters] = useState([0, 0, 0]);
+
+  // تب‌ها با استفاده از ترجمه
+  const tabs = [
+    {
+      key: "vision",
+      label: t("about.tabs.vision.label"),
+      text: t("about.tabs.vision.text"),
+    },
+    {
+      key: "mission",
+      label: t("about.tabs.mission.label"),
+      text: t("about.tabs.mission.text"),
+    },
+    {
+      key: "values",
+      label: t("about.tabs.values.label"),
+      text: t("about.tabs.values.text"),
+    },
+  ];
+
+  // آمار با استفاده از ترجمه
+  const stats = [
+    { num: 46, suffix: "+", text: t("about.stats.experience") },
+    { num: 1000, suffix: "+", text: t("about.stats.projects") },
+    { num: 2000, suffix: "+", text: t("about.stats.reports") },
+  ];
 
   // آمار و ارقام
   useEffect(() => {
@@ -88,86 +65,21 @@ export default function AboutSection() {
       }, 40);
       return () => clearInterval(interval);
     });
-  }, []);
+  }, [t]);
 
-  const activeContent = tabs.find((t) => t.key === activeTab);
-
-  const handleImageClick = (image, index) => {
-    setSelectedImage(image);
-    setCurrentImageIndex(index);
-  };
-
-  const handleCloseLightbox = () => {
-    setSelectedImage(null);
-    setZoomLevel(1);
-  };
-
-  const goToNext = () => {
-    const nextIndex = (currentImageIndex + 1) % PROFESSIONAL_IMAGES.length;
-    setCurrentImageIndex(nextIndex);
-    setSelectedImage(PROFESSIONAL_IMAGES[nextIndex]);
-    setZoomLevel(1);
-  };
-
-  const goToPrev = () => {
-    const prevIndex =
-      (currentImageIndex - 1 + PROFESSIONAL_IMAGES.length) %
-      PROFESSIONAL_IMAGES.length;
-    setCurrentImageIndex(prevIndex);
-    setSelectedImage(PROFESSIONAL_IMAGES[prevIndex]);
-    setZoomLevel(1);
-  };
-
-  const handleZoomIn = () => {
-    setZoomLevel((prev) => Math.min(prev + 0.25, 3));
-  };
-
-  const handleZoomOut = () => {
-    setZoomLevel((prev) => Math.max(prev - 0.25, 1));
-  };
-
-  // مدیریت رویدادهای کیبورد
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (!selectedImage) return;
-
-      switch (event.key) {
-        case "Escape":
-          handleCloseLightbox();
-          break;
-        case "ArrowRight":
-          goToNext();
-          break;
-        case "ArrowLeft":
-          goToPrev();
-          break;
-        case "+":
-        case "=":
-          handleZoomIn();
-          break;
-        case "-":
-          handleZoomOut();
-          break;
-        default:
-          break;
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedImage, currentImageIndex]);
+  const activeContent = tabs.find((tab) => tab.key === activeTab);
 
   return (
     <Box
       sx={{
         py: { xs: 6, md: 10, lg: 12 },
         background: `
-                    linear-gradient(135deg, 
-                        ${theme.palette.primary.dark} 0%, 
-                        ${theme.palette.primary.main} 50%, 
-                        ${theme.palette.primary.light} 100%
-                    )
-                `,
+          linear-gradient(135deg, 
+            ${theme.palette.primary.dark} 0%, 
+            ${theme.palette.primary.main} 50%, 
+            ${theme.palette.primary.light} 100%
+          )
+        `,
         position: "relative",
         overflow: "hidden",
         "&::before": {
@@ -178,10 +90,10 @@ export default function AboutSection() {
           right: 0,
           bottom: 0,
           background: `
-                        radial-gradient(circle at 20% 80%, ${alpha(theme.palette.primary.light, 0.1)} 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, ${alpha(theme.palette.primary.dark, 0.1)} 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, ${alpha("#ffffff", 0.05)} 0%, transparent 50%)
-                    `,
+            radial-gradient(circle at 20% 80%, ${alpha(theme.palette.primary.light, 0.1)} 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, ${alpha(theme.palette.primary.dark, 0.1)} 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, ${alpha("#ffffff", 0.05)} 0%, transparent 50%)
+          `,
         },
       }}
     >
@@ -204,7 +116,7 @@ export default function AboutSection() {
               {/* هدر */}
               <Box sx={{ mb: { xs: 3, md: 4 } }}>
                 <Chip
-                  label="درباره ما"
+                  label={t("about.chip")}
                   sx={{
                     mb: { xs: 2, md: 2 },
                     px: { xs: 2, md: 3 },
@@ -233,7 +145,7 @@ export default function AboutSection() {
                     textShadow: "0 2px 10px rgba(0,0,0,0.1)",
                   }}
                 >
-                  موسسه حسابرسی
+                  {t("about.title")}
                   <Box
                     component="span"
                     sx={{
@@ -249,7 +161,7 @@ export default function AboutSection() {
                       mt: { xs: 0.5, md: 1 },
                     }}
                   >
-                    بهمند
+                    {t("brand.name")}
                   </Box>
                 </Typography>
                 <Typography
@@ -266,8 +178,7 @@ export default function AboutSection() {
                     },
                   }}
                 >
-                  پیشرو در ارائه خدمات تخصصی بازرسی و حسابرسی، مالی و مشاوره‌ای بر
-                  اساس استاداردهای حسابداری و حسابرسی ایران
+                  {t("about.subtitle")}
                 </Typography>
               </Box>
 
@@ -283,15 +194,15 @@ export default function AboutSection() {
                     justifyContent: { xs: "center", md: "flex-start" },
                   }}
                 >
-                  {tabs.map((t) => (
+                  {tabs.map((tab) => (
                     <Chip
-                      key={t.key}
-                      label={t.label}
+                      key={tab.key}
+                      label={tab.label}
                       clickable
-                      onClick={() => setActiveTab(t.key)}
+                      onClick={() => setActiveTab(tab.key)}
                       sx={{
                         background:
-                          activeTab === t.key
+                          activeTab === tab.key
                             ? `linear-gradient(135deg, ${alpha("#ffffff", 0.25)}, ${alpha("#ffffff", 0.15)})`
                             : alpha("#ffffff", 0.1),
                         color: "white",
@@ -301,7 +212,7 @@ export default function AboutSection() {
                         py: { xs: 1, md: 1.5 },
                         fontSize: { xs: "0.8rem", md: "0.9rem" },
                         border:
-                          activeTab === t.key
+                          activeTab === tab.key
                             ? `1px solid ${alpha("#ffffff", 0.4)}`
                             : `1px solid ${alpha("#ffffff", 0.2)}`,
                         transition: "all 0.3s ease",
@@ -346,7 +257,7 @@ export default function AboutSection() {
                 spacing={{ xs: 2, md: 3 }}
                 sx={{ mb: { xs: 3, md: 4 } }}
               >
-                {stats.map((s, i) => (
+                {stats.map((stat, i) => (
                   <Grid item xs={4} key={i}>
                     <Box sx={{ textAlign: "center" }}>
                       <Typography
@@ -365,7 +276,7 @@ export default function AboutSection() {
                         }}
                       >
                         {counters[i]}
-                        {s.suffix}
+                        {stat.suffix}
                       </Typography>
                       <Typography
                         variant="body2"
@@ -381,7 +292,7 @@ export default function AboutSection() {
                           },
                         }}
                       >
-                        {s.text}
+                        {stat.text}
                       </Typography>
                     </Box>
                   </Grid>
@@ -417,7 +328,7 @@ export default function AboutSection() {
                   minWidth: { xs: 140, md: 160 },
                 }}
               >
-                آشنایی بیشتر
+                {t("about.cta")}
               </Button>
             </motion.div>
           </Grid>
