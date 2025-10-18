@@ -1,0 +1,73 @@
+{
+  "brand": {
+    "name": "Behmand",
+    "full": "Behmand Auditing Institute"
+  },
+  "header": {
+    "logoAlt": "Behmand Auditing Institute logo"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Behmand Auditing Institute",
+    "subtitle": "Provider of audit, financial advisory and tax services for small businesses to large organizations",
+    "badge": "Trusted auditing firm",
+    "cta": {
+      "services": "View Services",
+      "careers": "Careers"
+    }
+  },
+  "home": {
+    "services": {
+      "chip": "Specialized Services",
+      "title": "Our Professional Services",
+      "subtitle": "A complete set of financial and audit services to meet the diverse needs of organizations and businesses",
+      "more": "Learn more"
+    },
+    "customers": {
+      "chip": "Our Clients",
+      "title": "Some of our clients",
+      "more": "View more",
+      "moreAll": "View all clients"
+    },
+    "cta": {
+      "title": "Ready to start working together?",
+      "subtitle": "Contact us or submit your request to receive an initial consultation and review your business needs.",
+      "contact": "Contact us",
+      "services": "Our services"
+    },
+    "stats": {
+      "years": "Years of experience",
+      "audits": "Auditing projects",
+      "clients": "Active clients",
+      "staff": "Total staff"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Behmand Auditing Institute",
+      "desc": "Provider of independent audit, financial and tax advisory services for small and large companies with a focus on innovation and trust."
+    },
+    "followUs": "Follow us",
+    "quickLinks": "Quick links",
+    "usefulLinks": "Useful links",
+    "contact": "Contact us",
+    "postalCode": "Postal Code:",
+    "crafted": "Crafted with ❤️",
+    "copyright": "{{year}} Behmand Auditing Institute. All rights reserved."
+  },
+  "useful": {
+    "iacpa": "Iranian Association of Certified Public Accountants",
+    "seo": "Securities and Exchange Organization of Iran",
+    "audit": "Audit Organization of Iran",
+    "ifrs": "IFRS - International Standards",
+    "cbi": "Central Bank of Iran"
+  }
+}

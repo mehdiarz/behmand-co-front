@@ -15,8 +15,10 @@ import {
 } from "@mui/icons-material";
 
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+    const { t } = useTranslation();
     return (
         <Box
             sx={{
@@ -61,10 +63,10 @@ export default function Footer() {
                                     WebkitTextFillColor: 'transparent',
                                 }}
                             >
-                                بهمند
+                                {t('brand.name')}
                             </Typography>
                             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'white' }}>
-                                موسسه حسابرسی بهمند
+                                {t('footer.about.title')}
                             </Typography>
                         </Box>
                         <Typography variant="body1" sx={{
@@ -73,13 +75,13 @@ export default function Footer() {
                             mb: 3,
                             fontSize: '0.95rem'
                         }}>
-                            ارائه‌دهنده خدمات حسابرسی مستقل، مشاوره مالی و مالیاتی برای شرکت‌های بزرگ و کوچک با تمرکز بر نوآوری و اعتماد.
+                            {t('footer.about.desc')}
                         </Typography>
 
                         {/* Social Media */}
                         <Box>
                             <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'white', fontSize: '1rem' }}>
-                                ما را دنبال کنید
+                                {t('footer.followUs')}
                             </Typography>
                             <Stack direction="row" spacing={2}>
                                 {[
@@ -115,16 +117,16 @@ export default function Footer() {
                     {/* Quick Links */}
                     <Grid item xs={12} sm={6} md={2}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            دسترسی سریع
+                            {t('footer.quickLinks')}
                         </Typography>
                         <Stack spacing={2}>
                             {[
-                                { text: "خانه", url: "/" },
-                                { text: "درباره ما", url: "/about" },
-                                { text: "خدمات", url: "/services" },
-                                { text: "مقالات", url: "/blog" },
-                                { text: "تماس با ما", url: "/contact" },
-                                { text: "فرصت‌های شغلی", url: "/careers" },
+                                { textKey: "nav.home", url: "/" },
+                                { textKey: "nav.about", url: "/about" },
+                                { textKey: "nav.services", url: "/services" },
+                                { textKey: "nav.blog", url: "/blog" },
+                                { textKey: "nav.contact", url: "/contact" },
+                                { textKey: "nav.careers", url: "/careers" },
                             ].map((item, i) => (
                                 <Link
                                     key={i}
@@ -142,7 +144,7 @@ export default function Footer() {
                                         },
                                     }}
                                 >
-                                    {item.text}
+                                    {t(item.textKey)}
                                 </Link>
                             ))}
                         </Stack>
@@ -151,15 +153,15 @@ export default function Footer() {
                     {/* External Links */}
                     <Grid item xs={12} sm={6} md={3}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            پیوندهای مفید
+                            {t('footer.usefulLinks')}
                         </Typography>
                         <Stack spacing={2}>
                             {[
-                                { text: "جامعه حسابداران رسمی ایران", url: "https://iacpa.ir/" },
-                                { text: "سازمان بورس و اوراق بهادار", url: "https://www.seo.ir/" },
-                                { text: "سازمان حسابرسی", url: "https://audit.org.ir/" },
-                                { text: "IFRS استانداردهای بین‌المللی", url: "https://www.ifrs.org/" },
-                                { text: "بانک مرکزی جمهوری اسلامی", url: "https://www.cbi.ir/" },
+                                { textKey: "useful.iacpa", url: "https://iacpa.ir/" },
+                                { textKey: "useful.seo", url: "https://www.seo.ir/" },
+                                { textKey: "useful.audit", url: "https://audit.org.ir/" },
+                                { textKey: "useful.ifrs", url: "https://www.ifrs.org/" },
+                                { textKey: "useful.cbi", url: "https://www.cbi.ir/" },
                             ].map((item, i) => (
                                 <Link
                                     key={i}
@@ -178,7 +180,7 @@ export default function Footer() {
                                         },
                                     }}
                                 >
-                                    {item.text}
+                                    {t(item.textKey)}
                                 </Link>
                             ))}
                         </Stack>
@@ -187,7 +189,7 @@ export default function Footer() {
                     {/* Contact Info */}
                     <Grid item xs={12} md={3}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            تماس با ما
+                            {t('footer.contact')}
                         </Typography>
                         <Stack spacing={2.5}>
                             {/* Address */}
@@ -267,7 +269,7 @@ export default function Footer() {
                             <Box sx={{ display: "flex", alignItems: "center", color: 'rgba(255,255,255,0.7)' }}>
                                 <LocalPostOffice sx={{ mr: 1.5, fontSize: 18, color: '#66bb6a' }} />
                                 <Typography variant="body2" sx={{ fontSize: '0.85rem' }}>
-                                    کدپستی: ۱۵۸۶۹۳۶۱۴۵
+                                    {t('footer.postalCode')} ۱۵۸۶۹۳۶۱۴۵
                                 </Typography>
                             </Box>
                         </Stack>
@@ -288,14 +290,14 @@ export default function Footer() {
                             color: 'rgba(255,255,255,0.7)',
                             fontWeight: 500,
                         }}>
-                            {new Date().getFullYear()} موسسه حسابرسی بهمند. کلیه حقوق محفوظ است.
+                            {t('footer.copyright', { year: new Date().getFullYear() })}
                         </Typography>
                     </Box>
                     <Typography
                         variant="caption"
                         sx={{ color: 'rgba(255,255,255,0.65)', display: 'inline-flex', alignItems: 'center', gap: 0.5 }}
                     >
-                        طراحی و توسعه با ❤️
+                        {t('footer.crafted')}
                         <Link
                             href="https://t.me/m_ehdii"
                             target="_blank"

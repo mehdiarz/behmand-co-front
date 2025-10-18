@@ -48,6 +48,7 @@ import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import GavelIcon from "@mui/icons-material/Gavel";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import { useTranslation } from "react-i18next";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -76,6 +77,7 @@ const HERO_IMAGES = [
 
 export default function Home() {
   const theme = useTheme();
+  const { t, i18n } = useTranslation();
   const logos = [
     { src: bankShahr, alt: "بانک شهر" },
     { src: bankGardeshgari, alt: "بانک گردشگری" },
@@ -223,7 +225,7 @@ export default function Home() {
 
   return (
     <Box sx={{ overflow: "hidden", bgcolor: "background.default" }}>
-      {/* Hero Section با اسلایدشو */}
+          {/* Hero Section با اسلایدشو */}
       <Box
         sx={{
           minHeight: "100vh",
@@ -489,7 +491,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Chip
-                label="خدمات تخصصی"
+                label={t('home.services.chip')}
                 sx={{
                   mb: 3,
                   px: 3,
@@ -509,7 +511,7 @@ export default function Home() {
                   mb: 3,
                 }}
               >
-                خدمات حرفه‌ای ما
+                {t('home.services.title')}
               </Typography>
               <Typography
                 variant="h6"
@@ -521,8 +523,7 @@ export default function Home() {
                   fontWeight: 400,
                 }}
               >
-                مجموعه‌ای کامل از خدمات مالی و حسابرسی برای پاسخ‌گویی به نیازهای
-                متفاوت سازمان ها، نهادها و کسب و کارها
+                {t('home.services.subtitle')}
               </Typography>
             </motion.div>
           </Box>
@@ -643,7 +644,7 @@ export default function Home() {
                         }}
                       >
                         <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                          اطلاعات بیشتر
+                          {t('home.services.more')}
                         </Typography>
                         <ArrowForward
                           sx={{
@@ -920,7 +921,7 @@ export default function Home() {
           >
             <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
               <Chip
-                label="مشتریان ما"
+                label={t('home.customers.chip')}
                 sx={{
                   mb: 2,
                   px: { xs: 2, sm: 3 },
@@ -944,7 +945,7 @@ export default function Home() {
                   lineHeight: 1.2,
                 }}
               >
-                برخی از مشتریان ما
+                {t('home.customers.title')}
               </Typography>
             </Box>
             <Button
@@ -968,7 +969,7 @@ export default function Home() {
                 transition: "all 0.3s ease",
               }}
             >
-              مشاهده بیشتر
+              {t('home.customers.more')}
             </Button>
           </Stack>
 
@@ -1079,7 +1080,7 @@ export default function Home() {
                 transition: "all 0.3s ease",
               }}
             >
-              مشاهده تمام مشتریان
+              {t('home.customers.moreAll')}
             </Button>
           </Box>
         </Container>
@@ -1126,7 +1127,7 @@ export default function Home() {
                 mb: 3,
               }}
             >
-              آماده شروع همکاری هستید؟
+              {t('home.cta.title')}
             </Typography>
             <Typography
               variant="h6"
@@ -1140,8 +1141,7 @@ export default function Home() {
                 fontSize: { xs: "1.1rem", md: "1.3rem" },
               }}
             >
-              برای دریافت مشاوره اولیه و بررسی نیازهای کسب‌وکار شما، با ما تماس
-              بگیرید یا درخواست خود را ثبت کنید.
+              {t('home.cta.subtitle')}
             </Typography>
             <Stack
               direction={{ xs: "column", sm: "row" }}
@@ -1169,7 +1169,7 @@ export default function Home() {
                   },
                 }}
               >
-                تماس با ما
+                {t('home.cta.contact')}
               </Button>
               <Button
                 variant="outlined"
@@ -1191,7 +1191,7 @@ export default function Home() {
                   },
                 }}
               >
-                خدمات ما
+                {t('home.cta.services')}
               </Button>
             </Stack>
           </motion.div>
