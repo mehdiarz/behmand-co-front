@@ -1,0 +1,108 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Articles",
+    "resumeForm": "Careers",
+    "contact": "Contact Us"
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "home": {
+    "hero": {
+      "title": "Behmand Audit Institute",
+      "subtitle": "Audit and Financial Consulting Services with the Highest Quality",
+      "description": "With more than two decades of experience in auditing and financial consulting, we are ready to provide specialized services to you."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Complete range of audit and consulting services"
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "Expertise and experience at your service"
+    },
+    "customers": {
+      "title": "Our Clients",
+      "subtitle": "Trusted companies that rely on us"
+    }
+  },
+  "about": {
+    "title": "About Behmand Audit Institute",
+    "subtitle": "Expertise and experience at your service",
+    "description": "Behmand Audit Institute, with more than two decades of experience in auditing and financial consulting, is considered one of the most reputable audit institutions in the country.",
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "values": "Our Values"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete range of audit and consulting services",
+    "audit": "Audit",
+    "consulting": "Consulting",
+    "tax": "Tax",
+    "accounting": "Accounting"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to answer your questions",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    }
+  },
+  "blog": {
+    "title": "Articles",
+    "subtitle": "Latest news and specialized articles",
+    "readMore": "Read More",
+    "publishedOn": "Published on",
+    "author": "Author"
+  },
+  "resumeForm": {
+    "title": "Careers",
+    "subtitle": "Join our team",
+    "form": {
+      "personalInfo": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "education": "Education",
+      "experience": "Work Experience",
+      "skills": "Skills",
+      "resume": "Resume",
+      "submit": "Submit Application"
+    }
+  },
+  "footer": {
+    "description": "Behmand Audit Institute - Providing audit and financial consulting services with the highest quality",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All rights reserved"
+  }
+}

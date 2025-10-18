@@ -13,10 +13,12 @@ import {
     Instagram,
     Copyright,
 } from "@mui/icons-material";
-
+import { useTranslation } from "react-i18next";
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 export default function Footer() {
+    const { t } = useTranslation();
+    
     return (
         <Box
             sx={{
@@ -64,7 +66,7 @@ export default function Footer() {
                                 بهمند
                             </Typography>
                             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'white' }}>
-                                موسسه حسابرسی بهمند
+                                {t("home.hero.title")}
                             </Typography>
                         </Box>
                         <Typography variant="body1" sx={{
@@ -73,13 +75,13 @@ export default function Footer() {
                             mb: 3,
                             fontSize: '0.95rem'
                         }}>
-                            ارائه‌دهنده خدمات حسابرسی مستقل، مشاوره مالی و مالیاتی برای شرکت‌های بزرگ و کوچک با تمرکز بر نوآوری و اعتماد.
+                            {t("footer.description")}
                         </Typography>
 
                         {/* Social Media */}
                         <Box>
                             <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'white', fontSize: '1rem' }}>
-                                ما را دنبال کنید
+                                {t("footer.followUs")}
                             </Typography>
                             <Stack direction="row" spacing={2}>
                                 {[
@@ -115,16 +117,16 @@ export default function Footer() {
                     {/* Quick Links */}
                     <Grid item xs={12} sm={6} md={2}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            دسترسی سریع
+                            {t("footer.quickLinks")}
                         </Typography>
                         <Stack spacing={2}>
                             {[
-                                { text: "خانه", url: "/" },
-                                { text: "درباره ما", url: "/about" },
-                                { text: "خدمات", url: "/services" },
-                                { text: "مقالات", url: "/blog" },
-                                { text: "تماس با ما", url: "/contact" },
-                                { text: "فرصت‌های شغلی", url: "/careers" },
+                                { textKey: "navigation.home", url: "/" },
+                                { textKey: "navigation.about", url: "/about" },
+                                { textKey: "navigation.services", url: "/services" },
+                                { textKey: "navigation.blog", url: "/blog" },
+                                { textKey: "navigation.contact", url: "/contact" },
+                                { textKey: "navigation.resumeForm", url: "/resumeForm" },
                             ].map((item, i) => (
                                 <Link
                                     key={i}
@@ -142,7 +144,7 @@ export default function Footer() {
                                         },
                                     }}
                                 >
-                                    {item.text}
+                                    {t(item.textKey)}
                                 </Link>
                             ))}
                         </Stack>
@@ -187,7 +189,7 @@ export default function Footer() {
                     {/* Contact Info */}
                     <Grid item xs={12} md={3}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            تماس با ما
+                            {t("footer.contactInfo")}
                         </Typography>
                         <Stack spacing={2.5}>
                             {/* Address */}
@@ -288,7 +290,7 @@ export default function Footer() {
                             color: 'rgba(255,255,255,0.7)',
                             fontWeight: 500,
                         }}>
-                            {new Date().getFullYear()} موسسه حسابرسی بهمند. کلیه حقوق محفوظ است.
+                            {new Date().getFullYear()} {t("home.hero.title")}. {t("footer.allRightsReserved")}
                         </Typography>
                     </Box>
                     <Typography

@@ -14,26 +14,30 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../LanguageSwitcher";
 import logo from "../../assets/default-logo.png";
 
 const navItems = [
-    { label: "خانه", path: "/" },
-    { label: "درباره ما", path: "/about" },
-    { label: "خدمات", path: "/services" },
-    { label: "گالری", path: "/gallery" },
-    { label: "مقالات", path: "/blog" },
-    { label: "فرصت‌های شغلی", path: "/resumeForm" },
-    { label: "تماس با ما", path: "/contact" },
+    { labelKey: "navigation.home", path: "/" },
+    { labelKey: "navigation.about", path: "/about" },
+    { labelKey: "navigation.services", path: "/services" },
+    { labelKey: "navigation.gallery", path: "/gallery" },
+    { labelKey: "navigation.blog", path: "/blog" },
+    { labelKey: "navigation.resumeForm", path: "/resumeForm" },
+    { labelKey: "navigation.contact", path: "/contact" },
 ];
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+    const { t, i18n } = useTranslation();
 
     const handleDrawerToggle = () => {
         setMobileOpen((prev) => !prev);
     };
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,7 +65,7 @@ export default function Header() {
                             }}
                         >
                             <ListItemText
-                                primary={item.label}
+                                primary={t(item.labelKey)}
                                 primaryTypographyProps={{
                                     fontWeight: 600,
                                 }}
@@ -69,6 +73,13 @@ export default function Header() {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                
+                {/* Mobile Language Switcher */}
+                <ListItem disablePadding sx={{ mt: 2 }}>
+                    <Box sx={{ width: '100%', p: 2, bgcolor: 'white', borderRadius: 2 }}>
+                        <LanguageSwitcher variant="mobile" />
+                    </Box>
+                </ListItem>
             </List>
         </Box>
     );
@@ -108,14 +119,14 @@ export default function Header() {
                     <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
                         <motion.img
                             src={logo}
-                            alt="لوگوی موسسه حسابرسی بهمند"
+                            alt={t("home.hero.title")}
                             animate={{ height: isScrolled ? 50 : 70 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                             style={{ objectFit: "contain" }}
                         />
                     </Box>
 
-                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 } }}>
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 }, alignItems: "center" }}>
                         {navItems.map((item) => (
                             <Button
                                 key={item.path}
@@ -140,9 +151,14 @@ export default function Header() {
                                     '&:hover:after': { width: "100%" },
                                 }}
                             >
-                                {item.label}
+                                {t(item.labelKey)}
                             </Button>
                         ))}
+                        
+                        {/* Language Switcher */}
+                        <Box sx={{ ml: 2 }}>
+                            <LanguageSwitcher variant="desktop" />
+                        </Box>
                     </Box>
                 </Toolbar>
             </motion.div>
