@@ -13,7 +13,7 @@
     "gallery": "Gallery",
     "blog": "Blog",
     "careers": "Careers",
-    "contact": "Contact"
+    "contact": "Contact Us"
   },
   "hero": {
     "title": "Behmand Auditing Institute",
@@ -154,12 +154,14 @@
       "fullDesc": "Stock and share valuation involves determining the fair value of ownership in joint-stock and non-joint-stock companies based on accepted approaches like income approach (DCF), market comparison approach and cost approach/net asset value. In this process, financial statements, cash flows, capital structure, risks and growth prospects are examined to provide a reliable basis for transactions, capital attraction, partner exit, mergers/acquisitions and dispute resolution. The valuation output is provided as a documented, transparent and reliable report."
     }
   },
+
   "contact": {
     "address": "Flat 18, 4th Floor, No. 114, Ghaem-magham Ave, Tehran, Iran",
     "phoneNumbers": ["02188305391", "02188843708", "02188320129"],
     "fax": "02188844685",
     "email": "info@behmand.com",
     "postalCode": "1586936145",
+    "poBox": "15815-1137",
     "form": {
       "errors": {
         "firstName": "First name is required",
@@ -190,5 +192,10 @@
     "audit": "Audit Organization of Iran",
     "ifrs": "IFRS - International Standards",
     "cbi": "Central Bank of Iran"
+  },
+  "servicesPage": {
+    "chip": "Our Services",
+    "title": "Comprehensive Audit and Financial Services",
+    "subtitle": "Explore our wide range of professional services designed to meet your business needs with the highest standards"
   }
 }
