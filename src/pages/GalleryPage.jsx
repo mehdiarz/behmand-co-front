@@ -25,6 +25,7 @@ import {
     Download,
 } from "@mui/icons-material";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import AboutSlider from "../components/slider/AboutSlider.jsx";
 
 // تصاویر نمونه
@@ -37,25 +38,28 @@ const GALLERY_IMAGES = [
     "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
 ];
 
-const galleryCategories = [
-    { key: "all", label: "همه تصاویر" },
-    { key: "office", label: "فضای اداری" },
-    { key: "team", label: "تیم حرفه‌ای" },
-    { key: "projects", label: "پروژه‌ها" },
-    { key: "events", label: "رویدادها" },
-];
-
 export default function GalleryPage() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTablet = useMediaQuery(theme.breakpoints.down("md"));
     const isSmallMobile = useMediaQuery(theme.breakpoints.down(400));
+    const { t, i18n } = useTranslation();
+    const language = i18n.language;
 
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [selectedImage, setSelectedImage] = useState(null);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [zoomLevel, setZoomLevel] = useState(1);
+
+    // دسته‌بندی‌های دو زبانه
+    const galleryCategories = [
+        { key: "all", label: language === "fa" ? "همه تصاویر" : "All Images" },
+        { key: "office", label: language === "fa" ? "فضای اداری" : "Office Space" },
+        { key: "team", label: language === "fa" ? "تیم حرفه‌ای" : "Professional Team" },
+        { key: "projects", label: language === "fa" ? "پروژه‌ها" : "Projects" },
+        { key: "events", label: language === "fa" ? "رویدادها" : "Events" },
+    ];
 
     const filteredImages = selectedCategory === "all" ? GALLERY_IMAGES : GALLERY_IMAGES;
 
@@ -162,7 +166,7 @@ export default function GalleryPage() {
                         }}
                     >
                         <Chip
-                            label="گالری تصاویر"
+                            label={language === "fa" ? "گالری تصاویر" : "Gallery"}
                             sx={{
                                 mb: { xs: 2, sm: 3 },
                                 px: { xs: 1.5, sm: 4 },
@@ -192,7 +196,7 @@ export default function GalleryPage() {
                                 lineHeight: 1.2,
                             }}
                         >
-                            گالری تصاویر
+                            {language === "fa" ? "گالری تصاویر" : "Gallery"}
                             <Box
                                 component="span"
                                 sx={{
@@ -207,7 +211,7 @@ export default function GalleryPage() {
                                     mt: { xs: 0.5, sm: 1 },
                                 }}
                             >
-                                موسسه بهمند
+                                {language === "fa" ? "موسسه بهمند" : "Behmand Institute"}
                             </Box>
                         </Typography>
                         <Typography
@@ -226,8 +230,10 @@ export default function GalleryPage() {
                                 px: { xs: 1, sm: 0 },
                             }}
                         >
-                            تصاویری از فضای کاری، تیم حرفه‌ای، پروژه‌های موفق و رویدادهای
-                            موسسه حسابرسی بهمند
+                            {language === "fa"
+                                ? "تصاویری از فضای کاری، تیم حرفه‌ای، پروژه‌های موفق و رویدادهای موسسه حسابرسی بهمند"
+                                : "Images of the workspace, professional team, successful projects and events of Behmand Auditing Institute"
+                            }
                         </Typography>
                     </Box>
                 </motion.div>
@@ -433,7 +439,7 @@ export default function GalleryPage() {
                                                 },
                                             }}
                                         >
-                                            مشاهده تصویر
+                                            {language === "fa" ? "مشاهده تصویر" : "View Image"}
                                             <Box
                                                 component="span"
                                                 sx={{
@@ -495,7 +501,12 @@ export default function GalleryPage() {
                             transition: "all 0.3s ease",
                         }}
                     >
-                        {isSmallMobile ? "تماس" : isMobile ? "تماس با ما" : "تماس با ما برای اطلاعات بیشتر"}
+                        {isSmallMobile
+                            ? (language === "fa" ? "تماس" : "Contact")
+                            : isMobile
+                                ? (language === "fa" ? "تماس با ما" : "Contact Us")
+                                : (language === "fa" ? "تماس با ما برای اطلاعات بیشتر" : "Contact Us for More Information")
+                        }
                     </Button>
                 </Box>
             </Container>
@@ -563,7 +574,10 @@ export default function GalleryPage() {
                                     },
                                 }}
                             >
-                                تصویر {currentIndex + 1} از {filteredImages.length}
+                                {language === "fa"
+                                    ? `تصویر ${currentIndex + 1} از ${filteredImages.length}`
+                                    : `Image ${currentIndex + 1} of ${filteredImages.length}`
+                                }
                             </Typography>
                             <Stack direction="row" spacing={0.5}>
                                 {!isMobile && (
