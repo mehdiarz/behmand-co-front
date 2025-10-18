@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 import {
   Container,
@@ -76,6 +77,7 @@ const HERO_IMAGES = [
 
 export default function Home() {
   const theme = useTheme();
+  const { t } = useTranslation();
   const logos = [
     { src: bankShahr, alt: "بانک شهر" },
     { src: bankGardeshgari, alt: "بانک گردشگری" },
@@ -134,66 +136,58 @@ export default function Home() {
   const services = [
     {
       icon: <Calculate sx={{ fontSize: 48, color: "primary.main" }} />,
-      title: "خدمات حسابرسی",
-      desc: "از جمله انواع حسابرسی و بررسی اجمالی صورت های مالی...",
-      fullDesc:
-        "از جمله انواع حسابرسی و بررسی اجمالی صورت های مالی، رسیدگی به اطلاعات مالی آتی، روش های توافقی رسیدگی، حسابرسی خاص(ویژه)، حسابرسی عملیاتی، حسابرسی مالیاتی، حسابرسی بیمه ای.",
+      title: t('services.audit.title'),
+      desc: t('services.audit.desc'),
+      fullDesc: t('services.audit.fullDesc'),
       color: "primary",
     },
     {
       icon: <Timeline sx={{ fontSize: 48, color: "success.main" }} />,
-      title: "حسابرسی داخلی",
-      desc: " گزارشگیری مالی بر اساس دستورالعمل های سزمان بورس و اوراق بهادار ومفاهیم یکپارچه coso",
-      fullDesc:
-        "ارائه گزارش حسابرسی داخلی به ویژه در محدوده کنترل های داخلی حاکم بر گزارشگیری مالی بر اساس دستورالعمل های سزمان بورس و اوراق بهادار ومفاهیم یکپارچه coso",
+      title: t('services.internalAudit.title'),
+      desc: t('services.internalAudit.desc'),
+      fullDesc: t('services.internalAudit.fullDesc'),
       color: "success",
     },
     {
       icon: <Paid sx={{ fontSize: 48, color: "warning.main" }} />,
-      title: "خدمات مالی و حسابداری مالیاتی",
-      desc: "برنامه‌ریزی و بهینه‌سازی مالیات با رعایت قوانین و مقررات ایران.",
-      fullDesc:
-        "مشاوره مالیاتی شامل تحلیل قوانین مالیاتی جاری، برنامه‌ریزی برای کاهش بار مالیاتی قانونی، تهیه اظهارنامه‌ها و نمایندگی در برابر مقامات مالیاتی است.",
+      title: t('services.financial.title'),
+      desc: t('services.financial.desc'),
+      fullDesc: t('services.financial.fullDesc'),
       color: "warning",
     },
     {
       icon: <BalanceIcon sx={{ fontSize: 48, color: "secondary.main" }} />,
-      title: "بازرسی قانونی",
-      desc: "خدمات بازرسی قانونی شامل بررسی دقیق اسناد مالی، گزارش‌های حسابداری و عملکرد شرکت است تا اطمینان حاصل شود که فعالیت‌ها با قوانین و مقررات جاری کشور همخوانی دارد.",
-      fullDesc:
-        "بازرسی قانونی بر اساس مفاد ماده ۱۴۸ اصلاحیه قانون تجارت انجام می‌شود و هدف آن حمایت از حقوق سهامداران و ذی‌نفعان است. در این فرآیند، بازرس قانونی وظیفه دارد صورت‌های مالی، قراردادها و تصمیمات هیئت‌مدیره را به‌طور مستقل بررسی کرده و گزارشی شفاف و بی‌طرفانه ارائه دهد. این گزارش می‌تواند شامل ارزیابی ریسک‌ها، پیشنهادهای اصلاحی و تحلیل نقاط ضعف و قوت سیستم مالی شرکت باشد. نتیجه این بازرسی، ابزاری مهم برای تصمیم‌گیری مدیران و سهامداران محسوب می‌شود و نقش کلیدی در افزایش شفافیت و اعتماد عمومی دارد.",
+      title: t('services.legalInspection.title'),
+      desc: t('services.legalInspection.desc'),
+      fullDesc: t('services.legalInspection.fullDesc'),
       color: "secondary",
     },
     {
       icon: <AccountBalanceIcon sx={{ fontSize: 48, color: "info.main" }} />,
-      title: "مشاوره مدیریت مالی",
-      desc: "ارائه مشاوره تخصصی برای بهینه‌سازی منابع مالی، افزایش بهره‌وری سرمایه و کاهش ریسک‌های اقتصادی.",
-      fullDesc:
-        "خدمات مشاوره مدیریت مالی شامل تحلیل وضعیت مالی فعلی سازمان، طراحی استراتژی‌های سرمایه‌گذاری، مدیریت جریان نقدی و ارائه راهکارهای کاهش هزینه‌ها است. در این فرآیند، مشاوران مالی با بررسی دقیق صورت‌های مالی، بودجه‌بندی و پیش‌بینی‌های اقتصادی، به مدیران کمک می‌کنند تا تصمیمات آگاهانه‌تری بگیرند. هدف اصلی این خدمات، افزایش سودآوری، ایجاد ثبات مالی و پشتیبانی از رشد پایدار کسب‌وکار است. همچنین، مشاوره مدیریت مالی می‌تواند شامل راهنمایی در زمینه تأمین مالی پروژه‌ها، مدیریت بدهی‌ها و طراحی ساختار سرمایه بهینه باشد.",
+      title: t('services.financialConsulting.title'),
+      desc: t('services.financialConsulting.desc'),
+      fullDesc: t('services.financialConsulting.fullDesc'),
       color: "info",
     },
     {
       icon: <GavelIcon sx={{ fontSize: 48, color: "error.main" }} />,
-      title: "نظارت بر امور تصفیه",
-      desc: "نظارت بر عملکرد مدیران تصفیه و ارائه گزارش شفاف به مجمع عمومی بر اساس ماده ۲۱۸ قانون تجارت.",
-      fullDesc:
-        "مطابق ماده ۲۱۸ اصلاحیه قانون تجارت، ناظر تصفیه وظیفه دارد بر کلیه اقدامات و عملیات مدیران تصفیه شرکت نظارت کند. این نظارت شامل بررسی اسناد، قراردادها و تصمیمات مرتبط با فرآیند تصفیه است تا اطمینان حاصل شود که تمامی امور در چارچوب قانون و به نفع ذی‌نفعان انجام می‌شود. در پایان، ناظر موظف است گزارشی جامع و بی‌طرفانه از نتایج بررسی‌های خود به مجمع عمومی شرکت ارائه نماید تا شفافیت و پاسخگویی در فرآیند تصفیه تضمین گردد.",
+      title: t('services.liquidationSupervision.title'),
+      desc: t('services.liquidationSupervision.desc'),
+      fullDesc: t('services.liquidationSupervision.fullDesc'),
       color: "error",
     },
     {
       icon: <AssessmentIcon sx={{ fontSize: 48, color: "error.main" }} />,
-      title: "داوری مالی",
-      desc: "حل‌وفصل اختلافات مالی و قراردادی خارج از دادگاه با رأی داور بی‌طرف.",
-      fullDesc:
-        "داوری مالی روشی خصوصی و توافقی برای حل‌وفصل اختلافات مالی و قراردادی است که به‌جای مراجعه به دادگاه، با انتخاب داور بی‌طرف انجام می‌شود. در این فرآیند، مستندات، گزارش‌های مالی و مفاد قراردادها بررسی شده و رأی لازم‌الاجرا صادر می‌گردد. مزایای داوری شامل سرعت بیشتر، محرمانگی، هزینه کمتر و امکان انتخاب داور متخصص در امور مالی است. این رویکرد، به طرفین کمک می‌کند اختلافات را با کمترین اختلال در کسب‌وکار و بیشترین قطعیت حل کنند.",
+      title: t('services.financialArbitration.title'),
+      desc: t('services.financialArbitration.desc'),
+      fullDesc: t('services.financialArbitration.fullDesc'),
       color: "error",
     },
     {
       icon: <TrendingUpIcon sx={{ fontSize: 48, color: "success.main" }} />,
-      title: "ارزیابی سهام و سهم‌الشرکه",
-      desc: "تعیین ارزش منصفانه سهام و سهم‌الشرکه با روش‌های تخصصی ارزش‌گذاری.",
-      fullDesc:
-        "ارزیابی سهام و سهم‌الشرکه شامل تعیین ارزش منصفانه مالکیت در شرکت‌های سهامی و غیرسهامی بر اساس رویکردهای پذیرفته‌شده مثل درآمدی (DCF)، مقایسه‌ای بازار و بهای تمام‌شده/خالص ارزش دارایی‌ها است. در این فرآیند، صورت‌های مالی، جریان‌های نقدی، ساختار سرمایه، ریسک‌ها و چشم‌انداز رشد بررسی می‌شوند تا مبنایی معتبر برای معاملات، جذب سرمایه، خروج شریک، ادغام/تملک و رسیدگی به اختلافات فراهم شود. خروجی ارزیابی به‌صورت گزارش مستند، شفاف و قابل اتکا ارائه می‌گردد.",
+      title: t('services.stockValuation.title'),
+      desc: t('services.stockValuation.desc'),
+      fullDesc: t('services.stockValuation.fullDesc'),
       color: "success",
     },
   ];
@@ -201,23 +195,23 @@ export default function Home() {
   const features = [
     {
       icon: <Groups sx={{ fontSize: 48, color: "primary.main" }} />,
-      title: "استانداردهای حرفه‌ای",
-      desc: "رعایت آیین رفتار حرفه‌ای و استقلال در تمام خدمات با تمرکز بر کیفیت جهانی.",
+      title: t('features.professionalStandards.title'),
+      desc: t('features.professionalStandards.desc'),
     },
     {
       icon: <Assignment sx={{ fontSize: 48, color: "primary.main" }} />,
-      title: "تیم مجرب",
-      desc: "کارشناسان با تجربه در حوزه‌های حسابرسی، مالیات و مدیریت استراتژیک.",
+      title: t('features.experiencedTeam.title'),
+      desc: t('features.experiencedTeam.desc'),
     },
     {
       icon: <TrendingUp sx={{ fontSize: 48, color: "primary.main" }} />,
-      title: "شفافیت و اعتماد",
-      desc: "گزارش‌های دقیق برای تصمیم‌گیری مطمئن و پایدار.",
+      title: t('features.transparency.title'),
+      desc: t('features.transparency.desc'),
     },
     {
       icon: <EmojiPeople sx={{ fontSize: 48, color: "primary.main" }} />,
-      title: "پوشش کامل خدمات",
-      desc: "حسابرسی و بازرسی شرکت ها، سازمان ها، نهادها و سایر خدمات مرتبط با امور مالی",
+      title: t('features.fullCoverage.title'),
+      desc: t('features.fullCoverage.desc'),
     },
   ];
 
@@ -343,7 +337,7 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
               >
                 <Chip
-                  label="موسسه معتبر حسابرسی"
+                  label={t('hero.badge')}
                   sx={{
                     background:
                       "linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1))",
@@ -369,7 +363,7 @@ export default function Home() {
                     textAlign: { xs: "center", md: "left" }, // متن در مرکز در موبایل
                   }}
                 >
-                  موسسه حسابرسی
+                  {t('hero.title')}
                   <Box
                     component="span"
                     sx={{
@@ -381,7 +375,7 @@ export default function Home() {
                       textAlign: { xs: "center", md: "left" },
                     }}
                   >
-                    بهمند
+                    {t('hero.titleHighlight')}
                   </Box>
                 </Typography>
                 <Typography
@@ -396,8 +390,7 @@ export default function Home() {
                     textAlign: { xs: "center", md: "left" }, // متن در مرکز در موبایل
                   }}
                 >
-                  ارائه خدمات تخصصی حسابرسی، مالی و مشاوره‌ای با استانداردهای
-                  حسابداری و حسابرسی ایران و بیش از ۴۶ سال تجربه
+                  {t('hero.subtitle')}
                 </Typography>
                 <Stack
                   direction={{ xs: "column", sm: "row" }}
@@ -430,7 +423,7 @@ export default function Home() {
                       maxWidth: { xs: 280, sm: "none" },
                     }}
                   >
-                    شروع همکاری
+                    {t('hero.startCollaboration')}
                   </Button>
                   <Button
                     variant="outlined"
@@ -456,7 +449,7 @@ export default function Home() {
                       maxWidth: { xs: 280, sm: "none" },
                     }}
                   >
-                    درباره ما
+                    {t('hero.aboutUs')}
                   </Button>
                 </Stack>
               </motion.div>
@@ -489,7 +482,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Chip
-                label="خدمات تخصصی"
+                label={t('services.badge')}
                 sx={{
                   mb: 3,
                   px: 3,
@@ -509,7 +502,7 @@ export default function Home() {
                   mb: 3,
                 }}
               >
-                خدمات حرفه‌ای ما
+                {t('services.title')}
               </Typography>
               <Typography
                 variant="h6"
@@ -521,8 +514,7 @@ export default function Home() {
                   fontWeight: 400,
                 }}
               >
-                مجموعه‌ای کامل از خدمات مالی و حسابرسی برای پاسخ‌گویی به نیازهای
-                متفاوت سازمان ها، نهادها و کسب و کارها
+                {t('services.subtitle')}
               </Typography>
             </motion.div>
           </Box>
@@ -643,7 +635,7 @@ export default function Home() {
                         }}
                       >
                         <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                          اطلاعات بیشتر
+                          {t('services.moreInfo')}
                         </Typography>
                         <ArrowForward
                           sx={{
@@ -678,7 +670,7 @@ export default function Home() {
           >
             <Box sx={{ textAlign: "center", mb: 8 }}>
               <Chip
-                label="مزایای ما"
+                label={t('features.badge')}
                 sx={{
                   mb: 3,
                   px: 3,
@@ -698,7 +690,7 @@ export default function Home() {
                   mb: 3,
                 }}
               >
-                چرا بهمند؟
+                {t('features.title')}
               </Typography>
               <Typography
                 variant="h6"
@@ -710,9 +702,7 @@ export default function Home() {
                   fontWeight: 400,
                 }}
               >
-                ترکیب تجربه، استانداردهای حرفه‌ای و نگاه داده‌محور برای ایجاد
-                اعتماد و تصمیم‌های بهتر در دنیای رقابتی امروز. سابقه طولانی در
-                ارائه خدمات حسابرسی و بازرسی به مدت ۴۶ سال
+                {t('features.subtitle')}
               </Typography>
             </Box>
           </motion.div>
@@ -824,15 +814,15 @@ export default function Home() {
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
           <Grid container spacing={6} justifyContent="center">
             {[
-              { label: "سال تجربه", value: 46, suffix: "+", icon: "📅" },
+              { label: t('stats.yearsExperience'), value: 46, suffix: "+", icon: "📅" },
               {
-                label: "پروژه‌های حسابرسی",
+                label: t('stats.auditProjects'),
                 value: 20000,
                 suffix: "+",
                 icon: "📊",
               },
-              { label: "مشتریان فعال", value: 250, suffix: "+", icon: "👥" },
-              { label: "تعداد کل پرسنل موسسه", value: 130, suffix: "+", icon: "🎓" },
+              { label: t('stats.activeClients'), value: 250, suffix: "+", icon: "👥" },
+              { label: t('stats.totalStaff'), value: 130, suffix: "+", icon: "🎓" },
             ].map((stat, i) => {
               const { ref, inView } = useInView({
                 triggerOnce: true,
@@ -920,7 +910,7 @@ export default function Home() {
           >
             <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
               <Chip
-                label="مشتریان ما"
+                label={t('customers.badge')}
                 sx={{
                   mb: 2,
                   px: { xs: 2, sm: 3 },
@@ -944,7 +934,7 @@ export default function Home() {
                   lineHeight: 1.2,
                 }}
               >
-                برخی از مشتریان ما
+                {t('customers.title')}
               </Typography>
             </Box>
             <Button
@@ -968,7 +958,7 @@ export default function Home() {
                 transition: "all 0.3s ease",
               }}
             >
-              مشاهده بیشتر
+              {t('customers.viewMore')}
             </Button>
           </Stack>
 
@@ -1079,7 +1069,7 @@ export default function Home() {
                 transition: "all 0.3s ease",
               }}
             >
-              مشاهده تمام مشتریان
+              {t('customers.viewAll')}
             </Button>
           </Box>
         </Container>
@@ -1126,7 +1116,7 @@ export default function Home() {
                 mb: 3,
               }}
             >
-              آماده شروع همکاری هستید؟
+              {t('cta.title')}
             </Typography>
             <Typography
               variant="h6"
@@ -1140,8 +1130,7 @@ export default function Home() {
                 fontSize: { xs: "1.1rem", md: "1.3rem" },
               }}
             >
-              برای دریافت مشاوره اولیه و بررسی نیازهای کسب‌وکار شما، با ما تماس
-              بگیرید یا درخواست خود را ثبت کنید.
+              {t('cta.subtitle')}
             </Typography>
             <Stack
               direction={{ xs: "column", sm: "row" }}
@@ -1169,7 +1158,7 @@ export default function Home() {
                   },
                 }}
               >
-                تماس با ما
+                {t('cta.contactUs')}
               </Button>
               <Button
                 variant="outlined"
@@ -1191,7 +1180,7 @@ export default function Home() {
                   },
                 }}
               >
-                خدمات ما
+                {t('cta.ourServices')}
               </Button>
             </Stack>
           </motion.div>

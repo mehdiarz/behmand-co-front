@@ -3,10 +3,12 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 
-const theme = createTheme({
-    direction: "rtl",
+export const createAppTheme = (direction = 'rtl') => createTheme({
+    direction,
     typography: {
-        fontFamily: `"YekanBakh", "Roboto", "Helvetica", "Arial", sans-serif`,
+        fontFamily: direction === 'rtl' 
+            ? `"YekanBakh", "Roboto", "Helvetica", "Arial", sans-serif`
+            : `"Roboto", "Helvetica", "Arial", sans-serif`,
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,
@@ -94,4 +96,10 @@ export const cacheRtl = createCache({
     stylisPlugins: [prefixer, rtlPlugin],
 });
 
+export const cacheLtr = createCache({
+    key: "muiltr",
+    stylisPlugins: [prefixer],
+});
+
+const theme = createAppTheme('rtl');
 export default theme;

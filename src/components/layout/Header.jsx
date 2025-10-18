@@ -14,22 +14,25 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/default-logo.png";
-
-const navItems = [
-    { label: "خانه", path: "/" },
-    { label: "درباره ما", path: "/about" },
-    { label: "خدمات", path: "/services" },
-    { label: "گالری", path: "/gallery" },
-    { label: "مقالات", path: "/blog" },
-    { label: "فرصت‌های شغلی", path: "/resumeForm" },
-    { label: "تماس با ما", path: "/contact" },
-];
+import LanguageSwitcher from "../LanguageSwitcher";
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+    const { t } = useTranslation();
+
+    const navItems = [
+        { label: t('nav.home'), path: "/" },
+        { label: t('nav.about'), path: "/about" },
+        { label: t('nav.services'), path: "/services" },
+        { label: t('nav.gallery'), path: "/gallery" },
+        { label: t('nav.blog'), path: "/blog" },
+        { label: t('nav.careers'), path: "/resumeForm" },
+        { label: t('nav.contact'), path: "/contact" },
+    ];
 
     const handleDrawerToggle = () => {
         setMobileOpen((prev) => !prev);
@@ -44,7 +47,7 @@ export default function Header() {
     }, []);
 
     const drawer = (
-        <Box sx={{ width: 280, p: 3, bgcolor: 'grey.100' }} onClick={handleDrawerToggle}>
+        <Box sx={{ width: 280, p: 3, bgcolor: 'grey.100' }}>
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.path} disablePadding>
@@ -52,6 +55,7 @@ export default function Header() {
                             component={Link}
                             to={item.path}
                             selected={location.pathname === item.path}
+                            onClick={handleDrawerToggle}
                             sx={{
                                 borderRadius: 2,
                                 mb: 1,
@@ -70,6 +74,9 @@ export default function Header() {
                     </ListItem>
                 ))}
             </List>
+            <Box sx={{ px: 2, mt: 2 }}>
+                <LanguageSwitcher />
+            </Box>
         </Box>
     );
 
@@ -115,7 +122,7 @@ export default function Header() {
                         />
                     </Box>
 
-                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 } }}>
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 2, lg: 3 }, alignItems: "center" }}>
                         {navItems.map((item) => (
                             <Button
                                 key={item.path}
@@ -125,7 +132,7 @@ export default function Header() {
                                     fontWeight: location.pathname === item.path ? 700 : 500,
                                     color: location.pathname === item.path ? "primary.main" : "text.primary",
                                     position: "relative",
-                                    px: { md: 2, lg: 2.5 },
+                                    px: { md: 1.5, lg: 2 },
                                     py: 1,
                                     '&:after': {
                                         content: '""',
@@ -143,6 +150,7 @@ export default function Header() {
                                 {item.label}
                             </Button>
                         ))}
+                        <LanguageSwitcher />
                     </Box>
                 </Toolbar>
             </motion.div>

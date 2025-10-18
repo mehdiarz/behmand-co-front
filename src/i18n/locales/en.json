@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "badge": "Trusted Auditing Firm",
+    "title": "Behmand Auditing",
+    "titleHighlight": "Firm",
+    "subtitle": "Providing specialized auditing, financial and consulting services with Iranian accounting and auditing standards and more than 46 years of experience",
+    "startCollaboration": "Start Collaboration",
+    "aboutUs": "About Us"
+  },
+  "services": {
+    "badge": "Specialized Services",
+    "title": "Our Professional Services",
+    "subtitle": "A complete set of financial and auditing services to meet the different needs of organizations, institutions and businesses",
+    "moreInfo": "More Information",
+    "audit": {
+      "title": "Auditing Services",
+      "desc": "Including various types of auditing and review of financial statements...",
+      "fullDesc": "Including various types of auditing and review of financial statements, examination of future financial information, agreed-upon procedures, special auditing, operational auditing, tax auditing, insurance auditing."
+    },
+    "internalAudit": {
+      "title": "Internal Auditing",
+      "desc": "Financial reporting based on Securities and Exchange Organization guidelines and COSO integrated framework",
+      "fullDesc": "Providing internal audit reports, especially in the area of internal controls over financial reporting, based on Securities and Exchange Organization guidelines and COSO integrated framework"
+    },
+    "financial": {
+      "title": "Financial & Tax Accounting Services",
+      "desc": "Tax planning and optimization in compliance with Iranian laws and regulations.",
+      "fullDesc": "Tax consulting includes analysis of current tax laws, planning to reduce legal tax burden, preparing tax returns and representation before tax authorities."
+    },
+    "legalInspection": {
+      "title": "Legal Inspection",
+      "desc": "Legal inspection services include detailed examination of financial documents, accounting reports and company performance to ensure activities comply with current laws and regulations.",
+      "fullDesc": "Legal inspection is performed based on Article 148 of the amended Commercial Code and aims to protect the rights of shareholders and stakeholders. In this process, the legal inspector is responsible for independently reviewing financial statements, contracts and board decisions and providing a transparent and impartial report. This report may include risk assessment, corrective recommendations and analysis of strengths and weaknesses of the company's financial system. The result of this inspection is an important tool for management and shareholder decision-making and plays a key role in increasing transparency and public trust."
+    },
+    "financialConsulting": {
+      "title": "Financial Management Consulting",
+      "desc": "Providing specialized consulting to optimize financial resources, increase capital productivity and reduce economic risks.",
+      "fullDesc": "Financial management consulting services include analysis of the organization's current financial situation, design of investment strategies, cash flow management and provision of cost reduction solutions. In this process, financial consultants help managers make more informed decisions by carefully reviewing financial statements, budgeting and economic forecasts. The main goal of these services is to increase profitability, create financial stability and support sustainable business growth. Also, financial management consulting may include guidance on project financing, debt management and optimal capital structure design."
+    },
+    "liquidationSupervision": {
+      "title": "Liquidation Supervision",
+      "desc": "Supervising the performance of liquidation managers and providing transparent reports to the general assembly based on Article 218 of the Commercial Code.",
+      "fullDesc": "According to Article 218 of the amended Commercial Code, the liquidation supervisor is responsible for supervising all actions and operations of the company's liquidation managers. This supervision includes reviewing documents, contracts and decisions related to the liquidation process to ensure all matters are conducted within the framework of the law and in the interest of stakeholders. At the end, the supervisor is required to provide a comprehensive and impartial report of the results of their reviews to the company's general assembly to ensure transparency and accountability in the liquidation process."
+    },
+    "financialArbitration": {
+      "title": "Financial Arbitration",
+      "desc": "Resolution of financial and contractual disputes outside court with an impartial arbitrator's decision.",
+      "fullDesc": "Financial arbitration is a private and consensual method for resolving financial and contractual disputes that is conducted with the selection of an impartial arbitrator instead of going to court. In this process, documents, financial reports and contract provisions are reviewed and a binding decision is issued. The advantages of arbitration include greater speed, confidentiality, lower cost and the ability to select an expert arbitrator in financial matters. This approach helps parties resolve disputes with minimal disruption to business and maximum certainty."
+    },
+    "stockValuation": {
+      "title": "Stock & Share Valuation",
+      "desc": "Determining the fair value of stocks and shares using specialized valuation methods.",
+      "fullDesc": "Stock and share valuation includes determining the fair value of ownership in joint stock and non-joint stock companies based on accepted approaches such as income (DCF), market comparison and cost/net asset value. In this process, financial statements, cash flows, capital structure, risks and growth prospects are examined to provide a reliable basis for transactions, capital raising, partner exit, mergers/acquisitions and dispute resolution. The valuation output is provided as a documented, transparent and reliable report."
+    }
+  },
+  "features": {
+    "badge": "Our Advantages",
+    "title": "Why Behmand?",
+    "subtitle": "Combining experience, professional standards and data-driven approach to build trust and better decisions in today's competitive world. Long track record of providing auditing and inspection services for 46 years",
+    "professionalStandards": {
+      "title": "Professional Standards",
+      "desc": "Adherence to professional code of conduct and independence in all services with focus on global quality."
+    },
+    "experiencedTeam": {
+      "title": "Experienced Team",
+      "desc": "Experienced experts in auditing, tax and strategic management."
+    },
+    "transparency": {
+      "title": "Transparency & Trust",
+      "desc": "Accurate reports for confident and sustainable decision-making."
+    },
+    "fullCoverage": {
+      "title": "Full Service Coverage",
+      "desc": "Auditing and inspection of companies, organizations, institutions and other financial services"
+    }
+  },
+  "stats": {
+    "yearsExperience": "Years of Experience",
+    "auditProjects": "Audit Projects",
+    "activeClients": "Active Clients",
+    "totalStaff": "Total Staff"
+  },
+  "customers": {
+    "badge": "Our Customers",
+    "title": "Some of Our Customers",
+    "viewMore": "View More",
+    "viewAll": "View All Customers"
+  },
+  "cta": {
+    "title": "Ready to Start Collaboration?",
+    "subtitle": "Contact us for initial consultation and review of your business needs, or submit your request.",
+    "contactUs": "Contact Us",
+    "ourServices": "Our Services"
+  },
+  "footer": {
+    "aboutCompany": "About Company",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All Rights Reserved"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "more": "More"
+  },
+  "language": {
+    "persian": "فارسی",
+    "english": "English"
+  }
+}
