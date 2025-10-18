@@ -155,7 +155,7 @@ export default function Footer() {
                 { textKey: "nav.services", url: "/services" },
                 { textKey: "nav.blog", url: "/blog" },
                 { textKey: "nav.contact", url: "/contact" },
-                { textKey: "nav.careers", url: "/careers" },
+                { textKey: "nav.careers", url: "/resumeForm" },
               ].map((item, i) => (
                 <Link
                   key={i}
