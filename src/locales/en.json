@@ -1,0 +1,98 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "title": "Behmand Audit Institute",
+      "subtitle": "Professional Financial and Audit Consulting",
+      "description": "With over two decades of experience in auditing and financial consulting, we are ready to provide you with specialized services."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Specialized Audit and Financial Consulting Services",
+      "audit": {
+        "title": "Audit Services",
+        "desc": "Including various types of audits and review of financial statements...",
+        "fullDesc": "Including various types of audits and review of financial statements, examination of future financial information, agreed-upon procedures, special audits, operational audits, tax audits, and insurance audits."
+      },
+      "internalAudit": {
+        "title": "Internal Audit",
+        "desc": "Financial reporting based on Securities and Exchange Organization guidelines and integrated COSO concepts",
+        "fullDesc": "Providing internal audit reports, especially in the field of internal controls governing financial reporting based on Securities and Exchange Organization guidelines and integrated COSO concepts"
+      },
+      "tax": {
+        "title": "Financial and Tax Accounting Services",
+        "desc": "Tax planning and optimization while complying with Iranian laws and regulations.",
+        "fullDesc": "Tax consulting includes analysis of current tax laws, planning for legal tax burden reduction, preparation of tax returns and representation before tax authorities."
+      },
+      "legalInspection": {
+        "title": "Legal Inspection",
+        "desc": "Legal inspection services include detailed examination of financial documents, accounting reports and company performance to ensure activities comply with current national laws and regulations.",
+        "fullDesc": "Legal inspection is conducted based on Article 148 of the Commercial Code amendment and aims to protect the rights of shareholders and stakeholders. In this process, the legal inspector is responsible for independently reviewing financial statements, contracts and board decisions and providing a transparent and impartial report. This report may include risk assessment, corrective recommendations and analysis of the company's financial system strengths and weaknesses. The result of this inspection is an important tool for management and shareholder decision-making and plays a key role in increasing transparency and public trust."
+      },
+      "financialConsulting": {
+        "title": "Financial Management Consulting",
+        "desc": "Providing specialized consulting for financial resource optimization, capital productivity increase and economic risk reduction.",
+        "fullDesc": "Financial management consulting services include analysis of the organization's current financial situation, investment strategy design, cash flow management and cost reduction solutions. In this process, financial consultants help managers make more informed decisions by carefully examining financial statements, budgeting and economic forecasts. The main goal of these services is to increase profitability, create financial stability and support sustainable business growth. Financial management consulting can also include guidance on project financing, debt management and optimal capital structure design."
+      },
+      "liquidation": {
+        "title": "Liquidation Supervision",
+        "desc": "Supervision of liquidation managers' performance and providing transparent reports to the general assembly according to Article 218 of the Commercial Code.",
+        "fullDesc": "According to Article 218 of the Commercial Code amendment, the liquidation supervisor is responsible for supervising all actions and operations of the company's liquidation managers. This supervision includes reviewing documents, contracts and decisions related to the liquidation process to ensure that all matters are carried out within the legal framework and in the interest of stakeholders. At the end, the supervisor is obliged to provide a comprehensive and impartial report of his findings to the company's general assembly to ensure transparency and accountability in the liquidation process."
+      },
+      "arbitration": {
+        "title": "Financial Arbitration",
+        "desc": "Resolving financial and contractual disputes outside the court with an impartial arbitrator's decision.",
+        "fullDesc": "Financial arbitration is a private and consensual method for resolving financial and contractual disputes that is conducted by selecting an impartial arbitrator instead of going to court. In this process, documents, financial reports and contract terms are reviewed and an enforceable decision is issued. The advantages of arbitration include greater speed, confidentiality, lower cost and the possibility of selecting a financial expert arbitrator. This approach helps parties resolve disputes with minimal business disruption and maximum certainty."
+      },
+      "valuation": {
+        "title": "Stock and Share Valuation",
+        "desc": "Determining fair value of stocks and shares using specialized valuation methods.",
+        "fullDesc": "Stock and share valuation includes determining the fair value of ownership in joint stock and non-joint stock companies based on accepted approaches such as income approach (DCF), market comparison and cost/net asset value. In this process, financial statements, cash flows, capital structure, risks and growth prospects are examined to provide a reliable basis for transactions, capital attraction, partner exit, merger/acquisition and dispute resolution. The valuation output is provided as a documented, transparent and reliable report."
+      }
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "Our History and Expert Team"
+    },
+    "clients": {
+      "title": "Our Clients",
+      "subtitle": "Companies that Trust Us"
+    }
+  },
+  "about": {
+    "title": "About Behmand Institute",
+    "subtitle": "Our History and Expert Team",
+    "description": "Behmand Audit Institute, with over two decades of experience in auditing and financial consulting, is one of the leaders in this industry in the country."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Specialized Audit and Financial Consulting Services"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are ready to answer your questions"
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "getStarted": "Get Started",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm"
+  }
+}

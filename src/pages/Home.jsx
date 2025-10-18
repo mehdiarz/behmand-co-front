@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 import {
   Container,

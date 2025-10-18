@@ -14,22 +14,25 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/default-logo.png";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const navItems = [
-    { label: "خانه", path: "/" },
-    { label: "درباره ما", path: "/about" },
-    { label: "خدمات", path: "/services" },
-    { label: "گالری", path: "/gallery" },
-    { label: "مقالات", path: "/blog" },
-    { label: "فرصت‌های شغلی", path: "/resumeForm" },
-    { label: "تماس با ما", path: "/contact" },
+    { labelKey: "header.home", path: "/" },
+    { labelKey: "header.about", path: "/about" },
+    { labelKey: "header.services", path: "/services" },
+    { labelKey: "header.gallery", path: "/gallery" },
+    { labelKey: "header.blog", path: "/blog" },
+    { labelKey: "header.careers", path: "/resumeForm" },
+    { labelKey: "header.contact", path: "/contact" },
 ];
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+    const { t } = useTranslation();
 
     const handleDrawerToggle = () => {
         setMobileOpen((prev) => !prev);
@@ -61,7 +64,7 @@ export default function Header() {
                             }}
                         >
                             <ListItemText
-                                primary={item.label}
+                                primary={t(item.labelKey)}
                                 primaryTypographyProps={{
                                     fontWeight: 600,
                                 }}
@@ -69,6 +72,11 @@ export default function Header() {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                <ListItem disablePadding>
+                    <Box sx={{ width: '100%', mt: 2 }}>
+                        <LanguageSwitcher />
+                    </Box>
+                </ListItem>
             </List>
         </Box>
     );
@@ -115,7 +123,7 @@ export default function Header() {
                         />
                     </Box>
 
-                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 } }}>
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 }, alignItems: "center" }}>
                         {navItems.map((item) => (
                             <Button
                                 key={item.path}
@@ -140,9 +148,10 @@ export default function Header() {
                                     '&:hover:after': { width: "100%" },
                                 }}
                             >
-                                {item.label}
+                                {t(item.labelKey)}
                             </Button>
                         ))}
+                        <LanguageSwitcher />
                     </Box>
                 </Toolbar>
             </motion.div>
