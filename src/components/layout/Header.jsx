@@ -15,18 +15,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../../assets/default-logo.png";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../i18n/LanguageProvider.jsx";
 
-const navItems = [
-    { label: "خانه", path: "/" },
-    { label: "درباره ما", path: "/about" },
-    { label: "خدمات", path: "/services" },
-    { label: "گالری", path: "/gallery" },
-    { label: "مقالات", path: "/blog" },
-    { label: "فرصت‌های شغلی", path: "/resumeForm" },
-    { label: "تماس با ما", path: "/contact" },
+const NAV_KEYS = [
+    { key: "nav.home", path: "/" },
+    { key: "nav.about", path: "/about" },
+    { key: "nav.services", path: "/services" },
+    { key: "nav.gallery", path: "/gallery" },
+    { key: "nav.blog", path: "/blog" },
+    { key: "nav.careers", path: "/resumeForm" },
+    { key: "nav.contact", path: "/contact" },
 ];
 
 export default function Header() {
+    const { t } = useTranslation();
+    const { lang, switchLanguage } = useLanguage();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
@@ -46,7 +50,7 @@ export default function Header() {
     const drawer = (
         <Box sx={{ width: 280, p: 3, bgcolor: 'grey.100' }} onClick={handleDrawerToggle}>
             <List>
-                {navItems.map((item) => (
+                {NAV_KEYS.map((item) => (
                     <ListItem key={item.path} disablePadding>
                         <ListItemButton
                             component={Link}
@@ -61,7 +65,7 @@ export default function Header() {
                             }}
                         >
                             <ListItemText
-                                primary={item.label}
+                                primary={t(item.key)}
                                 primaryTypographyProps={{
                                     fontWeight: 600,
                                 }}
@@ -69,6 +73,14 @@ export default function Header() {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                <ListItem disablePadding>
+                    <ListItemButton onClick={(e) => { e.stopPropagation(); switchLanguage(); }}>
+                        <ListItemText
+                            primary={lang === 'fa' ? t('header.switchToEnglish') : t('header.switchToFarsi')}
+                            primaryTypographyProps={{ fontWeight: 700 }}
+                        />
+                    </ListItemButton>
+                </ListItem>
             </List>
         </Box>
     );
@@ -108,15 +120,15 @@ export default function Header() {
                     <Box component={Link} to="/" sx={{ display: "flex", alignItems: "center" }}>
                         <motion.img
                             src={logo}
-                            alt="لوگوی موسسه حسابرسی بهمند"
+                            alt={t('header.logoAlt')}
                             animate={{ height: isScrolled ? 50 : 70 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                             style={{ objectFit: "contain" }}
                         />
                     </Box>
 
-                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 } }}>
-                        {navItems.map((item) => (
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: { md: 3, lg: 4 }, alignItems: 'center' }}>
+                        {NAV_KEYS.map((item) => (
                             <Button
                                 key={item.path}
                                 component={Link}
@@ -140,9 +152,12 @@ export default function Header() {
                                     '&:hover:after': { width: "100%" },
                                 }}
                             >
-                                {item.label}
+                                {t(item.key)}
                             </Button>
                         ))}
+                        <Button variant="outlined" size="small" onClick={() => switchLanguage()} sx={{ ml: 2 }}>
+                            {lang === 'fa' ? t('header.switchToEnglish') : t('header.switchToFarsi')}
+                        </Button>
                     </Box>
                 </Toolbar>
             </motion.div>

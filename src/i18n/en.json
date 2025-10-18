@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "header": {
+    "logoAlt": "Behmand Auditing Institute Logo",
+    "switchToEnglish": "EN",
+    "switchToFarsi": "FA"
+  },
+  "hero": {
+    "title": "Behmand Auditing Institute",
+    "subtitle": "Providing audit, financial, and tax advisory services for SMBs to enterprises",
+    "ctaServices": "View Services",
+    "ctaCareers": "Careers"
+  },
+  "footer": {
+    "aboutCompany": "Behmand Auditing Institute",
+    "followUs": "Follow us",
+    "quickLinks": "Quick Links",
+    "usefulLinks": "Useful Links",
+    "contactUs": "Contact Us",
+    "postalCode": "Postal Code",
+    "rights": "All rights reserved."
+  }
+}

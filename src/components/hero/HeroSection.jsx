@@ -1,7 +1,9 @@
 import { Box, Container, Typography, Stack, Button } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   return (
     <Box sx={{ textAlign: "center", py: { xs: 10, md: 16 } }}>
       <Container>
@@ -14,7 +16,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           sx={{ fontWeight: 700, textShadow: "0 2px 6px rgba(0,0,0,0.6)" }}
         >
-          موسسه حسابرسی بهمند
+          {t('hero.title')}
         </Typography>
 
         <Typography
@@ -30,8 +32,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          ارائه‌دهنده خدمات حسابرسی، مشاوره مالی و مالیاتی برای کسب‌وکارهای کوچک
-          تا سازمان‌های بزرگ
+          {t('hero.subtitle')}
         </Typography>
 
         <Stack
@@ -49,7 +50,7 @@ export default function HeroSection() {
             size="large"
             href="/services"
           >
-            مشاهده خدمات
+            {t('hero.ctaServices')}
           </Button>
           <Button
             variant="outlined"
@@ -57,7 +58,7 @@ export default function HeroSection() {
             size="large"
             href="/resumeForm"
           >
-            فرصت‌های شغلی
+            {t('hero.ctaCareers')}
           </Button>
         </Stack>
       </Container>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Box, Container, Typography, Grid, Stack, Link, IconButton, Divider } from "@mui/material";
 import {
     Phone,
@@ -17,6 +18,7 @@ import {
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 export default function Footer() {
+    const { t } = useTranslation();
     return (
         <Box
             sx={{
@@ -64,7 +66,7 @@ export default function Footer() {
                                 بهمند
                             </Typography>
                             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'white' }}>
-                                موسسه حسابرسی بهمند
+                                {t('footer.aboutCompany')}
                             </Typography>
                         </Box>
                         <Typography variant="body1" sx={{
@@ -79,7 +81,7 @@ export default function Footer() {
                         {/* Social Media */}
                         <Box>
                             <Typography variant="h6" sx={{ fontWeight: 600, mb: 2, color: 'white', fontSize: '1rem' }}>
-                                ما را دنبال کنید
+                                {t('footer.followUs')}
                             </Typography>
                             <Stack direction="row" spacing={2}>
                                 {[
@@ -115,16 +117,16 @@ export default function Footer() {
                     {/* Quick Links */}
                     <Grid item xs={12} sm={6} md={2}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            دسترسی سریع
+                            {t('footer.quickLinks')}
                         </Typography>
                         <Stack spacing={2}>
                             {[
-                                { text: "خانه", url: "/" },
-                                { text: "درباره ما", url: "/about" },
-                                { text: "خدمات", url: "/services" },
-                                { text: "مقالات", url: "/blog" },
-                                { text: "تماس با ما", url: "/contact" },
-                                { text: "فرصت‌های شغلی", url: "/careers" },
+                                { text: t('nav.home'), url: "/" },
+                                { text: t('nav.about'), url: "/about" },
+                                { text: t('nav.services'), url: "/services" },
+                                { text: t('nav.blog'), url: "/blog" },
+                                { text: t('nav.contact'), url: "/contact" },
+                                { text: t('nav.careers'), url: "/careers" },
                             ].map((item, i) => (
                                 <Link
                                     key={i}
@@ -151,7 +153,7 @@ export default function Footer() {
                     {/* External Links */}
                     <Grid item xs={12} sm={6} md={3}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            پیوندهای مفید
+                            {t('footer.usefulLinks')}
                         </Typography>
                         <Stack spacing={2}>
                             {[
@@ -187,7 +189,7 @@ export default function Footer() {
                     {/* Contact Info */}
                     <Grid item xs={12} md={3}>
                         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700, color: 'white', mb: 3 }}>
-                            تماس با ما
+                            {t('footer.contactUs')}
                         </Typography>
                         <Stack spacing={2.5}>
                             {/* Address */}
@@ -267,7 +269,7 @@ export default function Footer() {
                             <Box sx={{ display: "flex", alignItems: "center", color: 'rgba(255,255,255,0.7)' }}>
                                 <LocalPostOffice sx={{ mr: 1.5, fontSize: 18, color: '#66bb6a' }} />
                                 <Typography variant="body2" sx={{ fontSize: '0.85rem' }}>
-                                    کدپستی: ۱۵۸۶۹۳۶۱۴۵
+                                    {t('footer.postalCode')}: ۱۵۸۶۹۳۶۱۴۵
                                 </Typography>
                             </Box>
                         </Stack>
@@ -288,7 +290,7 @@ export default function Footer() {
                             color: 'rgba(255,255,255,0.7)',
                             fontWeight: 500,
                         }}>
-                            {new Date().getFullYear()} موسسه حسابرسی بهمند. کلیه حقوق محفوظ است.
+                            {new Date().getFullYear()} {t('footer.aboutCompany')}. {t('footer.rights')}
                         </Typography>
                     </Box>
                     <Typography
