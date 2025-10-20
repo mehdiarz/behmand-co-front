@@ -12,14 +12,12 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 export default function BlogSection() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -57,7 +55,7 @@ export default function BlogSection() {
         {/* هدر بخش */}
         <Box textAlign="center" sx={{ mb: 8 }}>
           <Typography variant="h4" fontWeight={700} gutterBottom>
-            {t("blog.title")}
+            مقالات اخیر
           </Typography>
           <Box
             sx={{
@@ -73,14 +71,14 @@ export default function BlogSection() {
             color="text.secondary"
             sx={{ mt: 2, maxWidth: 600, mx: "auto" }}
           >
-            {t("blog.subtitle")}
+            جدیدترین تحلیل‌ها و مطالب تخصصی در حوزه حسابرسی و مالی
           </Typography>
         </Box>
 
         {/* کارت‌های بلاگ */}
         <Grid container spacing={4}>
-          {blogs.map((blog, i) => (
-            <Grid key={blog._id || i} item xs={12} sm={6} md={4}>
+          {blogs.map((b, i) => (
+            <Grid key={b._id || i} size={{ xs: 12, sm: 6, md: 4 }}>
               <Card
                 component={motion.div}
                 variants={cardVariants}
@@ -93,13 +91,13 @@ export default function BlogSection() {
                   boxShadow: 2,
                   "&:hover": { boxShadow: 6 },
                 }}
-                onClick={() => navigate(`/blog/${blog.slug}`)}
+                onClick={() => navigate(`/blog/${b.slug}`)}
               >
-                {blog.coverImage?.filePath && (
+                {b.coverImage?.filePath && (
                   <CardMedia
                     component="img"
-                    image={`${API_URL}/${blog.coverImage.filePath}`}
-                    alt={blog.title}
+                    image={`${API_URL}/${b.coverImage.filePath}`}
+                    alt={b.title}
                     sx={{
                       height: 220,
                       objectFit: "cover",
@@ -110,7 +108,7 @@ export default function BlogSection() {
                 )}
                 <CardContent sx={{ p: 3 }}>
                   <Typography variant="h6" fontWeight={700} gutterBottom>
-                    {blog.title}
+                    {b.title}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -123,12 +121,12 @@ export default function BlogSection() {
                       overflow: "hidden",
                     }}
                   >
-                    {blog.excerpt}
+                    {b.excerpt}
                   </Typography>
                   <Stack direction="row" spacing={1} flexWrap="wrap">
-                    {(blog.tags || []).map((tag, j) => (
+                    {(b.tags || []).map((t, j) => (
                       <Typography
-                        key={`${blog._id}-${tag}-${j}`}
+                        key={`${b._id}-${t}-${j}`}
                         variant="caption"
                         sx={{
                           px: 1,
@@ -139,7 +137,7 @@ export default function BlogSection() {
                           color: "text.secondary",
                         }}
                       >
-                        {tag}
+                        {t}
                       </Typography>
                     ))}
                   </Stack>
@@ -152,7 +150,7 @@ export default function BlogSection() {
         {/* CTA پایین */}
         <Box textAlign="center" sx={{ mt: 6 }}>
           <Button variant="outlined" color="primary" size="large" href="/blog">
-            {t("blog.cta")}
+            مشاهده همه مقالات
           </Button>
         </Box>
       </Container>

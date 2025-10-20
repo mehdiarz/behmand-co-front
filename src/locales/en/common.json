@@ -62,7 +62,7 @@
     },
     "stats": {
       "years": "Years of experience",
-      "audits": "Auditing projects",
+      "audits": "Year founded",
       "clients": "Active clients",
       "staff": "Total institute staff"
     },
@@ -94,7 +94,7 @@
     "stats": {
       "experience": "Years of experience",
       "projects": "Number of institute projects",
-      "reports": "Reports issued in 2024"
+      "reports": "Year founded"
     },
     "cta": "Learn More",
     "intro": "Behmand Auditing Institute was established in December 1979 by the late Asghar Hoshi and registered under number 2035 in the Tehran Companies Registration Office.",

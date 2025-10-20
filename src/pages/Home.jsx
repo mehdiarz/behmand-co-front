@@ -50,6 +50,10 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import { useTranslation } from "react-i18next";
 
+import bg1 from "../assets/bg1.png";
+import bg2 from "../assets/bg2.png";
+import bg3 from "../assets/bg3.jpeg";
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const modalStyle = {
@@ -68,12 +72,14 @@ const modalStyle = {
   borderColor: "divider",
 };
 
-// تصاویر با کیفیت برای اسلایدشو
+
 const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
 ];
+
+// const HERO_IMAGES = [bg1, bg2, bg3];
 
 export default function Home() {
   const theme = useTheme();
@@ -220,8 +226,8 @@ export default function Home() {
   // آمار با استفاده از ترجمه
   const stats = [
     { label: t("home.stats.years"), value: 46, suffix: "+", icon: "📅" },
-    { label: t("home.stats.audits"), value: 20000, suffix: "+", icon: "📊" },
-    { label: t("home.stats.clients"), value: 250, suffix: "+", icon: "👥" },
+    { label: t("home.stats.audits"), value: 1358, suffix: "", icon: "📊" },
+    { label: t("home.stats.clients"), value: 350, suffix: "+", icon: "👥" },
     { label: t("home.stats.staff"), value: 130, suffix: "+", icon: "🎓" },
   ];
 
@@ -459,7 +465,7 @@ export default function Home() {
       <AboutSection />
 
       {/* Blog Section */}
-      <BlogSection />
+      {i18n.language === "fa" && <BlogSection />}
 
       {/* Services Section */}
       <Box

@@ -42,8 +42,8 @@ export default function AboutSection() {
   // آمار با استفاده از ترجمه
   const stats = [
     { num: 46, suffix: "+", text: t("about.stats.experience") },
-    { num: 1000, suffix: "+", text: t("about.stats.projects") },
-    { num: 2000, suffix: "+", text: t("about.stats.reports") },
+    { num: 350, suffix: "+", text: t("about.stats.projects") },
+    { num: 1358, suffix: "", text: t("about.stats.reports") },
   ];
 
   // آمار و ارقام
