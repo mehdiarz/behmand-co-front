@@ -31,21 +31,35 @@ import AboutSlider from "../components/slider/AboutSlider.jsx";
 
 import bg1 from "../assets/bg1.png";
 import bg2 from "../assets/bg2.png";
-import bg3 from "../assets/bg3.jpeg";
+import bg3 from "../assets/bg-building.jpg";
+
+import bg4 from "../assets/bg-1.jpg";
+import bg5 from "../assets/bg-2.jpg";
+import bg6 from "../assets/bg-3.jpg";
 
 
 // تصاویر نمونه
+// const GALLERY_IMAGES = [
+//   "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+//   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+//   "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+//   "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+//   "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+//   "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+//     bg2,
+//     bg3,
+//     bg1
+// ];
+
 const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-  "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-  "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-  "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-  "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-  "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-    bg2,
+    bg4,
+    bg5,
     bg3,
+    bg6,
+    bg2,
     bg1
 ];
+
 
 export default function GalleryPage() {
   const theme = useTheme();
@@ -379,7 +393,7 @@ export default function GalleryPage() {
                   transition: { duration: 0.2 },
                 }}
                 style={{
-                  width: "100%",
+                  width: "500px",
                   maxWidth: 400,
                 }}
               >

@@ -19,13 +19,15 @@ import Grid from "@mui/material/Grid";
 
 import asghar from "../assets/asghar-hooshi.jpg";
 import atash from "../assets/atash.jpg";
-import sharifi from "../assets/sharifi.jpg";
+import sharifi from "../assets/sharifi.png";
 import arezoomand from "../assets/arezoomand.jpg";
-import emami from "../assets/emami.jpg";
-import hooman from "../assets/hooman.jpg";
+import emami from "../assets/emami.png";
+import hooman from "../assets/hooman.png";
 import mashreghi from "../assets/mashreghi.jpg";
-import rastegari from "../assets/rastegari.jpg";
-import noAvatar from "../assets/noAvatar.png";
+import rastegari from "../assets/rastegari.png";
+import delpak from "../assets/delpak.png";
+import rahmanian from "../assets/rahmanian.png";
+import rahmati from "../assets/rahmati.png";
 
 import OrganizationalChart from "../components/OrganizationalChart";
 
@@ -154,19 +156,19 @@ const teamMembers = [
     avatar: arezoomand,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از دانشگاه شهید بهشتی (۱۳۷۳)
+- لیسانس حسابداری از دانشگاه شهید بهشتی (۱۳۷۴)
 
 💼 سوابق کاری:
-- حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۰ (شریک)
+- حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۱ (شریک)
 
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
       en: `🎓 Education:
-- B.Sc. in Accounting from Shahid Beheshti University (1994)
+- B.Sc. in Accounting from Shahid Beheshti University (1995)
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute since 1991 (Partner)
+- Auditor at Behmand Auditing Institute since 1992 (Partner)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
@@ -175,7 +177,7 @@ const teamMembers = [
   },
   {
     name: {
-      fa: "احمد شریفی",
+      fa: "احمد رضا شریفی",
       en: "Ahmad Sharifi",
     },
     role: {
@@ -223,7 +225,7 @@ const teamMembers = [
 - لیسانس حسابداری از دانشگاه شهید بهشتی (۱۳۷۳)
 
 💼 سوابق کاری:
-- حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۰ (شریک)
+- حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۱ (شریک)
 
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
@@ -283,13 +285,13 @@ const teamMembers = [
       fa: "شریک",
       en: "Partner",
     },
-    avatar: noAvatar,
+    avatar: rahmanian,
     details: {
       fa: `🎓 مدارک تحصیلی:
 - لیسانس حسابداری از دانشگاه آزاد اسلامی
 
 💼 سوابق کاری:
-- حسابرسی در مؤسسه حسابرسی بهمند به مدت ۲۴ سال
+- حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۰
 
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
@@ -298,7 +300,7 @@ const teamMembers = [
 - B.Sc. in Accounting from Islamic Azad University
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute for 24 years
+- Auditor at Behmand Auditing Institute since 2001
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
@@ -314,7 +316,7 @@ const teamMembers = [
       fa: "شریک",
       en: "Partner",
     },
-    avatar: noAvatar,
+    avatar: delpak,
     details: {
       fa: `🎓 مدارک تحصیلی:
 - فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
@@ -347,15 +349,15 @@ const teamMembers = [
       fa: "شریک",
       en: "Partner",
     },
-    avatar: noAvatar,
+    avatar: rahmati,
     details: {
       fa: `🎓 مدارک تحصیلی:
 - فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
 
 💼 سوابق کاری:
-- حسابداری در شرکت نوین کذار بهمدت ۳ سال
-- حسابداری در موسسه مالی آتی حساب خبره به مدت ۱۲ سال
-- حسابرسی در مؤسسه حسابرسی بهمند به مدت ۱۵ سال
+- حسابداری در شرکت نوین کذار به مدت ۳ سال
+- حسابداری در موسسه مالی آتی حساب خبره به مدت ۱ سال
+- حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۹
 
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
@@ -366,7 +368,7 @@ const teamMembers = [
 💼 Professional Experience:
 - Accountant at Novin Gozar Company for 3 years
 - Accountant at Ati Hesab Khebreh Financial Institute for 12 years
-- Auditor at Behmand Auditing Institute for 15 years
+- Auditor at Behmand Auditing Institute since 2010
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
@@ -460,6 +462,9 @@ function TeamRow({ members, handleOpen, language }) {
                   border: "3px solid rgba(255,255,255,0.6)",
                   boxShadow:
                     "0 0 12px rgba(0,150,255,0.3), 0 4px 15px rgba(0,0,0,0.25)",
+                  "& .MuiAvatar-img": {
+                    objectFit: "contain",
+                  },
                 }}
               />
               <Typography
@@ -821,7 +826,13 @@ export default function About() {
                 <Avatar
                   src={selectedMember.avatar}
                   alt={selectedMember.name[language]}
-                  sx={{ width: 120, height: 120 }}
+                  sx={{
+                    width: 200,
+                    height: 200,
+                    "& .MuiAvatar-img": {
+                      objectFit: "contain",
+                    },
+                  }}
                 />
                 <Typography variant="subtitle1" color="text.secondary">
                   {selectedMember.role[language]}

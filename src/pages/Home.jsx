@@ -50,9 +50,9 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import { useTranslation } from "react-i18next";
 
-import bg1 from "../assets/bg1.png";
-import bg2 from "../assets/bg2.png";
-import bg3 from "../assets/bg3.jpeg";
+import bgBuilding from "../assets/bg-building.png";
+import bg1 from "../assets/bg-1.jpg";
+import bg2 from "../assets/bg-2.jpg";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -72,11 +72,17 @@ const modalStyle = {
   borderColor: "divider",
 };
 
+// const HERO_IMAGES = [
+//   "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+//   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+//   "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+// ];
+
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-];
+    bgBuilding,
+    bg1,
+    bg2
+    ];
 
 // const HERO_IMAGES = [bg1, bg2, bg3];
 
@@ -259,6 +265,8 @@ export default function Home() {
                 left: 0,
                 right: 0,
                 bottom: 0,
+                  width: "fit-content%",
+                  height: "fit-content%",
                 opacity: index === currentSlide ? 1 : 0,
                 transition: "opacity 1s ease-in-out",
                 backgroundImage: {
