@@ -72,7 +72,6 @@ const modalStyle = {
   borderColor: "divider",
 };
 
-
 const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -367,20 +366,51 @@ export default function Home() {
                     mb: 3,
                   }}
                 />
-                <Typography
-                  variant="h1"
-                  sx={{
-                    fontWeight: 900,
-                    fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" },
-                    lineHeight: 1.2,
-                    mb: 3,
-                    color: "white",
-                    textShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-                    textAlign: { xs: "center", md: "left" },
-                  }}
-                >
-                  {t("hero.title")}
-                </Typography>
+                {i18n.language === "fa" ? (
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      fontWeight: 900,
+                      fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" }, // سایز فونت مناسب موبایل
+                      lineHeight: 1.2,
+                      mb: 3,
+                      color: "white",
+                      textShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+                      textAlign: { xs: "center", md: "left" }, // متن در مرکز در موبایل
+                    }}
+                  >
+                    موسسه حسابرسی
+                    <Box
+                      component="span"
+                      sx={{
+                        display: "block",
+                        background: "linear-gradient(135deg, #66bb6a, #388e3c)",
+                        backgroundClip: "text",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        textAlign: { xs: "center", md: "left" },
+                      }}
+                    >
+                      بهمند
+                    </Box>
+                  </Typography>
+                ) : (
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      fontWeight: 900,
+                      fontSize: { xs: "2rem", sm: "2.5rem", md: "3.5rem" },
+                      lineHeight: 1.2,
+                      mb: 3,
+                      color: "white",
+                      textShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+                      textAlign: { xs: "center", md: "left" },
+                    }}
+                  >
+                    {t("hero.title")}
+                  </Typography>
+                )}
+
                 <Typography
                   variant="h5"
                   sx={{
