@@ -30,6 +30,7 @@ import rahmanian from "../assets/rahmanian.png";
 import rahmati from "../assets/rahmati.png";
 
 import OrganizationalChart from "../components/OrganizationalChart";
+import ResumeDownloadSection from "../components/ResumeDownloadSection.jsx";
 
 // تیم ممبرز کامل دو زبانه
 const teamMembers = [
@@ -723,6 +724,8 @@ export default function About() {
             language={language}
           />
         </Box>
+
+          <ResumeDownloadSection />
 
         {/* نمودار سازمانی */}
         <Box sx={{ mt: 10 }}>
