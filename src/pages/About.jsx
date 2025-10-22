@@ -18,12 +18,12 @@ import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 
 import asghar from "../assets/asghar-hooshi.jpg";
-import atash from "../assets/atash.jpg";
+import atash from "../assets/atash.png";
 import sharifi from "../assets/sharifi.png";
-import arezoomand from "../assets/arezoomand.jpg";
+import arezoomand from "../assets/arezoomand.png";
 import emami from "../assets/emami.png";
 import hooman from "../assets/hooman.png";
-import mashreghi from "../assets/mashreghi.jpg";
+import mashreghi from "../assets/mashreghi.png";
 import rastegari from "../assets/rastegari.png";
 import delpak from "../assets/delpak.png";
 import rahmanian from "../assets/rahmanian.png";

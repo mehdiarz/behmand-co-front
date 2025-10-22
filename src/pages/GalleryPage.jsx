@@ -37,6 +37,8 @@ import bg4 from "../assets/bg-1.jpg";
 import bg5 from "../assets/bg-2.jpg";
 import bg6 from "../assets/bg-3.jpg";
 
+import gallery1 from "../assets/gallery-1.jpg";
+
 
 // تصاویر نمونه
 // const GALLERY_IMAGES = [
@@ -55,9 +57,9 @@ const GALLERY_IMAGES = [
     bg4,
     bg5,
     bg3,
-    bg6,
     bg2,
-    bg1
+    bg1,
+    gallery1,
 ];
 
 

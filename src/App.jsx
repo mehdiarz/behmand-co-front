@@ -25,6 +25,7 @@ import CustomersAdmin from "./pages/CustomersAdmin.jsx";
 import AdminBlogs from "./pages/AdminBlogs.jsx";
 import AdminBlogForm from "./pages/AdminBlogForm.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
+import PortfolioPage from "./pages/PortfolioPage.jsx";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="resumeForm" element={<ResumeForm />} />
           <Route path="customers" element={<CustomersPage />} />
           <Route path="contact" element={<Contact />} />
+            <Route path="portfolio" element={<PortfolioPage />} />
 
           {/* بلاگ عمومی */}
           <Route path="blog" element={<BlogList />} />

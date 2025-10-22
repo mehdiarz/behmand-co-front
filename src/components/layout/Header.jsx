@@ -36,10 +36,12 @@ const getNavItems = (language) => {
             { key: "nav.home", path: "/" },
             { key: "nav.about", path: "/about" },
             { key: "nav.services", path: "/services" },
+            { key: "nav.portfolio", path: "/portfolio" },
             { key: "nav.gallery", path: "/gallery" },
             { key: "nav.blog", path: "/blog" }, // Blog only in Persian
             { key: "nav.careers", path: "/resumeForm" },
             { key: "nav.contact", path: "/contact" },
+
         ];
     }
     return baseNavItems; // No blog in English
