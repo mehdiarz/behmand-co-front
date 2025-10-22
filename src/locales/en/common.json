@@ -197,5 +197,16 @@
     "chip": "Our Services",
     "title": "Comprehensive Audit and Financial Services",
     "subtitle": "Explore our wide range of professional services designed to meet your business needs with the highest standards"
+  },
+  "resume": {
+    "title": "Behmand Auditing Institute Resume",
+    "description": "By downloading the resume file, you can learn about the background, managers, organizational structure, clients, and services provided by this institute.",
+    "download": "Download Resume",
+    "features": {
+      "history": "Establishment & History",
+      "team": "Expert Team",
+      "services": "Comprehensive Services",
+      "clients": "Prestigious Clients"
+    }
   }
 }
