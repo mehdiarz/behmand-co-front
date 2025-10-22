@@ -18,7 +18,7 @@ import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 
 import asghar from "../assets/asghar-hooshi.jpg";
-import atash from "../assets/atash.png";
+import atash from "../assets/atash.jpg";
 import sharifi from "../assets/sharifi.png";
 import arezoomand from "../assets/arezoomand.png";
 import emami from "../assets/emami.png";
@@ -355,13 +355,12 @@ const teamMembers = [
 - فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
 
 💼 سوابق کاری:
-- حسابداری در شرکت نوین کذار به مدت ۳ سال
-- حسابداری در موسسه مالی آتی حساب خبره به مدت ۱ سال
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۹
 
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
-- حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
+- حسابدار مستقل – عضو انجمن حسابداران خبره ایران
+- کارشناس دادگستری`,
       en: `🎓 Education:
 - M.Sc. in Accounting from Islamic Azad University
 
