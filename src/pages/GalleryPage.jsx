@@ -80,12 +80,12 @@ export default function GalleryPage() {
   // دسته‌بندی‌های دو زبانه
   const galleryCategories = [
     { key: "all", label: language === "fa" ? "همه تصاویر" : "All Images" },
+      {
+          key: "team",
+          label: language === "fa" ? "تیم حرفه‌ای" : "Professional Team",
+      },
     { key: "office", label: language === "fa" ? "فضای اداری" : "Office Space" },
-    {
-      key: "team",
-      label: language === "fa" ? "تیم حرفه‌ای" : "Professional Team",
-    },
-    { key: "projects", label: language === "fa" ? "پروژه‌ها" : "Projects" },
+    // { key: "projects", label: language === "fa" ? "پروژه‌ها" : "Projects" },
     { key: "events", label: language === "fa" ? "رویدادها" : "Events" },
   ];
 
@@ -493,56 +493,56 @@ export default function GalleryPage() {
         </Grid>
 
         {/* دکمه اقدام */}
-        <Box
-          sx={{
-            textAlign: "center",
-            mt: { xs: 4, sm: 6, md: 8 },
-            px: { xs: 1, sm: 0 },
-          }}
-        >
-          <Button
-            variant="contained"
-            size="large"
-            href="/contact"
-            sx={{
-              background: `linear-gradient(135deg, ${alpha("#ffffff", 0.2)}, ${alpha("#ffffff", 0.1)})`,
-              color: "white",
-              borderRadius: { xs: 1.5, sm: 2, md: 3 },
-              px: { xs: 3, sm: 5, md: 6 },
-              py: { xs: 1, sm: 1.5, md: 2 },
-              fontSize: {
-                xs: "0.8rem",
-                sm: "0.9rem",
-                md: "1.1rem",
-                lg: "1.2rem",
-              },
-              fontWeight: 700,
-              border: `2px solid ${alpha("#ffffff", 0.3)}`,
-              backdropFilter: "blur(10px)",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-              minWidth: { xs: 140, sm: 160, md: 200 },
-              height: { xs: 44, sm: 48, md: 56 },
-              "&:hover": {
-                background: alpha("#ffffff", 0.25),
-                transform: "translateY(-2px)",
-                boxShadow: "0 12px 40px rgba(0,0,0,0.4)",
-              },
-              transition: "all 0.3s ease",
-            }}
-          >
-            {isSmallMobile
-              ? language === "fa"
-                ? "تماس"
-                : "Contact"
-              : isMobile
-                ? language === "fa"
-                  ? "تماس با ما"
-                  : "Contact Us"
-                : language === "fa"
-                  ? "تماس با ما برای اطلاعات بیشتر"
-                  : "Contact Us for More Information"}
-          </Button>
-        </Box>
+        {/*<Box*/}
+        {/*  sx={{*/}
+        {/*    textAlign: "center",*/}
+        {/*    mt: { xs: 4, sm: 6, md: 8 },*/}
+        {/*    px: { xs: 1, sm: 0 },*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <Button*/}
+        {/*    variant="contained"*/}
+        {/*    size="large"*/}
+        {/*    href="/contact"*/}
+        {/*    sx={{*/}
+        {/*      background: `linear-gradient(135deg, ${alpha("#ffffff", 0.2)}, ${alpha("#ffffff", 0.1)})`,*/}
+        {/*      color: "white",*/}
+        {/*      borderRadius: { xs: 1.5, sm: 2, md: 3 },*/}
+        {/*      px: { xs: 3, sm: 5, md: 6 },*/}
+        {/*      py: { xs: 1, sm: 1.5, md: 2 },*/}
+        {/*      fontSize: {*/}
+        {/*        xs: "0.8rem",*/}
+        {/*        sm: "0.9rem",*/}
+        {/*        md: "1.1rem",*/}
+        {/*        lg: "1.2rem",*/}
+        {/*      },*/}
+        {/*      fontWeight: 700,*/}
+        {/*      border: `2px solid ${alpha("#ffffff", 0.3)}`,*/}
+        {/*      backdropFilter: "blur(10px)",*/}
+        {/*      boxShadow: "0 8px 32px rgba(0,0,0,0.3)",*/}
+        {/*      minWidth: { xs: 140, sm: 160, md: 200 },*/}
+        {/*      height: { xs: 44, sm: 48, md: 56 },*/}
+        {/*      "&:hover": {*/}
+        {/*        background: alpha("#ffffff", 0.25),*/}
+        {/*        transform: "translateY(-2px)",*/}
+        {/*        boxShadow: "0 12px 40px rgba(0,0,0,0.4)",*/}
+        {/*      },*/}
+        {/*      transition: "all 0.3s ease",*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    {isSmallMobile*/}
+        {/*      ? language === "fa"*/}
+        {/*        ? "تماس"*/}
+        {/*        : "Contact"*/}
+        {/*      : isMobile*/}
+        {/*        ? language === "fa"*/}
+        {/*          ? "تماس با ما"*/}
+        {/*          : "Contact Us"*/}
+        {/*        : language === "fa"*/}
+        {/*          ? "تماس با ما برای اطلاعات بیشتر"*/}
+        {/*          : "Contact Us for More Information"}*/}
+        {/*  </Button>*/}
+        {/*</Box>*/}
       </Container>
 
       {/* لایت‌بکس (نمایش بزرگ تصویر) */}

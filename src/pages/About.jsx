@@ -725,7 +725,7 @@ export default function About() {
           />
         </Box>
 
-          <ResumeDownloadSection />
+        <ResumeDownloadSection />
 
         {/* نمودار سازمانی */}
         <Box sx={{ mt: 10 }}>
@@ -798,61 +798,73 @@ export default function About() {
         {/*</Box>*/}
 
         {/* Dialog جزئیات اعضا */}
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          maxWidth="sm"
-          fullWidth
-          sx={{ direction: language === "fa" ? "rtl" : "ltr" }}
-        >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
+          <Dialog
+              open={open}
+              onClose={handleClose}
+              maxWidth="sm"
+              fullWidth
+              sx={{
+                  "& .MuiDialog-paper": {
+                      direction: language === "fa" ? "ltr" : "ltr",
+                      textAlign: language === "fa" ? "left" : "left",
+                  }
+              }}
           >
-            {selectedMember?.name[language]}
-            <IconButton onClick={handleClose}>
-              <CloseIcon />
-            </IconButton>
-          </DialogTitle>
-          <DialogContent
-            sx={{
-              direction: language === "fa" ? "rtl" : "ltr",
-              textAlign: language === "fa" ? "right" : "left",
-            }}
-          >
-            {selectedMember && (
-              <Stack spacing={2} alignItems="center">
-                <Avatar
-                  src={selectedMember.avatar}
-                  alt={selectedMember.name[language]}
+              <DialogTitle
                   sx={{
-                    width: 200,
-                    height: 200,
-                    "& .MuiAvatar-img": {
-                      objectFit: "contain",
-                    },
+                      display: "flex",
+                      flexDirection: language === "fa" ? "row" : "row-reverse",
+                      justifyContent: "space-between",
+                      alignItems: "center",
                   }}
-                />
-                <Typography variant="subtitle1" color="text.secondary">
-                  {selectedMember.role[language]}
-                </Typography>
-                <Typography
-                  component="pre"
+              >
+                  {selectedMember?.name[language]}
+                  <IconButton onClick={handleClose}>
+                      <CloseIcon />
+                  </IconButton>
+              </DialogTitle>
+
+              <DialogContent
                   sx={{
-                    whiteSpace: "pre-wrap",
-                    fontFamily: "inherit",
-                    width: "100%",
+                      direction: language === "fa" ? "ltr" : "ltr",
+                      textAlign: language === "fa" ? "left" : "left",
                   }}
-                >
-                  {selectedMember.details[language]}
-                </Typography>
-              </Stack>
-            )}
-          </DialogContent>
-        </Dialog>
+              >
+                  {selectedMember && (
+                      <Stack spacing={2} alignItems="center">
+                          <Avatar
+                              src={selectedMember.avatar}
+                              alt={selectedMember.name[language]}
+                              sx={{
+                                  width: 200,
+                                  height: 200,
+                                  "& .MuiAvatar-img": {
+                                      objectFit: "contain",
+                                  },
+                              }}
+                          />
+
+                          <Typography variant="subtitle1" color="text.secondary">
+                              {selectedMember.role[language]}
+                          </Typography>
+
+                          <Box
+                              sx={{
+                                  whiteSpace: "pre-wrap",
+                                  fontFamily: "inherit",
+                                  width: "100%",
+                                  lineHeight: 1.8,
+                                  fontSize: "1rem",
+                                  p: 1,
+                              }}
+                          >
+                              {selectedMember.details[language]}
+                          </Box>
+                      </Stack>
+                  )}
+              </DialogContent>
+          </Dialog>
+
       </Container>
     </Box>
   );

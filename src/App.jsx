@@ -40,7 +40,7 @@ function App() {
           <Route path="resumeForm" element={<ResumeForm />} />
           <Route path="customers" element={<CustomersPage />} />
           <Route path="contact" element={<Contact />} />
-            <Route path="portfolio" element={<PortfolioPage />} />
+          <Route path="portfolio" element={<PortfolioPage />} />
 
           {/* بلاگ عمومی */}
           <Route path="blog" element={<BlogList />} />

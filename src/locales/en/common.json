@@ -84,7 +84,7 @@
       },
       "mission": {
         "label": "Partners and Managers",
-        "text": "The total number of institute managers is 24 people, of which 10 are partners of the institute.\n\nThe average work experience of partners is about 31 years and the average work experience of other institute managers is about 10 years."
+        "text": "The total number of institute managers is 24 people, of which 10 are partners of the institute.\n\nThe average work experience of partners is about 31 years and the average work experience of other institute managers is over 10 years."
       },
       "values": {
         "label": "Values",
@@ -104,7 +104,7 @@
     },
     "currentPartners": {
       "title": "Current Institute Partners",
-      "description": "The current partners of the institute are Mr. Reza Atash, Ali Mashreghi Arani, Hooman Hoshi, Mohammad Reza Arezoomand Somaye Sarai, Ahmad Reza Sharifi Qazvini, Nader Rastegari, Rasul Davazdah Emami, Mohammad Reza Rahmanian, Sajjad Delpak and Ali Rahmati. Behmand Auditing Institute is one of the member institutes of the Iranian Association of Certified Public Accountants, the Association of Chartered Accountants and the Iranian Accounting Association, and is a trusted auditor of the Securities and Exchange Organization."
+      "description": "The current partners of the firm are Mr. Reza Atash, Ali Mashreghi Arani, Hooman Hoshi, Mohammadreza Arzomand Soumehsaraei, Ahmadreza Sharifi Ghazvini, Nader Rostegari, Rasoul Davazdah Emami, Mohammadreza Rahmanian, Sajad Delpak, and Ali Rahmati. Behmand Audit Institute is a member of the Iranian Association of Certified Public Accountants, the Iranian Association of Certified Accountants, and the Iranian Accounting Association, and is also a trusted auditor of the Securities and Exchange Organization, the Central Bank, and the Central Insurance of Iran."
     }
   },
   "blog": {
@@ -157,7 +157,7 @@
 
   "contact": {
     "address": "Flat 18, 4th Floor, No. 114, Ghaem-magham Ave, Tehran, Iran",
-    "phoneNumbers": ["02188305391", "02188843708", "02188320129"],
+    "phoneNumbers": ["02188305391", "02188843708", "02188320129","02188305392","02188315270","02188316283","02188843708-11","02188320129-32"],
     "fax": "02188844685",
     "email": "info@behmand.com",
     "postalCode": "1586936145",

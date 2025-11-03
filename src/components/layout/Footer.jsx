@@ -156,6 +156,8 @@ export default function Footer() {
                 { textKey: "nav.blog", url: "/blog" },
                 { textKey: "nav.contact", url: "/contact" },
                 { textKey: "nav.careers", url: "/resumeForm" },
+                { textKey: "nav.gallery", url: "/gallery" },
+                { textKey: "nav.portfolio", url: "/portfolio" },
               ].map((item, i) => (
                 <Link
                   key={i}

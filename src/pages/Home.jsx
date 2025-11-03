@@ -971,7 +971,7 @@ export default function Home() {
             <Button
               variant="outlined"
               color="primary"
-              href="/customers"
+              href="/portfolio"
               endIcon={<ArrowForward />}
               sx={{
                 borderRadius: 3,
@@ -1082,7 +1082,7 @@ export default function Home() {
             <Button
               variant="outlined"
               color="primary"
-              href="/customers"
+              href="/portfolio"
               endIcon={<ArrowForward />}
               sx={{
                 borderRadius: 3,
