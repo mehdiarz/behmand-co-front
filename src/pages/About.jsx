@@ -46,7 +46,7 @@ const teamMembers = [
     avatar: atash,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از مدرسه عالی علوم اقتصادی و اجتماعی بابلسر درسال ۱۳۵۳
+- کارشناسی حسابداری از مدرسه عالی علوم اقتصادی و اجتماعی بابلسر درسال ۱۳۵۳
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی طوس (۱۰ ماه)
@@ -81,7 +81,7 @@ const teamMembers = [
     avatar: mashreghi,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از مدرسه عالی بازرگانی (۱۳۵۷)
+- کارشناسی حسابداری از مدرسه عالی بازرگانی (۱۳۵۷)
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی دقیق (۳.۵ سال، سرپرست)
@@ -90,7 +90,7 @@ const teamMembers = [
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران
-- عضویت در کارگروه های تخصصی قوانین و مقررات، بورس، بیمه و بانک
+- عضویت در کارگروه های تخصصی قوانین و مقررات، بورس، بیمه، بانک و جامعه حسابداران رسمی ایران
 - عضو بند ۳ ماده ۲۴۴ هیات حل اختلاف مالیاتی قانون مالیات های مستقیم`,
       en: `🎓 Education:
 - B.Sc. in Accounting from Higher School of Commerce (1978)
@@ -102,7 +102,7 @@ const teamMembers = [
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants
-- Member of specialized working groups for regulations, stock exchange, insurance and banking
+- Member of specialized working groups for regulations, stock exchange, insurance, banking and the Iranian Association of Certified Public Accountants.
 - Member of Article 244, Clause 3 of Direct Tax Law Dispute Resolution Board`,
     },
   },
@@ -118,8 +118,8 @@ const teamMembers = [
     avatar: hooman,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از دانشکده امور اقتصادی و دارائی (۱۳۷۸)
-- فوق لیسانس حسابداری از دانشگاه شهید بهشتی (۱۳۸۱)
+- کارشناسی حسابداری از دانشکده امور اقتصادی و دارائی (۱۳۷۸)
+- کارشناسی ارشد حسابداری از دانشگاه شهید بهشتی (۱۳۸۱)
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۳ (شریک و عضو هیات مدیره)
@@ -129,6 +129,7 @@ const teamMembers = [
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران
 - عضو انجمن حسابداری ایران
 - عضو انجمن حسابرسان داخلی ایران
+- عضو بند ۳ ماده ۲۴۴ هیات حل اختلاف مالیاتی قانون مالیات های مستقیم
 - دانشجوی دوره ACCA`,
       en: `🎓 Education:
 - B.Sc. in Accounting from Faculty of Economics and Finance (1999)
@@ -142,6 +143,7 @@ const teamMembers = [
 - Independent Accountant - Member of Iranian Association of Chartered Accountants
 - Member of Iranian Accounting Association
 - Member of Iranian Internal Auditors Association
+- Member of Article 244, Clause 3 of Direct Tax Law Dispute Resolution Board
 - ACCA Candidate`,
     },
   },
@@ -157,7 +159,7 @@ const teamMembers = [
     avatar: arezoomand,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از دانشگاه شهید بهشتی (۱۳۷۴)
+- کارشناسی حسابداری از دانشگاه شهید بهشتی (۱۳۷۴)
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۱ (شریک)
@@ -188,7 +190,7 @@ const teamMembers = [
     avatar: sharifi,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از دانشگاه آزاد اسلامی (۱۳۷۶)
+- کارشناسی حسابداری از دانشگاه آزاد اسلامی (۱۳۷۶)
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۸ (شریک)
@@ -223,7 +225,7 @@ const teamMembers = [
     avatar: rastegari,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از دانشگاه شهید بهشتی (۱۳۷۳)
+- کارشناسی حسابداری از دانشگاه شهید بهشتی (۱۳۷۳)
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از ۱۳۷۱ (شریک)
@@ -254,7 +256,7 @@ const teamMembers = [
     avatar: emami,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- فوق لیسانس حسابداری از دانشگاه اشرفی اصفهانی (۱۳۹۷)
+- کارشناسی ارشد حسابداری از دانشگاه اشرفی اصفهانی (۱۳۹۷)
 - دکترای حسابداری
 
 💼 سوابق کاری:
@@ -289,7 +291,7 @@ const teamMembers = [
     avatar: rahmanian,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- لیسانس حسابداری از دانشگاه آزاد اسلامی
+- کارشناسی حسابداری از دانشگاه آزاد اسلامی
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۰
@@ -320,7 +322,7 @@ const teamMembers = [
     avatar: delpak,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
+- کارشناسی ارشد حسابداری از دانشگاه آزاد اسلامی
 
 💼 سوابق کاری:
 - حسابداری در موسسه حسابرسی دانشگر محاسب به مدت ۳ سال
@@ -353,7 +355,7 @@ const teamMembers = [
     avatar: rahmati,
     details: {
       fa: `🎓 مدارک تحصیلی:
-- فوق لیسانس حسابداری از دانشگاه آزاد اسلامی
+- کارشناسی ارشد حسابداری از دانشگاه آزاد اسلامی
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۹
@@ -798,73 +800,72 @@ export default function About() {
         {/*</Box>*/}
 
         {/* Dialog جزئیات اعضا */}
-          <Dialog
-              open={open}
-              onClose={handleClose}
-              maxWidth="sm"
-              fullWidth
-              sx={{
-                  "& .MuiDialog-paper": {
-                      direction: language === "fa" ? "ltr" : "ltr",
-                      textAlign: language === "fa" ? "left" : "left",
-                  }
-              }}
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          maxWidth="sm"
+          fullWidth
+          sx={{
+            "& .MuiDialog-paper": {
+              direction: language === "fa" ? "ltr" : "ltr",
+              textAlign: language === "fa" ? "left" : "left",
+            },
+          }}
+        >
+          <DialogTitle
+            sx={{
+              display: "flex",
+              flexDirection: language === "fa" ? "row" : "row-reverse",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-              <DialogTitle
+            {selectedMember?.name[language]}
+            <IconButton onClick={handleClose}>
+              <CloseIcon />
+            </IconButton>
+          </DialogTitle>
+
+          <DialogContent
+            sx={{
+              direction: language === "fa" ? "ltr" : "ltr",
+              textAlign: language === "fa" ? "left" : "left",
+            }}
+          >
+            {selectedMember && (
+              <Stack spacing={2} alignItems="center">
+                <Avatar
+                  src={selectedMember.avatar}
+                  alt={selectedMember.name[language]}
                   sx={{
-                      display: "flex",
-                      flexDirection: language === "fa" ? "row" : "row-reverse",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                    width: 200,
+                    height: 200,
+                    "& .MuiAvatar-img": {
+                      objectFit: "contain",
+                    },
                   }}
-              >
-                  {selectedMember?.name[language]}
-                  <IconButton onClick={handleClose}>
-                      <CloseIcon />
-                  </IconButton>
-              </DialogTitle>
+                />
 
-              <DialogContent
+                <Typography variant="subtitle1" color="text.secondary">
+                  {selectedMember.role[language]}
+                </Typography>
+
+                <Box
                   sx={{
-                      direction: language === "fa" ? "ltr" : "ltr",
-                      textAlign: language === "fa" ? "left" : "left",
+                    whiteSpace: "pre-wrap",
+                    fontFamily: "inherit",
+                    width: "100%",
+                    lineHeight: 1.8,
+                    fontSize: "1rem",
+                    p: 1,
                   }}
-              >
-                  {selectedMember && (
-                      <Stack spacing={2} alignItems="center">
-                          <Avatar
-                              src={selectedMember.avatar}
-                              alt={selectedMember.name[language]}
-                              sx={{
-                                  width: 200,
-                                  height: 200,
-                                  "& .MuiAvatar-img": {
-                                      objectFit: "contain",
-                                  },
-                              }}
-                          />
-
-                          <Typography variant="subtitle1" color="text.secondary">
-                              {selectedMember.role[language]}
-                          </Typography>
-
-                          <Box
-                              sx={{
-                                  whiteSpace: "pre-wrap",
-                                  fontFamily: "inherit",
-                                  width: "100%",
-                                  lineHeight: 1.8,
-                                  fontSize: "1rem",
-                                  p: 1,
-                              }}
-                          >
-                              {selectedMember.details[language]}
-                          </Box>
-                      </Stack>
-                  )}
-              </DialogContent>
-          </Dialog>
-
+                >
+                  {selectedMember.details[language]}
+                </Box>
+              </Stack>
+            )}
+          </DialogContent>
+        </Dialog>
       </Container>
     </Box>
   );

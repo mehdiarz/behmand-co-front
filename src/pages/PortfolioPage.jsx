@@ -81,6 +81,8 @@ const portfolioData = {
     "سیمان سپاهان",
     "سیمان خاش",
     "سیمان درود",
+    "سیمان عمران انارک(دلیجان)",
+    "سیمان ارض العماره",
   ],
 
   "سرمایه گذاری ها و نهادهای مالی": [
@@ -558,7 +560,7 @@ export default function PortfolioPage() {
         display: "flex",
         minHeight: "100vh",
         background: "linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%)",
-          mt:10
+        mt: 10,
       }}
     >
       {/* منوی کشویی برای موبایل */}
@@ -724,8 +726,19 @@ export default function PortfolioPage() {
                 >
                   <Grid container spacing={1.5}>
                     {portfolioData[selectedIndustry].map((company, index) => (
-                      <Grid item xs={6} sm={4} md={3} key={company} sx={{width : { xs: "100%",sm: "47%", lg: "22%" }}}>
-                        <motion.div variants={itemVariants} layout sx={{width : { xs: "100%",sm: "47%", lg: "22%" }}}>
+                      <Grid
+                        item
+                        xs={6}
+                        sm={4}
+                        md={3}
+                        key={company}
+                        sx={{ width: { xs: "100%", sm: "47%", lg: "22%" } }}
+                      >
+                        <motion.div
+                          variants={itemVariants}
+                          layout
+                          sx={{ width: { xs: "100%", sm: "47%", lg: "22%" } }}
+                        >
                           <Box
                             sx={{
                               display: "flex",

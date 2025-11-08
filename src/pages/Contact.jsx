@@ -334,8 +334,8 @@ export default function ContactPage() {
                               </Typography>
                               <Typography variant="body1" fontWeight={500}>
                                 {language === "fa"
-                                  ? "همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح"
-                                  : "Every day except holidays from 8.5 AM"}
+                                  ? "همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح تا ۵/۵ عصر"
+                                  : "Every day except holidays from 8.5 AM to 5.5 PM"}
                               </Typography>
                             </Box>
                           </Box>
@@ -457,8 +457,8 @@ export default function ContactPage() {
                               </Typography>
                               <Typography variant="body1" fontWeight={500}>
                                 {language === "fa"
-                                  ? "همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح"
-                                  : "Every day except holidays from 8.5 AM"}
+                                  ? "همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح تا ۵/۵ عصر"
+                                  : "Every day except holidays from 8.5 AM to 5.5 PM"}
                               </Typography>
                             </Box>
                           </Box>
@@ -560,15 +560,32 @@ export default function ContactPage() {
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                       <Typography fontWeight={500}>
                         {language === "fa"
-                          ? "مدت زمان پاسخگویی به پیام‌ها چقدر است؟"
-                          : "How long does it take to respond to messages?"}
+                          ? "سوابق و پیشینه مؤسسه بهمند چگونه است؟"
+                          : "What is the background and history of Behmand Institute?"}
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
                         {language === "fa"
-                          ? "معمولاً در کمتر از ۲۴ ساعت کاری پاسخ داده می‌شود. در موارد فوری می‌توانید با شماره‌های مستقیم تماس بگیرید."
-                          : "Usually answered in less than 24 business hours. For urgent matters, you can call direct numbers."}
+                          ? "مؤسسه حسابرسی بهمند در آذرماه سال ۱۳۵۸ توسط مرحوم اصغر هشی تأسیس و تحت شماره ۲۰۳۵ در اداره ثبت شرکت‌های تهران به ثبت رسیده است. با بیش از چهار دهه تجربه، از پیشگامان حوزه حسابرسی و خدمات مالی در ایران محسوب می‌شویم."
+                          : "Behmand Audit Institute was established in December 1979 by the late Asghar Heshi and was registered under number 2035 in the Tehran Companies Registration Office. With over four decades of experience, we are considered pioneers in the field of auditing and financial services in Iran."}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+
+                  <Accordion>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                      <Typography fontWeight={500}>
+                        {language === "fa"
+                          ? "ساعات کاری و پشتیبانی چگونه است؟"
+                          : "What are the working hours and support schedule?"}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        {language === "fa"
+                          ? "پاسخگویی از شنبه تا چهارشنبه، ساعت ۸/۵ صبح تا ۵/۵ عصر انجام می‌شود. برای امور فوری خارج از این ساعات، از طریق تیکت پیگیری نمایید."
+                          : "Support is available from Saturday to Wednesday, 8.5 AM to 5.5 PM. For urgent matters outside these hours, please use the ticket system."}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
@@ -586,23 +603,6 @@ export default function ContactPage() {
                         {language === "fa"
                           ? "تجربه عملی، تخصص فنی، توانایی ارائه راهکارهای عملی و به‌روز بودن با قوانین جدید از مهم‌ترین ویژگی‌هاست."
                           : "Practical experience, technical expertise, ability to provide practical solutions and staying updated with new regulations are the most important features."}
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-
-                  <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography fontWeight={500}>
-                        {language === "fa"
-                          ? "آیا مشاوره اولیه رایگان است؟"
-                          : "Is the initial consultation free?"}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>
-                        {language === "fa"
-                          ? "بله، جلسه مشاوره اولیه به صورت رایگان و برای شناخت نیازهای شما برگزار می‌شود."
-                          : "Yes, the initial consultation session is free and held to understand your needs."}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
