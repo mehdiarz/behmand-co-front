@@ -29,42 +29,44 @@ import { useTranslation } from "react-i18next";
 
 // داده‌های کامل نمونه کارها
 const portfolioData = {
-  "صنایع پتروشیمی ، شیمیایی ، معدنی وفلزی": [
+  "صنایع پتروشیمی ، شیمیایی وفلزی": [
     "آریا شیمی شرق",
     "پترو فرهنگ",
     "پتروشیمی گناوه دشتستان",
     "ساپرا شیمی",
-    "احداث کانسار راوه",
     "اسید سازان زنجان",
     "آلومتک",
     "آلومراد",
-    "آلیاژ گستر قشم",
     "بازرگانی پتروشیمی",
-    "بازرگانی توسعه صنعت روی",
     "پاتله",
     "پاکسان",
     "پترو کک آرین ویان غرب",
     "پونل برسام",
     "تقطیر خراسان",
     "توسعه پتروشیمی کنگان",
-    "تولید روی بندر عباس",
     "تولیدی منیزیم گستر اریش",
     "شیشه قزوین",
     "صبا فولاد زاگرس",
-    "صدر معادن ایرانیان",
     "صنایع پتروشیمی هگمتانه",
     "صنایع فولاد سازان امیرآباد",
     "صنایع فولاد سازان دماوند",
     "صنعتی و معدنی شمالشرق شاهرود",
-    "فرآوری مواد معدنی ایران",
     "کیمیای پارس خاورمیانه",
-    "مجتمع ذوب و احیای روی قشم",
-    "مجتمع معادن مس تکنار",
-    "ملی سرب و روی ایران",
     "مهندسی و توسعه صنایع فلات قاره پرشین",
     "فرآوری ماسه سیلیسی فیروزکوه",
     "صنعتی و شیمیایی رنگین",
     "لوله و تجهیزات سدید",
+  ],
+  "صنایع معدنی": [
+    "ملی سرب و روی ایران",
+    "فرآوری مواد معدنی ایران",
+    "مجتمع معادن مس تکنار",
+    "تولید روی بندر عباس",
+    "مجتمع ذوب و احیای روی قشم",
+    "آلیاژ گستر قشم",
+    "صدر معادن ایرانیان",
+    "بازرگانی توسعه صنعت روی",
+    "احداث کانسار راوه",
   ],
 
   "صنعت سیمان": [
@@ -428,7 +430,7 @@ export default function PortfolioPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [selectedIndustry, setSelectedIndustry] = useState(
-    "صنایع پتروشیمی ، شیمیایی ، معدنی وفلزی",
+    "صنایع پتروشیمی ، شیمیایی وفلزی",
   );
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -879,89 +881,8 @@ export default function PortfolioPage() {
                 {i18n.language === "fa" ? "سال تجربه" : "Years Experience"}
               </Typography>
             </Card>
-
-            {/*<Card*/}
-            {/*  sx={{*/}
-            {/*    textAlign: "center",*/}
-            {/*    p: 4,*/}
-            {/*    borderRadius: 4,*/}
-            {/*    boxShadow: 3,*/}
-            {/*    background: "linear-gradient(135deg, #388e3c 0%, #2e7d32 100%)",*/}
-            {/*    color: "white",*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  <Typography*/}
-            {/*    variant="h2"*/}
-            {/*    component="div"*/}
-            {/*    sx={{ fontWeight: 800, mb: 1 }}*/}
-            {/*  >*/}
-            {/*    ۱۰۰%*/}
-            {/*  </Typography>*/}
-            {/*  <Typography variant="h5" sx={{ opacity: 0.9 }}>*/}
-            {/*    {i18n.language === "fa" ? "رضایت مشتری" : "Client Satisfaction"}*/}
-            {/*  </Typography>*/}
-            {/*</Card>*/}
           </Box>
         </motion.div>
-
-        {/* این div برای پر کردن فضای باقیمانده و push کردن Call to Action به پایین */}
-        {/*<Box sx={{ flexGrow: 1 }} />*/}
-
-        {/* Call to Action - حالا در انتهای صفحه */}
-        {/*<motion.div*/}
-        {/*    initial={{ opacity: 0, y: 20 }}*/}
-        {/*    animate={{ opacity: 1, y: 0 }}*/}
-        {/*    transition={{ duration: 0.5, delay: 0.4 }}*/}
-        {/*>*/}
-        {/*    <Box*/}
-        {/*        sx={{*/}
-        {/*            textAlign: "center",*/}
-        {/*            p: 4,*/}
-        {/*            background: "linear-gradient(135deg, #388e3c 0%, #2e7d32 100%)",*/}
-        {/*            borderRadius: 3,*/}
-        {/*            color: "white",*/}
-        {/*            boxShadow: "0 4px 20px rgba(0,0,0,0.15)",*/}
-        {/*            mt: 'auto' // این باعث می‌شود به پایین push شود*/}
-        {/*        }}*/}
-        {/*    >*/}
-        {/*        <Typography*/}
-        {/*            variant="h5"*/}
-        {/*            gutterBottom*/}
-        {/*            sx={{ fontWeight: 700, mb: 2 }}*/}
-        {/*        >*/}
-        {/*            {i18n.language === "fa"*/}
-        {/*                ? "می‌خواهید پروژه بعدی ما باشید؟"*/}
-        {/*                : "Want to be our next project?"}*/}
-        {/*        </Typography>*/}
-        {/*        <Typography*/}
-        {/*            variant="body1"*/}
-        {/*            sx={{ mb: 3, opacity: 0.9, maxWidth: 500, mx: "auto" }}*/}
-        {/*        >*/}
-        {/*            {i18n.language === "fa"*/}
-        {/*                ? "برای شروع همکاری با موسسه حسابرسی بهمند، با ما تماس بگیرید"*/}
-        {/*                : "Contact us to start collaborating with Behmand Auditing Institute"}*/}
-        {/*        </Typography>*/}
-        {/*        <Button*/}
-        {/*            variant="contained"*/}
-        {/*            color="secondary"*/}
-        {/*            size="medium"*/}
-        {/*            href="/contact"*/}
-        {/*            sx={{*/}
-        {/*                px: 4,*/}
-        {/*                py: 1,*/}
-        {/*                fontSize: "1rem",*/}
-        {/*                fontWeight: 700,*/}
-        {/*                borderRadius: 2,*/}
-        {/*                boxShadow: "0 4px 12px rgba(255,255,255,0.3)",*/}
-        {/*                "&:hover": {*/}
-        {/*                    boxShadow: "0 6px 16px rgba(255,255,255,0.4)",*/}
-        {/*                },*/}
-        {/*            }}*/}
-        {/*        >*/}
-        {/*            {i18n.language === "fa" ? "تماس با ما" : "Contact Us"}*/}
-        {/*        </Button>*/}
-        {/*    </Box>*/}
-        {/*</motion.div>*/}
       </Box>
     </Box>
   );

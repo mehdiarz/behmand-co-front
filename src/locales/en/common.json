@@ -13,7 +13,8 @@
     "gallery": "Gallery",
     "blog": "Blog",
     "careers": "Careers",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "timesheet": "Timesheet"
   },
   "hero": {
     "title": "Behmand Auditing Institute",
@@ -88,7 +89,7 @@
       },
       "values": {
         "label": "Values",
-        "text": "Commitment to professional ethics, accuracy and precision, continuous innovation, and long-term relationships with customers are the fundamental values of Behmand Institute."
+        "text": "At Behmand Audit Institute, our core values are rooted in professional ethics, precision, innovation, and lasting client partnerships."
       }
     },
     "stats": {
