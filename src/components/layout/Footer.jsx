@@ -153,11 +153,12 @@ export default function Footer() {
                 { textKey: "nav.home", url: "/" },
                 { textKey: "nav.about", url: "/about" },
                 { textKey: "nav.services", url: "/services" },
-                { textKey: "nav.blog", url: "/blog" },
-                { textKey: "nav.contact", url: "/contact" },
-                { textKey: "nav.careers", url: "/resumeForm" },
-                { textKey: "nav.gallery", url: "/gallery" },
                 { textKey: "nav.portfolio", url: "/portfolio" },
+                { textKey: "nav.gallery", url: "/gallery" },
+                { textKey: "nav.blog", url: "/blog" },
+                { textKey: "nav.careers", url: "/resumeForm" },
+                { textKey: "nav.contact", url: "/contact" },
+
                 {
                   textKey: "nav.timesheet",
                   url: "https://behmand.ssdayofficial.com:10551/Page_Main_Login",
@@ -201,6 +202,20 @@ export default function Footer() {
                 { textKey: "useful.audit", url: "https://audit.org.ir/" },
                 { textKey: "useful.ifrs", url: "https://www.ifrs.org/" },
                 { textKey: "useful.cbi", url: "https://www.cbi.ir/" },
+                { textKey: "useful.iica", url: "https://www.iica.ir/" },
+                { textKey: "useful.iranianaa", url: "https://iranianaa.com/" },
+                {
+                  textKey: "useful.intamedia",
+                  url: "http://www.intamedia.ir/",
+                },
+                {
+                  textKey: "useful.tamin",
+                  url: "https://account.tamin.ir/auth/login",
+                },
+                {
+                  textKey: "useful.karafarin",
+                  url: "https://eservices.karafarin-insurance.ir/login?returnUrl=%2F",
+                },
               ].map((item, i) => (
                 <Link
                   key={i}

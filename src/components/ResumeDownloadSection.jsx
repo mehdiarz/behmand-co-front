@@ -121,7 +121,7 @@ const ResumeDownloadSection = () => {
               }}
             >
               {language === "fa"
-                ? "با دریافت فایل رزومه می‌توانید با سوابق، مدیران، ساختار سازمانی، مشتریان و خدمات قابل ارائه از سوی این مؤسسه آشنا شوید."
+                ? "با دریافت فایل رزومه می‌توانید با سوابق مدیران، ساختار سازمانی، مشتریان و خدمات قابل ارائه از سوی این مؤسسه آشنا شوید."
                 : "By downloading the resume file, you can learn about the background, managers, organizational structure, clients, and services provided by this institute."}
             </Typography>
 

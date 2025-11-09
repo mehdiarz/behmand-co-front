@@ -14,7 +14,8 @@
     "blog": "Blog",
     "careers": "Careers",
     "contact": "Contact Us",
-    "timesheet": "Timesheet"
+    "timesheet": "Timesheet",
+    "portfolio": "Portfolio"
   },
   "hero": {
     "title": "Behmand Auditing Institute",
@@ -158,7 +159,16 @@
 
   "contact": {
     "address": "Flat 18, 4th Floor, No. 114, Ghaem-magham Ave, Tehran, Iran",
-    "phoneNumbers": ["02188305391", "02188843708", "02188320129","02188305392","02188315270","02188316283","02188843708-11","02188320129-32"],
+    "phoneNumbers": [
+      "02188305391",
+      "02188843708",
+      "02188320129",
+      "02188305392",
+      "02188315270",
+      "02188316283",
+      "02188843708-11",
+      "02188320129-32"
+    ],
     "fax": "02188844685",
     "email": "info@behmand.com",
     "postalCode": "1586936145",
@@ -192,7 +202,12 @@
     "seo": "Securities and Exchange Organization of Iran",
     "audit": "Audit Organization of Iran",
     "ifrs": "IFRS - International Standards",
-    "cbi": "Central Bank of Iran"
+    "cbi": "Central Bank of Iran",
+    "iica": "Iranian Certified Accountants",
+    "iranianaa": "Iran Accounting Association",
+    "intamedia": "Iran Tax Administration",
+    "tamin": "Tamin Portal",
+    "karafarin": "Karafarin Insurance Portal"
   },
   "servicesPage": {
     "chip": "Our Services",
