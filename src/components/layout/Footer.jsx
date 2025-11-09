@@ -158,6 +158,10 @@ export default function Footer() {
                 { textKey: "nav.careers", url: "/resumeForm" },
                 { textKey: "nav.gallery", url: "/gallery" },
                 { textKey: "nav.portfolio", url: "/portfolio" },
+                {
+                  textKey: "nav.timesheet",
+                  url: "https://behmand.ssdayofficial.com:10551/Page_Main_Login",
+                },
               ].map((item, i) => (
                 <Link
                   key={i}
