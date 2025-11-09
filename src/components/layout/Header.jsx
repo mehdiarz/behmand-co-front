@@ -29,7 +29,7 @@ const baseNavItems = [
     {
         key: "nav.timesheet",
         path: "https://behmand.ssdayofficial.com:10551/Page_Main_Login",
-        external: true
+        external: true,
     },
 ];
 
@@ -49,7 +49,7 @@ const getNavItems = (language) => {
             {
                 key: "nav.timesheet",
                 path: "https://behmand.ssdayofficial.com:10551/Page_Main_Login",
-                external: true
+                external: true,
             },
         ];
     }
@@ -93,13 +93,12 @@ export default function Header() {
                         <ListItemButton
                             component={item.external ? "a" : Link}
                             {...(item.external
-                                    ? {
-                                        href: item.path,
-                                        target: "_blank",
-                                        rel: "noopener noreferrer"
-                                    }
-                                    : { to: item.path }
-                            )}
+                                ? {
+                                    href: item.path,
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                }
+                                : { to: item.path })}
                             selected={!item.external && location.pathname === item.path}
                             sx={{
                                 borderRadius: 2,
@@ -161,7 +160,7 @@ export default function Header() {
                     sx={{
                         justifyContent: "space-between",
                         width: "100%",
-                        px: { xs: 2, md: 6 },
+                        px: { xs: 2, md: 3, lg: 6 }, // کاهش padding در md
                     }}
                 >
                     <Box sx={{ display: { xs: "block", md: "none" } }}>
@@ -178,7 +177,10 @@ export default function Header() {
                         <motion.img
                             src={logo}
                             alt={t("header.logoAlt")}
-                            animate={{ height: isScrolled ? 50 : 70 }}
+                            animate={{
+                                height: isScrolled ? 50 : 70,
+                                width: isScrolled ? 120 : 140
+                            }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                             style={{ objectFit: "contain" }}
                         />
@@ -187,11 +189,14 @@ export default function Header() {
                     <Box
                         sx={{
                             display: { xs: "none", md: "flex" },
-                            gap: { md: 3, lg: 4 },
+                            gap: { md: 1.5, lg: 4 }, // کاهش gap در md
                             alignItems: "center",
+                            flexWrap: 'wrap', // اجازه می‌دهد آیتم‌ها در دو خط قرار گیرند
+                            maxWidth: { md: '500px', lg: 'none' }, // محدودیت عرض در md
+                            justifyContent: 'flex-end',
                         }}
                     >
-                        {navItems.map((item) => (
+                        {navItems.map((item) =>
                             item.external ? (
                                 <Button
                                     key={item.path}
@@ -203,15 +208,18 @@ export default function Header() {
                                         fontWeight: 500,
                                         color: "text.primary",
                                         position: "relative",
-                                        px: { md: 2, lg: 2.5 },
-                                        py: 1,
+                                        px: { md: 1, lg: 2.5 }, // کاهش padding افقی در md
+                                        py: { md: 0.5, lg: 1 }, // کاهش padding عمودی در md
+                                        fontSize: { md: '0.75rem', lg: '0.875rem' }, // کاهش سایز فونت در md
+                                        minWidth: 'auto', // حذف حداقل عرض
+                                        whiteSpace: 'nowrap', // جلوگیری از شکستن خط
                                         "&:after": {
                                             content: '""',
                                             position: "absolute",
-                                            bottom: -6,
+                                            bottom: -4,
                                             left: 0,
                                             width: "0%",
-                                            height: "3px",
+                                            height: "2px",
                                             bgcolor: "primary.main",
                                             transition: "width 0.4s ease",
                                         },
@@ -232,15 +240,18 @@ export default function Header() {
                                                 ? "primary.main"
                                                 : "text.primary",
                                         position: "relative",
-                                        px: { md: 2, lg: 2.5 },
-                                        py: 1,
+                                        px: { md: 1, lg: 2.5 }, // کاهش padding افقی در md
+                                        py: { md: 0.5, lg: 1 }, // کاهش padding عمودی در md
+                                        fontSize: { md: '0.75rem', lg: '0.875rem' }, // کاهش سایز فونت در md
+                                        minWidth: 'auto', // حذف حداقل عرض
+                                        whiteSpace: 'nowrap', // جلوگیری از شکستن خط
                                         "&:after": {
                                             content: '""',
                                             position: "absolute",
-                                            bottom: -6,
+                                            bottom: -4,
                                             left: 0,
                                             width: location.pathname === item.path ? "100%" : "0%",
-                                            height: "3px",
+                                            height: "2px",
                                             bgcolor: "primary.main",
                                             transition: "width 0.4s ease",
                                         },
@@ -249,8 +260,8 @@ export default function Header() {
                                 >
                                     {t(item.key)}
                                 </Button>
-                            )
-                        ))}
+                            ),
+                        )}
                         <Button
                             variant="outlined"
                             color="primary"
@@ -258,7 +269,20 @@ export default function Header() {
                                 i18n.changeLanguage(i18n.language === "fa" ? "en" : "fa")
                             }
                             startIcon={<TranslateIcon />}
-                            sx={{ ml: 2, borderRadius: 2 }}
+                            sx={{
+                                ml: { md: 1, lg: 2 },
+                                borderRadius: 2,
+                                px: { md: 1, lg: 2 },
+                                py: { md: 0.5, lg: 1 },
+                                fontSize: { md: '0.75rem', lg: '0.875rem' },
+                                minWidth: 'auto',
+                                '& .MuiButton-startIcon': {
+                                    marginRight: { md: 0.5, lg: 1 },
+                                    '& svg': {
+                                        fontSize: { md: '1rem', lg: '1.25rem' }
+                                    }
+                                }
+                            }}
                         >
                             {i18n.language === "fa" ? "English" : "فارسی"}
                         </Button>
