@@ -408,7 +408,11 @@ export default function ContactPage() {
                               <Typography
                                 variant="body1"
                                 component={Link}
-                                href="tel:03136702943"
+                                href={
+                                  language === "fa"
+                                    ? "tel:۰۳۱۳۶۷۰۲۹۴۳"
+                                    : "tel:+983136702943"
+                                }
                                 sx={{
                                   color: "primary.main",
                                   textDecoration: "none",
@@ -416,7 +420,9 @@ export default function ContactPage() {
                                   "&:hover": { textDecoration: "none" },
                                 }}
                               >
-                                031-36702943
+                                {language === "fa"
+                                  ? "۰۳۱۳۶۷۰۲۹۴۳"
+                                  : "+983136702943"}
                               </Typography>
                             </Box>
                           </Box>
