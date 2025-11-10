@@ -339,7 +339,8 @@ export default function ResumeFormFinal() {
           <Container
             maxWidth="lg"
             sx={{
-              mt: 8,
+              mt: 22,
+                mb:12,
               py: { xs: 3, md: 6 },
               minHeight: { xs: "auto", md: "100vh" },
               bgcolor: "#f7f9fb",
@@ -347,6 +348,75 @@ export default function ResumeFormFinal() {
             }}
             dir="rtl"
           >
+            {/* BOX INFO - کاملاً حرفه‌ای و مدرن */}
+            <Paper
+              sx={{
+                p: { xs: 2, md: 3 },
+                mb: 4,
+                borderRadius: 3,
+                boxShadow: "0 8px 30px rgba(16,24,40,0.04)",
+                backgroundColor: "primary.main",
+                background: "linear-gradient(135deg, #1976d2 0%, #1565c0 100%)",
+                color: "white",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  width: "120px",
+                  height: "120px",
+                  background: "rgba(255,255,255,0.1)",
+                  borderRadius: "50%",
+                  transform: "translate(30%, -30%)",
+                },
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "80px",
+                  height: "80px",
+                  background: "rgba(255,255,255,0.1)",
+                  borderRadius: "50%",
+                  transform: "translate(-30%, 30%)",
+                },
+              }}
+              elevation={0}
+            >
+              <Box position="relative" zIndex={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    mb: 2,
+                    fontWeight: 800,
+                    fontSize: { xs: "1.1rem", md: "1.3rem" },
+                    textShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                  }}
+                >
+                  دعوت به همکاری مؤسسه حسابرسی بهمند
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    lineHeight: 1.8,
+                    fontSize: { xs: "0.9rem", md: "1rem" },
+                    opacity: 0.95,
+                    fontWeight: 500,
+                  }}
+                >
+                  مؤسسه حسابرسی بهمند جهت تکمیل کادر حرفه‌ای خود در تهران و دفتر
+                  اصفهان از افراد واجد شرایط در رده‌های‌حسابرس، حسابرس ارشد و
+                  سرپرست و سرپرست ارشد دارای مدرک کارشناسی یا کارشناسی ارشد
+                  دارای امتیاز قبولی در آزمون تعیین رتبه مورد پذیرش جامعه
+                  حسابداران رسمی ایران دعوت به همکاری می‌نماید. متقاضیان
+                  می‌توانند جهت ارسال اطلاعات خود نسبت به تکمیل فرم استخدام
+                  اقدام نمایند.
+                </Typography>
+              </Box>
+            </Paper>
             <Paper
               sx={{
                 p: { xs: 2, md: 4 },
@@ -549,7 +619,13 @@ export default function ResumeFormFinal() {
                           />
                         </Grid>
 
-                        <Grid item xs={12} sm={6} md={4} sx={{minWidth:"120px"}}>
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          sx={{ minWidth: "120px" }}
+                        >
                           <TextField
                             fullWidth
                             select
@@ -566,7 +642,13 @@ export default function ResumeFormFinal() {
                           </TextField>
                         </Grid>
 
-                        <Grid item xs={12} sm={6} md={4} sx={{minWidth:"130px"}} >
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          sx={{ minWidth: "130px" }}
+                        >
                           <TextField
                             select
                             label="وضعیت تاهل"
@@ -604,7 +686,13 @@ export default function ResumeFormFinal() {
                           />
                         </Grid>
 
-                        <Grid item xs={12} sm={6} md={4} sx={{minWidth:"120px"}}>
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          md={4}
+                          sx={{ minWidth: "120px" }}
+                        >
                           <TextField
                             select
                             label="وضعیت سربازی"
@@ -822,7 +910,12 @@ export default function ResumeFormFinal() {
                                 {...tfBase}
                               />
                             </Grid>
-                            <Grid item xs={12} sm={4} sx={{minWidth:"120px"}}>
+                            <Grid
+                              item
+                              xs={12}
+                              sm={4}
+                              sx={{ minWidth: "120px" }}
+                            >
                               <TextField
                                 select
                                 label="خواندن"
@@ -844,7 +937,12 @@ export default function ResumeFormFinal() {
                                 <MenuItem value="متوسط">متوسط</MenuItem>
                               </TextField>
                             </Grid>
-                            <Grid item xs={12} sm={4} sx={{minWidth:"120px"}}>
+                            <Grid
+                              item
+                              xs={12}
+                              sm={4}
+                              sx={{ minWidth: "120px" }}
+                            >
                               <TextField
                                 select
                                 label="نوشتن"
@@ -927,7 +1025,11 @@ export default function ResumeFormFinal() {
                           sx={{ mb: 3, mt: 3 }}
                         />
 
-                        <Grid container spacing={2} sx={{ mt: 1,minWidth:"200px" }}>
+                        <Grid
+                          container
+                          spacing={2}
+                          sx={{ mt: 1, minWidth: "200px" }}
+                        >
                           <Grid item xs={12} sm={6} md={4}>
                             <TextField
                               label="شغل مورد درخواست"
@@ -939,7 +1041,13 @@ export default function ResumeFormFinal() {
                             />
                           </Grid>
 
-                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:"200px"}}>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            sx={{ minWidth: "200px" }}
+                          >
                             <TextField
                               label="مدت تجربه در شغل مورد درخواست"
                               name="jobExperienceDuration"
@@ -950,7 +1058,13 @@ export default function ResumeFormFinal() {
                             />
                           </Grid>
 
-                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:"200px"}}>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            sx={{ minWidth: "200px" }}
+                          >
                             <TextField
                               select
                               label="برای انجام وظایف مایل به کار در"
@@ -969,7 +1083,13 @@ export default function ResumeFormFinal() {
                             </TextField>
                           </Grid>
 
-                          <Grid item xs={12} sm={6} md={4} sx={{minWidth:{xs:290,md:300}}}>
+                          <Grid
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            sx={{ minWidth: { xs: 290, md: 300 } }}
+                          >
                             <TextField
                               label="مدتی که در طول یکسال می‌توانم در شهرستان کار کنم (ماه)"
                               name="monthsPerYearInOtherCity"

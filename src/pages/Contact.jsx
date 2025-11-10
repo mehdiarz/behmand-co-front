@@ -334,7 +334,7 @@ export default function ContactPage() {
                               </Typography>
                               <Typography variant="body1" fontWeight={500}>
                                 {language === "fa"
-                                  ? "همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح تا ۵/۵ عصر"
+                                  ? "شنبه تا چهارشنبه از ساعت ۸/۵ صبح تا ۵/۵ عصر"
                                   : "Every day except holidays from 8.5 AM to 5.5 PM"}
                               </Typography>
                             </Box>
@@ -432,7 +432,7 @@ export default function ContactPage() {
                               {language === "fa" ? "کد پستی" : "Postal Code"}
                             </Typography>
                             <Typography variant="body1" fontWeight={500}>
-                              8168985991
+                              {language === "fa" ? "۸۱۶۸۹۸۵۹۹۱" : "8168985991"}
                             </Typography>
                           </Box>
 
@@ -463,7 +463,7 @@ export default function ContactPage() {
                               </Typography>
                               <Typography variant="body1" fontWeight={500}>
                                 {language === "fa"
-                                  ? "همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح تا ۵/۵ عصر"
+                                  ? "شنبه تا چهارشنبه از ساعت ۸/۵ صبح تا ۵/۵ عصر"
                                   : "Every day except holidays from 8.5 AM to 5.5 PM"}
                               </Typography>
                             </Box>
