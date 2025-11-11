@@ -34,18 +34,18 @@ import ResumeDownloadSection from "../components/ResumeDownloadSection.jsx";
 
 // تیم ممبرز کامل دو زبانه
 const teamMembers = [
-  {
-    name: {
-      fa: "رضا آتش",
-      en: "Reza Atash",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: atash,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
+    {
+        name: {
+            fa: "رضا آتش",
+            en: "Reza Atash",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: atash,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
 - کارشناسی حسابداری از مدرسه عالی علوم اقتصادی و اجتماعی بابلسر درسال ۱۳۵۳
 
 💼 سوابق کاری:
@@ -56,32 +56,32 @@ const teamMembers = [
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Babolsar School of Higher Economic and Social Sciences (1974)
+            en: `🎓 Education:
+- Bachelor of Accounting from Babolsar School of Higher Economic and Social Sciences (1974)
 
 💼 Professional Experience:
 - Auditor at Tous Auditing Institute (10 months)
-- Auditor at Deghigh Auditing Institute (5 years, Senior Supervisor)
-- Auditor at Behmand Auditing Institute since 1979 (Partner and Board Member)
+- Auditor at Daghigh Audit Firm (5 years, Senior Supervisor)
+- Auditor at Behmand Audit Firm since 1979 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "علی مشرقی",
-      en: "Ali Mashreghi",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: mashreghi,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از مدرسه عالی بازرگانی (۱۳۵۷)
+    {
+        name: {
+            fa: "علی مشرقی",
+            en: "Ali Mashreghi",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: mashreghi,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از مدرسه عالی بازرگانی در سال ۱۳۵۷
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی دقیق (۳.۵ سال، سرپرست)
@@ -92,34 +92,34 @@ const teamMembers = [
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران
 - عضویت در کارگروه های تخصصی قوانین و مقررات، بورس، بیمه و بانک جامعه حسابداران رسمی ایران
 - عضو بند ۳ ماده ۲۴۴ هیات حل اختلاف مالیاتی قانون مالیات های مستقیم`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Higher School of Commerce (1978)
+            en: `🎓 Education:
+- Bachelor of Accounting from Higher School of Commerce (1978)
 
 💼 Professional Experience:
-- Auditor at Deghigh Auditing Institute (3.5 years, Supervisor)
-- Auditor at Behmand Auditing Institute since 1979 (Partner and Board Member)
+- Auditor at Daghigh Audit Firm (3.5 years, Supervisor)
+- Auditor at Behmand Audit Firm since 1979 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants
-- Member of specialized working groups for regulations, stock exchange, insurance, banking and the Iranian Association of Certified Public Accountants.
+- Member of specialized working groups for Regulations, Stock Exchange, Insurance, and Banking at Iranian Association of Certified Public Accountants
 - Member of Article 244, Clause 3 of Direct Tax Law Dispute Resolution Board`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "هومن هشی",
-      en: "Hooman Hoshi",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: hooman,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از دانشکده امور اقتصادی و دارائی (۱۳۷۸)
-- کارشناسی ارشد حسابداری از دانشگاه شهید بهشتی (۱۳۸۱)
+    {
+        name: {
+            fa: "هومن هشی",
+            en: "Hooman Hoshi",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: hooman,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشکده امور اقتصادی و دارائی در سال ۱۳۷۸
+- کارشناسی ارشد حسابداری از دانشگاه شهید بهشتی در سال ۱۳۸۱
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۷۳ (شریک و عضو هیات مدیره)
@@ -131,12 +131,12 @@ const teamMembers = [
 - عضو انجمن حسابرسان داخلی ایران
 - عضو بند ۳ ماده ۲۴۴ هیات حل اختلاف مالیاتی قانون مالیات های مستقیم
 - دانشجوی دوره ACCA`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Faculty of Economics and Finance (1999)
-- M.Sc. in Accounting from Shahid Beheshti University (2002)
+            en: `🎓 Education:
+- Bachelor of Accounting from Faculty of Economics and Finance (1999)
+- Master of Accounting from Shahid Beheshti University (2002)
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute since 1994 (Partner and Board Member)
+- Auditor at Behmand Audit Firm since 1994 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
@@ -144,22 +144,22 @@ const teamMembers = [
 - Member of Iranian Accounting Association
 - Member of Iranian Internal Auditors Association
 - Member of Article 244, Clause 3 of Direct Tax Law Dispute Resolution Board
-- ACCA Candidate`,
+- ACCA Student`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "محمد رضا آرزومند",
-      en: "Mohammad Reza Arezoomand",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: arezoomand,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از دانشگاه شهید بهشتی (۱۳۷۴)
+    {
+        name: {
+            fa: "محمد رضا آرزومند",
+            en: "Mohammad Reza Arezoomand",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: arezoomand,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه شهید بهشتی در سال ۱۳۷۴
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۷۱ (شریک و عضو هیات مدیره)
@@ -167,30 +167,30 @@ const teamMembers = [
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Shahid Beheshti University (1995)
+            en: `🎓 Education:
+- Bachelor of Accounting from Shahid Beheshti University (1995)
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute since 1992 (Partner)
+- Auditor at Behmand Audit Firm since 1992 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "احمد رضا شریفی",
-      en: "Ahmad Sharifi",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: sharifi,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از دانشگاه آزاد اسلامی (۱۳۷۶)
+    {
+        name: {
+            fa: "احمد رضا شریفی",
+            en: "Ahmad Reza Sharifi",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: sharifi,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه آزاد اسلامی در سال ۱۳۷۶
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۷۸ (شریک و عضو هیات مدیره)
@@ -200,32 +200,32 @@ const teamMembers = [
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران
 - عضو انجمن حسابداری ایران
 - عضو انجمن حسابرسان داخلی ایران`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Islamic Azad University (1997)
+            en: `🎓 Education:
+- Bachelor of Accounting from Islamic Azad University (1997)
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute since 1999 (Partner)
+- Auditor at Behmand Audit Firm since 1999 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants
 - Member of Iranian Accounting Association
 - Member of Iranian Internal Auditors Association`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "نادر رستگاری",
-      en: "Nader Rastegari",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: rastegari,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از دانشگاه شهید بهشتی (۱۳۷۲)
+    {
+        name: {
+            fa: "نادر رستگاری",
+            en: "Nader Rastegari",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: rastegari,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه شهید بهشتی در سال ۱۳۷۲
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۷۰ (شریک و عضو هیات مدیره)
@@ -233,32 +233,32 @@ const teamMembers = [
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Shahid Beheshti University (1994)
+            en: `🎓 Education:
+- Bachelor of Accounting from Shahid Beheshti University (1993)
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute since 1991 (Partner)
+- Auditor at Behmand Audit Firm since 1991 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "رسول دوازده امامی",
-      en: "Rasol Davazdah Emami",
-    },
-    role: {
-      fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
-    },
-    avatar: emami,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی  حسابداری از دانشگاه اصفهان (۱۳۷۶)
-- کارشناسی ارشد حسابداری از دانشگاه اشرفی اصفهانی (۱۳۹۷)
-- دکترای حسابداری از دانشگاه یزد (۱۴۰۱)
+    {
+        name: {
+            fa: "رسول دوازده امامی",
+            en: "Rasoul Davazdah Emami",
+        },
+        role: {
+            fa: "شریک و عضو هیات مدیره",
+            en: "Partner and Board Member",
+        },
+        avatar: emami,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه اصفهان در سال ۱۳۷۶
+- کارشناسی ارشد حسابداری از دانشگاه اشرفی اصفهانی در سال ۱۳۹۷
+- دکترای حسابداری از دانشگاه یزد در سال ۱۴۰۱
 
 💼 سوابق کاری:
 - حسابداری در بخش خصوصی (۲ سال)
@@ -268,32 +268,34 @@ const teamMembers = [
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران
 - عضو جامعه مشاوران رسمی مالیاتی ایران`,
-      en: `🎓 Education:
-- M.Sc. in Accounting from Ashrafi Esfahani University (2018)
-- Ph.D. in Accounting
+            en: `🎓 Education:
+- Bachelor of Accounting from University of Isfahan (1997)
+- Master of Accounting from Ashrafi Esfahani University (2018)
+- Ph.D. in Accounting from Yazd University (2022)
 
 💼 Professional Experience:
 - Accountant in private sector (2 years)
-- Auditor at Behmand Auditing Institute since 1996 (Partner)
+- Auditor at Behmand Audit Firm since 1996 (Partner and Board Member)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
-- Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+- Independent Accountant - Member of Iranian Association of Chartered Accountants
+- Member of Iranian Association of Official Tax Consultants`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "محمد رضا رحمانیان",
-      en: "Mohammad Reza Rahmanian",
-    },
-    role: {
-      fa: "شریک",
-      en: "Partner",
-    },
-    avatar: rahmanian,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از دانشگاه آزاد اسلامی(۱۳۸۰)
+    {
+        name: {
+            fa: "محمد رضا رحمانیان",
+            en: "Mohammad Reza Rahmanian",
+        },
+        role: {
+            fa: "شریک",
+            en: "Partner",
+        },
+        avatar: rahmanian,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه آزاد اسلامی در سال ۱۳۸۰
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۰ (شریک)
@@ -301,31 +303,31 @@ const teamMembers = [
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
-      en: `🎓 Education:
-- B.Sc. in Accounting from Islamic Azad University
+            en: `🎓 Education:
+- Bachelor of Accounting from Islamic Azad University (2001)
 
 💼 Professional Experience:
-- Auditor at Behmand Auditing Institute since 2001
+- Auditor at Behmand Audit Firm Institute since 2001 (Partner)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "سجاد دل پاک",
-      en: "Sajjad Delpak",
-    },
-    role: {
-      fa: "شریک",
-      en: "Partner",
-    },
-    avatar: delpak,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی  حسابداری از دانشگاه آزاد اسلامی (۱۳۸۴)
-- کارشناسی ارشد حسابداری از دانشگاه آزاد اسلامی (۱۳۸۶)
+    {
+        name: {
+            fa: "سجاد دل پاک",
+            en: "Sajjad Delpak",
+        },
+        role: {
+            fa: "شریک",
+            en: "Partner",
+        },
+        avatar: delpak,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه آزاد اسلامی در سال ۱۳۸۴
+- کارشناسی ارشد حسابداری از دانشگاه آزاد اسلامی در سال ۱۳۸۶
 
 💼 سوابق کاری:
 - حسابرسی در موسسه حسابرسی دانشگر محاسب به مدت ۳ سال
@@ -334,32 +336,33 @@ const teamMembers = [
 👥 عضویت‌ها:
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران`,
-      en: `🎓 Education:
-- M.Sc. in Accounting from Islamic Azad University
+            en: `🎓 Education:
+- Bachelor of Accounting from Islamic Azad University (2005)
+- Master of Accounting from Islamic Azad University (2007)
 
 💼 Professional Experience:
-- Accountant at Daneshgar Mohaseb Auditing Institute for 3 years
-- Auditor at Behmand Auditing Institute since 2010
+- Auditor at Daneshgar Mohaseb Auditing Institute (3 years)
+- Auditor at Behmand Audit Firm since 2010 (Partner)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
 - Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+        },
     },
-  },
-  {
-    name: {
-      fa: "علی رحمتی",
-      en: "Ali Rahmati",
-    },
-    role: {
-      fa: "شریک",
-      en: "Partner",
-    },
-    avatar: rahmati,
-    details: {
-      fa: `🎓 مدارک تحصیلی:
-- کارشناسی  حسابداری از دانشگاه آزاد اسلامی (۱۳۸۷)
-- کارشناسی ارشد حسابداری از دانشگاه آزاد اسلامی (۱۳۹۵)
+    {
+        name: {
+            fa: "علی رحمتی",
+            en: "Ali Rahmati",
+        },
+        role: {
+            fa: "شریک",
+            en: "Partner",
+        },
+        avatar: rahmati,
+        details: {
+            fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشگاه آزاد اسلامی در سال ۱۳۸۷
+- کارشناسی ارشد حسابداری از دانشگاه آزاد اسلامی در سال ۱۳۹۵
 
 💼 سوابق کاری:
 - حسابرسی در مؤسسه حسابرسی بهمند از سال ۱۳۸۹ (شریک)
@@ -368,19 +371,19 @@ const teamMembers = [
 - حسابدار رسمی – عضو جامعه حسابداران رسمی ایران
 - حسابدار مستقل – عضو انجمن حسابداران خبره ایران
 - کارشناسی رسمی دادگستری`,
-      en: `🎓 Education:
-- M.Sc. in Accounting from Islamic Azad University
+            en: `🎓 Education:
+- Bachelor of Accounting from Islamic Azad University (2008)
+- Master of Accounting from Islamic Azad University (2016)
 
 💼 Professional Experience:
-- Accountant at Novin Gozar Company for 3 years
-- Accountant at Ati Hesab Khebreh Financial Institute for 12 years
-- Auditor at Behmand Auditing Institute since 2010
+- Auditor at Behmand Audit Firm since 2010 (Partner)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
-- Independent Accountant - Member of Iranian Association of Chartered Accountants`,
+- Independent Accountant - Member of Iranian Association of Chartered Accountants
+- Official Expert of the Judiciary`,
+        },
     },
-  },
 ];
 
 // تقسیم اعضا به گروه‌ها

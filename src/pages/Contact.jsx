@@ -567,14 +567,14 @@ export default function ContactPage() {
                       <Typography fontWeight={500}>
                         {language === "fa"
                           ? "سوابق و پیشینه مؤسسه بهمند چگونه است؟"
-                          : "What is the background and history of Behmand Institute?"}
+                          : "What is the background and history of Behmand Firm?"}
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
                         {language === "fa"
                           ? "مؤسسه حسابرسی بهمند در آذرماه سال ۱۳۵۸ توسط مرحوم اصغر هشی تأسیس و تحت شماره ۲۰۳۵ در اداره ثبت شرکت‌های تهران به ثبت رسیده است. با بیش از چهار دهه تجربه، از پیشگامان حوزه حسابرسی و خدمات مالی در ایران محسوب می‌شویم."
-                          : "Behmand Audit Institute was established in December 1979 by the late Asghar Heshi and was registered under number 2035 in the Tehran Companies Registration Office. With over four decades of experience, we are considered pioneers in the field of auditing and financial services in Iran."}
+                          : "Behmand Audit Firm was established in December 1979 by the late Asghar Heshi and was registered under number 2035 in the Tehran Companies Registration Office. With over four decades of experience, we are considered pioneers in the field of auditing and financial services in Iran."}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>

@@ -241,7 +241,7 @@ export default function GalleryPage() {
                   mt: { xs: 0.5, sm: 1 },
                 }}
               >
-                {language === "fa" ? "موسسه بهمند" : "Behmand Institute"}
+                {language === "fa" ? "موسسه بهمند" : "Behmand Firm"}
               </Box>
             </Typography>
             <Typography
@@ -262,7 +262,7 @@ export default function GalleryPage() {
             >
               {language === "fa"
                 ? "تصاویری از فضای کاری، تیم حرفه‌ای، پروژه‌های موفق و رویدادهای موسسه حسابرسی بهمند"
-                : "Images of the workspace, professional team, successful projects and events of Behmand Auditing Institute"}
+                : "Images of the workspace, professional team, successful projects and events of Behmand Audit Firm"}
             </Typography>
           </Box>
         </motion.div>
