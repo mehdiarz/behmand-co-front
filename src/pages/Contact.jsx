@@ -656,11 +656,11 @@ export default function ContactPage() {
                   📞 021-88305391
                 </Button>
 
-                <Typography variant="body2" sx={{ mt: 2, opacity: 0.8 }}>
-                  {language === "fa"
-                    ? "پاسخگویی همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح"
-                    : "Available every day except holidays from 8.5 AM"}
-                </Typography>
+                {/*<Typography variant="body2" sx={{ mt: 2, opacity: 0.8 }}>*/}
+                {/*  {language === "fa"*/}
+                {/*    ? "پاسخگویی همه روزه به غیر از روزهای تعطیل از ساعت ۸/۵ صبح"*/}
+                {/*    : "Available every day except holidays from 8.5 AM"}*/}
+                {/*</Typography>*/}
               </Paper>
             </motion.div>
 

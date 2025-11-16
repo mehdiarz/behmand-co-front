@@ -27,9 +27,12 @@ import AdminBlogForm from "./pages/AdminBlogForm.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
 import PortfolioPage from "./pages/PortfolioPage.jsx";
 
+import ScrollToTop from "./components/ScrollToTop.jsx";
+
 function App() {
   return (
     <BrowserRouter>
+        <ScrollToTop />
       <Routes>
         {/* صفحات عمومی سایت */}
         <Route path="/" element={<Layout />}>

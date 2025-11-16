@@ -60,7 +60,7 @@ const teamMembers = [
 - Bachelor of Accounting from Babolsar School of Higher Economic and Social Sciences (1974)
 
 💼 Professional Experience:
-- Auditor at Tous Auditing Institute (10 months)
+- Auditor at Tous Audit Firm (10 months)
 - Auditor at Daghigh Audit Firm (5 years, Senior Supervisor)
 - Auditor at Behmand Audit Firm since 1979 (Partner and Board Member)
 
@@ -307,7 +307,7 @@ const teamMembers = [
 - Bachelor of Accounting from Islamic Azad University (2001)
 
 💼 Professional Experience:
-- Auditor at Behmand Audit Firm Institute since 2001 (Partner)
+- Auditor at Behmand Audit Firm  since 2001 (Partner)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
@@ -341,7 +341,7 @@ const teamMembers = [
 - Master of Accounting from Islamic Azad University (2007)
 
 💼 Professional Experience:
-- Auditor at Daneshgar Mohaseb Auditing Institute (3 years)
+- Auditor at Daneshgar Mohaseb Audit Firm (3 years)
 - Auditor at Behmand Audit Firm since 2010 (Partner)
 
 👥 Professional Memberships:

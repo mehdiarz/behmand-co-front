@@ -14,7 +14,6 @@ import {
   Email,
   LocationOn,
   Fax,
-  MarkunreadMailbox,
   LocalPostOffice,
   Facebook,
   LinkedIn,
@@ -22,7 +21,6 @@ import {
   Instagram,
   Copyright,
 } from "@mui/icons-material";
-
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { useTranslation } from "react-i18next";
 
@@ -51,13 +49,12 @@ export default function Footer() {
           right: 0,
           bottom: 0,
           background: `
-                        radial-gradient(circle at 20% 80%, rgba(56, 142, 60, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(56, 142, 60, 0.03) 0%, transparent 50%)
-                    `,
+            radial-gradient(circle at 20% 80%, rgba(56, 142, 60, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(56, 142, 60, 0.03) 0%, transparent 50%)
+          `,
           pointerEvents: "none",
         }}
       />
-
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <Grid container spacing={4} justifyContent="space-between">
           {/* About Company */}
@@ -83,18 +80,6 @@ export default function Footer() {
                 {t("footer.about.title")}
               </Typography>
             </Box>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "rgba(255,255,255,0.8)",
-                lineHeight: 1.8,
-                mb: 3,
-                fontSize: "0.95rem",
-              }}
-            >
-              {t("footer.about.desc")}
-            </Typography>
-
             {/* Social Media */}
             <Box>
               <Typography
@@ -158,7 +143,6 @@ export default function Footer() {
                 { textKey: "nav.blog", url: "/blog" },
                 { textKey: "nav.careers", url: "/resumeForm" },
                 { textKey: "nav.contact", url: "/contact" },
-
                 {
                   textKey: "nav.timesheet",
                   url: "https://behmand.ssdayofficial.com:10551/Page_Main_Login",
@@ -250,7 +234,20 @@ export default function Footer() {
               {t("footer.contact")}
             </Typography>
             <Stack spacing={2.5}>
-              {/* Address */}
+              {/* دفتر مرکزی تهران */}
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontWeight: 700,
+                  color: "#66bb6a",
+                  mb: 1.5,
+                  fontSize: "1.05rem",
+                }}
+              >
+                {t("contact.tehranTitle")}
+              </Typography>
+
+              {/* Address تهران */}
               <Box sx={{ display: "flex", alignItems: "flex-start" }}>
                 <LocationOn
                   sx={{
@@ -272,7 +269,7 @@ export default function Footer() {
                 </Typography>
               </Box>
 
-              {/* Phone Numbers */}
+              {/* Phone Numbers تهران */}
               <Box>
                 {t("contact.phoneNumbers", { returnObjects: true }).map(
                   (num, i) => (
@@ -332,7 +329,7 @@ export default function Footer() {
                 {t("contact.email")}
               </Link>
 
-              {/* Postal Info */}
+              {/* Postal Code تهران */}
               <Box
                 sx={{
                   display: "flex",
@@ -347,6 +344,83 @@ export default function Footer() {
                   {t("footer.postalCode")} {t("contact.postalCode")}
                 </Typography>
               </Box>
+
+              {/* Divider between offices */}
+              <Divider
+                sx={{
+                  my: 2,
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  width: "80%",
+                }}
+              />
+
+              {/* دفتر اصفهان */}
+              <Box sx={{ mt: 2 }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    fontWeight: 700,
+                    color: "#66bb6a",
+                    mb: 1.5,
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  {t("contact.isfahanTitle")}
+                </Typography>
+
+                {/* Address اصفهان */}
+                <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+                  <LocationOn
+                    sx={{
+                      mr: 2,
+                      mt: 0.5,
+                      color: "#66bb6a",
+                      fontSize: 20,
+                    }}
+                  />
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "rgba(255,255,255,0.8)",
+                      lineHeight: 1.6,
+                      fontSize: "0.85rem",
+                    }}
+                  >
+                    {t("contact.isfahanAddress")}
+                  </Typography>
+                </Box>
+
+                {/* Phone اصفهان */}
+                <Link
+                  href={`tel:${t("contact.isfahanPhone")}`}
+                  sx={{
+                    color: "rgba(255,255,255,0.8)",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    mt: 2,
+                    mb: 1.5,
+                    transition: "all 0.3s ease",
+                    fontSize: "0.85rem",
+                    "&:hover": {
+                      color: "#66bb6a",
+                    },
+                  }}
+                >
+                  <Phone sx={{ mr: 1.5, fontSize: 18, color: "#66bb6a" }} />
+                  {t("contact.isfahanPhone")}
+                </Link>
+
+                {/* Postal Code اصفهان */}
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <LocalPostOffice
+                    sx={{ mr: 1.5, fontSize: 18, color: "#66bb6a" }}
+                  />
+                  <Typography variant="body2" sx={{ fontSize: "0.85rem" }}>
+                    {t("footer.postalCode")} {t("contact.isfahanPostalCode")}
+                  </Typography>
+                </Box>
+              </Box>
             </Stack>
           </Grid>
         </Grid>
@@ -355,12 +429,7 @@ export default function Footer() {
         <Divider sx={{ my: 4, backgroundColor: "rgba(255,255,255,0.1)" }} />
 
         {/* Copyright */}
-        <Box
-          sx={{
-            textAlign: "center",
-            pt: 2,
-          }}
-        >
+        <Box sx={{ textAlign: "center", pt: 2 }}>
           <Box
             sx={{
               display: "flex",

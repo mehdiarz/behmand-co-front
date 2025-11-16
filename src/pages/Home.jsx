@@ -40,6 +40,8 @@ import bimeNovin from "../assets/bimeNovin.png";
 import bimeMa from "../assets/bimeMa.png";
 import zarMakaron from "../assets/zarMakaron.png";
 import maadiran from "../assets/maadiran.png";
+import perspolis from "../assets/perspolis.png";
+
 import AboutSection from "../components/about/AboutSection.jsx";
 import { useNavigate } from "react-router-dom";
 import BlogSection from "../components/about/BlogSection.jsx";
@@ -78,11 +80,7 @@ const modalStyle = {
 //   "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
 // ];
 
-const HERO_IMAGES = [
-    bgBuilding,
-    bg1,
-    bg2
-    ];
+const HERO_IMAGES = [bgBuilding, bg1, bg2];
 
 // const HERO_IMAGES = [bg1, bg2, bg3];
 
@@ -97,6 +95,7 @@ export default function Home() {
     { src: bimeMa, alt: "بیمه ما" },
     { src: zarMakaron, alt: "زر ماکارون" },
     { src: maadiran, alt: "مادیران" },
+    { src: perspolis, alt: "پرسپولیس" },
   ];
   const [blogs, setBlogs] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -265,8 +264,8 @@ export default function Home() {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                  width: "fit-content%",
-                  height: "fit-content%",
+                width: "fit-content%",
+                height: "fit-content%",
                 opacity: index === currentSlide ? 1 : 0,
                 transition: "opacity 1s ease-in-out",
                 backgroundImage: {
@@ -895,6 +894,7 @@ export default function Home() {
                           end={stat.value}
                           duration={2.5}
                           suffix={stat.suffix}
+                          useGrouping={false}
                         />
                       ) : (
                         "0"

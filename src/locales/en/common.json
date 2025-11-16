@@ -66,7 +66,7 @@
       "years": "Years of experience",
       "audits": "Year founded",
       "clients": "Active clients",
-      "staff": "Total institute staff"
+      "staff": "Total Firm staff"
     },
     "cta": {
       "title": "Ready to start working together?",
@@ -77,7 +77,7 @@
   },
   "about": {
     "chip": "About Us",
-    "title": "Auditing Institute",
+    "title": "Audit Firm",
     "subtitle": "Leading in providing specialized inspection and audit, financial and advisory services based on Iranian accounting and auditing standards",
     "tabs": {
       "vision": {
@@ -86,7 +86,7 @@
       },
       "mission": {
         "label": "Partners and Managers",
-        "text": "The total number of institute managers is 24 people, of which 10 are partners of the institute.\n\nThe average work experience of partners is about 31 years and the average work experience of other institute managers is over 10 years."
+        "text": "The total number of firm managers is 24 people, of which 10 are partners of the firm.\n\nThe average work experience of partners is about 31 years and the average work experience of other firm managers is over 10 years."
       },
       "values": {
         "label": "Values",
@@ -95,17 +95,17 @@
     },
     "stats": {
       "experience": "Years of experience",
-      "projects": "Number of institute projects",
+      "projects": "Number of firm projects",
       "reports": "Year founded"
     },
     "cta": "Learn More",
     "intro": "Behmand Audit Firm was established in December 1979 by the late Asghar Hoshi and registered under number 2035 in the Tehran Companies Registration Office.",
     "founder": {
       "name": "Late Asghar Hoshi",
-      "bio": "Asghar Hoshi was born in 1950 in Isfahan. He completed his primary and secondary education at Mofid School and Saadi High School in Isfahan. He continued his university studies in 1969 at the Oil Company Accounting College in Tehran and obtained a master's degree in accounting in 1974. From his student days, he worked at the Daghigh Audit Firm under professors such as Mr. Shahrokh Behnam and the late Sajadi Nejad, and progressed to the position of management and partnership of the institute. In 1979, in collaboration with other professors, he established Behmand Audit Firm and managed the institute until the end of his life. Asghar Hoshi was one of the professors of accounting and auditing in the country. He started teaching accounting courses in 1974 at the Higher School of Commerce and continued at Allameh, Alzahra, Shahid Beheshti universities and the Faculty of Economics and Finance. Asghar Hoshi, both at the university and at Daghigh and Behmand firms, played an effective role in educating and training multiple generations of accounting and auditing students in the country. During this period, as an inspector and auditor, he collaborated with hundreds of large and small companies and public and private institutions and played a role in improving the effective management of these companies and institutions. From 1974 onwards, he was a member of the Iranian Association of Certified Public Accountants, the Association of Chartered Accountants, the Iranian Association of Certified Public Accountants, the Iranian Accounting Association and the Association of Official Experts of the Judiciary, and played an effective role in professional affairs and the development of tax laws. He is considered one of the pioneers and veterans of the accounting and auditing profession in the country. Throughout his life, Asghar Hoshi was an independent person committed to ethical and professional principles, and always placed public interests and professional principles at the forefront of his considerations, thus helping to enhance the role of the independent auditor."
+      "bio": "Asghar Hoshi was born in 1950 in Isfahan. He completed his primary and secondary education at Mofid School and Saadi High School in Isfahan. He continued his university studies in 1969 at the Oil Company Accounting College in Tehran and obtained a master's degree in accounting in 1974. From his student days, he worked at the Daghigh Audit Firm under professors such as Mr. Shahrokh Behnam and the late Sajadi Nejad, and progressed to the position of management and partnership of the firm. In 1979, in collaboration with other professors, he established Behmand Audit Firm and managed the firm until the end of his life. Asghar Hoshi was one of the professors of accounting and auditing in the country. He started teaching accounting courses in 1974 at the Higher School of Commerce and continued at Allameh, Alzahra, Shahid Beheshti universities and the Faculty of Economics and Finance. Asghar Hoshi, both at the university and at Daghigh and Behmand firms, played an effective role in educating and training multiple generations of accounting and auditing students in the country. During this period, as an inspector and auditor, he collaborated with hundreds of large and small companies and public and private institutions and played a role in improving the effective management of these companies and institutions. From 1974 onwards, he was a member of the Iranian Association of Certified Public Accountants, the Association of Chartered Accountants, the Iranian Association of Certified Public Accountants, the Iranian Accounting Association and the Association of Official Experts of the Judiciary, and played an effective role in professional affairs and the development of tax laws. He is considered one of the pioneers and veterans of the accounting and auditing profession in the country. Throughout his life, Asghar Hoshi was an independent person committed to ethical and professional principles, and always placed public interests and professional principles at the forefront of his considerations, thus helping to enhance the role of the independent auditor."
     },
     "currentPartners": {
-      "title": "Current Institute Partners",
+      "title": "Current firm Partners",
       "description": "The current partners of the firm are Mr. Reza Atash, Ali Mashreghi Arani, Hooman Hoshi, Mohammadreza Arzomand Soumehsaraei, Ahmadreza Sharifi Ghazvini, Nader Rostegari, Rasoul Davazdah Emami, Mohammadreza Rahmanian, Sajad Delpak, and Ali Rahmati. Behmand Audit Firm is a member of the Iranian Association of Certified Public Accountants, the Iranian Association of Certified Accountants, and the Iranian Accounting Association, and is also a trusted auditor of the Securities and Exchange Organization, the Central Bank, and the Central Insurance of Iran."
     }
   },
@@ -161,13 +161,15 @@
     "address": "Flat 18, 4th Floor, No. 114, Ghaem-magham Ave, Tehran, Iran",
     "phoneNumbers": [
       "+982188305391",
-      "+98218835392",
+      "+982188305392",
       "+982188843708",
       "+982188843709",
       "+982188320129",
       "+982188320130",
       "+982188320131",
-      "+982188320132"
+      "+982188320132",
+      "+982188843711",
+      "+982188843710"
     ],
     "fax": "+982188844685",
     "email": "info@behmand-co.com",
@@ -216,7 +218,7 @@
   },
   "resume": {
     "title": "Behmand Audit Firm Resume",
-    "description": "By downloading the resume file, you can learn about the background, managers, organizational structure, clients, and services provided by this institute.",
+    "description": "By downloading the resume file, you can learn about the background, managers, organizational structure, clients, and services provided by this firm.",
     "download": "Download Resume",
     "features": {
       "history": "Establishment & History",
