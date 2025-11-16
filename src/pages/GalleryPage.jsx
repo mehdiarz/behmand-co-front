@@ -35,7 +35,11 @@ import bg3 from "../assets/bg-building.jpg";
 
 import bg4 from "../assets/bg-1.jpg";
 import bg5 from "../assets/bg-2.jpg";
+import bg7 from "../assets/bg-4.jpg";
+import bg8 from "../assets/bg-5.jpg";
 import bg6 from "../assets/bg-3.jpg";
+import bg9 from "../assets/bg-6.jpg";
+
 
 import gallery1 from "../assets/gallery-1.jpg";
 
@@ -60,6 +64,10 @@ const GALLERY_IMAGES = [
     bg2,
     bg1,
     gallery1,
+    bg6,
+    bg7,
+    bg8,
+    bg9
 ];
 
 
