@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
   Box,
   Container,
@@ -458,6 +458,10 @@ export default function PortfolioPage() {
       setMobileOpen(false);
     }
   };
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [selectedIndustry]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
