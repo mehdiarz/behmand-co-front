@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -67,6 +67,12 @@ const portfolioData = {
     "صدر معادن ایرانیان",
     "بازرگانی توسعه صنعت روی",
     "احداث کانسار راوه",
+    "کالسیمین",
+    "توسعه معادن روی",
+    "خالص سازان زوی زنجان",
+    "صنعتی معدنی شمال شرق شاهرود",
+    "صنعت روی زنگان",
+    "معدنکاران انگوزان",
   ],
   "فناوری اطلاعات": [
     "افرانت",
@@ -430,7 +436,6 @@ const portfolioData = {
     "تولیدی و صنعتی درخشان تهران",
     "حریر خوزستان",
     "سرویس بیمه شهر",
-    "کالسیمین",
     "افست",
   ],
 };
@@ -459,9 +464,9 @@ export default function PortfolioPage() {
     }
   };
 
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, [selectedIndustry]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [selectedIndustry]);
 
   const containerVariants = {
     hidden: { opacity: 0 },

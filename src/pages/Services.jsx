@@ -35,23 +35,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
+import dakheli from "../assets/dakheli.png";
+import arzyabi from "../assets/arzyabi.png";
+import davari from "../assets/davari.png";
+import tasfie from "../assets/tasfie.png";
+
 // استفاده از عکس‌های placeholder با کیفیت از Unsplash
 const serviceImages = {
   audit:
     "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  internalAudit:
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  internalAudit: dakheli,
+  // "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   tax: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   legalInspection:
     "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   financialConsulting:
     "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  liquidation:
-    "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  arbitration:
-    "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  valuation:
-    "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  liquidation: tasfie,
+  // "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  arbitration: davari,
+  // "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  valuation: arzyabi,
+  // "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
 };
 
 export default function ServicesPage() {
@@ -86,7 +91,10 @@ export default function ServicesPage() {
         language === "fa" ? "حسابرسی بیمه‌ای" : "Insurance Audit",
         language === "fa" ? "حسابرسی خاص و ویژه" : "Special Audits",
       ],
-      stats: language === "fa" ? " ۴۶+ سال تجربه و بیش از ۱۰۰ کارشناس خبره" : "Over 46 years of experience and more than 100 expert professionals",
+      stats:
+        language === "fa"
+          ? " ۴۶+ سال تجربه و بیش از ۱۰۰ کارشناس خبره"
+          : "Over 46 years of experience and more than 100 expert professionals",
     },
     {
       id: "internalAudit",
@@ -148,7 +156,9 @@ export default function ServicesPage() {
           : "International Tax Consulting",
       ],
       stats:
-        language === "fa" ? "بیش از ۱۰۰ کارشناس خبره" : "more than 100 expert professionals",
+        language === "fa"
+          ? "بیش از ۱۰۰ کارشناس خبره"
+          : "more than 100 expert professionals",
     },
     {
       id: "legalInspection",
@@ -176,7 +186,8 @@ export default function ServicesPage() {
           : "Board Decisions Monitoring",
         language === "fa" ? "ارزیابی ریسک‌های حقوقی" : "Legal Risk Assessment",
       ],
-      stats: language === "fa" ? "دارای تجربه از سال ۱۳۵۸" : "Experience Since 1979",
+      stats:
+        language === "fa" ? "دارای تجربه از سال ۱۳۵۸" : "Experience Since 1979",
     },
     {
       id: "financialConsulting",
