@@ -36,21 +36,26 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import dakheli from "../assets/dakheli.png";
-import arzyabi from "../assets/arzyabi.png";
+import arzyabi from "../assets/arzyabii.png";
 import davari from "../assets/davari.png";
 import tasfie from "../assets/tasfie.png";
+import maliat from "../assets/maliat.png";
+import hesabdari from "../assets/hesabdari.png";
+import bazresi from "../assets/bazresi.png";
+import moshavere from "../assets/moshavere.png";
 
 // استفاده از عکس‌های placeholder با کیفیت از Unsplash
 const serviceImages = {
-  audit:
-    "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  audit: hesabdari,
+  // "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   internalAudit: dakheli,
   // "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  tax: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  legalInspection:
-    "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-  financialConsulting:
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  tax: maliat,
+  // "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  legalInspection: bazresi,
+  // "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+  financialConsulting: moshavere,
+  // "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   liquidation: tasfie,
   // "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
   arbitration: davari,

@@ -19,7 +19,7 @@ import { useTranslation } from "react-i18next";
 
 import Grid from "@mui/material/Grid";
 
-import asghar from "../assets/asghar-hooshii.png";
+import asghar from "../assets/asghar-hooshiii.png";
 import atash from "../assets/atash.jpg";
 import sharifi from "../assets/sharifi.png";
 import arezoomand from "../assets/arezoomand.png";
