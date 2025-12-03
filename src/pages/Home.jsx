@@ -81,7 +81,7 @@ const modalStyle = {
 //   "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
 // ];
 
-const HERO_IMAGES = [ bgBuilding, bg1, bg2];
+const HERO_IMAGES = [bg10, bgBuilding, bg1, bg2];
 
 // const HERO_IMAGES = [bg1, bg2, bg3];
 
