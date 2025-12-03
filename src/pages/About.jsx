@@ -16,7 +16,6 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "react-i18next";
-
 import Grid from "@mui/material/Grid";
 
 import asghar from "../assets/asghar-hooshiii.png";
@@ -388,12 +387,56 @@ const teamMembers = [
   },
 ];
 
+// اطلاعات مرحوم اصغر هشی برای دایالوگ
+const founderInfo = {
+  name: {
+    fa: "مرحوم اصغر هشی",
+    en: "The Late Asghar Hoshi",
+  },
+  role: {
+    fa: "بنیان گذار مؤسسه حسابرسی بهمند",
+    en: "Founder of Behmand Audit Firm",
+  },
+  details: {
+    fa: `🎓 مدارک تحصیلی:
+- کارشناسی حسابداری از دانشکده امور اقتصادی و دارائی در سال ۱۳۳۸
+
+💼 سوابق کاری و افتخارات:
+- تاسیس مؤسسه حسابرسی بهمند در سال ۱۳۵۸
+- بیش از ۴ دهه فعالیت مستمر در حوزه حسابرسی و حسابداری
+- آموزش و پرورش چندین نسل از حسابداران و حسابرسان برجسته کشور
+- عضو مؤسس جامعه حسابداران رسمی ایران
+- مشاور مالی و مالیاتی بسیاری از شرکت‌های بزرگ و دولتی
+
+👥 تأثیرگذاری:
+مرحوم اصغر هشی با تأسیس مؤسسه حسابرسی بهمند، نه تنها یک مؤسسه معتبر حسابرسی را پایه‌گذاری کرد، بلکه با پرورش استعدادها و تأکید بر اخلاق حرفه‌ای، تأثیر عمیقی بر صنعت حسابداری و حسابرسی ایران گذاشت. رویکرد دانش‌محور و تعهد به کیفیت کاری ایشان، بهماند را به یکی از معتبرترین مؤسسات حسابرسی کشور تبدیل نمود.
+
+📈 میراث:
+امروز مؤسسه حسابرسی بهمند با بیش از ۴۰ سال سابقه درخشان، ادامه‌دهنده راه ایشان با همان اصول اخلاقی و حرفه‌ای است.`,
+    en: `🎓 Education:
+- Bachelor of Accounting from Faculty of Economics and Finance (1959)
+
+💼 Professional Experience and Honors:
+- Founded Behmand Audit Firm in 1979
+- Over 4 decades of continuous activity in auditing and accounting
+- Trained and mentored several generations of prominent Iranian accountants and auditors
+- Founding member of Iranian Association of Certified Public Accountants
+- Financial and tax consultant for many large companies and government entities
+
+👥 Influence:
+The late Asghar Hoshi, by establishing Behmand Audit Firm, not only founded a reputable audit institution but also had a profound impact on Iran's accounting and auditing industry through talent development and emphasis on professional ethics. His knowledge-based approach and commitment to quality work turned Behmand into one of the most prestigious audit firms in the country.
+
+📈 Legacy:
+Today, Behmand Audit Firm with over 40 years of brilliant history continues his path with the same ethical and professional principles.`,
+  },
+};
+
 // تقسیم اعضا به گروه‌ها
 const firstRow = teamMembers.slice(0, 3);
 const secondRow = teamMembers.slice(3, 7);
 const thirdRow = teamMembers.slice(7, 10);
 
-// کامپوننت نمایش یک ردیف - دقیقاً مانند کد قبلی
+// کامپوننت نمایش یک ردیف
 function TeamRow({ members, handleOpen, language }) {
   return (
     <Grid
@@ -485,7 +528,7 @@ function TeamRow({ members, handleOpen, language }) {
                   fontSize: { xs: "0.9rem", md: "1rem" },
                   textShadow: "0 0 6px rgba(0,0,0,0.3)",
                   mb: 0.5,
-                  color: "#000000", // متن مشکی
+                  color: "#000000",
                 }}
               >
                 {member.name[language]}
@@ -496,7 +539,7 @@ function TeamRow({ members, handleOpen, language }) {
                   fontSize: { xs: "0.75rem", md: "0.9rem" },
                   mt: 1,
                   textShadow: "0 0 4px rgba(0,0,0,0.25)",
-                  color: "#000000", // متن مشکی
+                  color: "#000000",
                 }}
               >
                 {member.role[language]}
@@ -529,14 +572,24 @@ export default function About() {
     setSelectedMember(null);
   };
 
+  const handleFounderHover = (isHovering) => {
+    if (!isMobile) {
+      setFounderHovered(isHovering);
+    }
+  };
+
   const handleFounderClick = () => {
     if (isMobile) {
+      setFounderDialogOpen(true);
+    } else {
+      // در دسکتاپ هم با کلیک باز شود
       setFounderDialogOpen(true);
     }
   };
 
   const handleFounderDialogClose = () => {
     setFounderDialogOpen(false);
+    setFounderHovered(false);
   };
 
   return (
@@ -586,21 +639,6 @@ export default function About() {
                 "linear-gradient(135deg, rgba(255,255,255,0.8), rgba(240,240,240,0.5))",
               boxShadow: "0 12px 36px rgba(0,0,0,0.25)",
             },
-            "&:before": {
-              content: '""',
-              position: "absolute",
-              top: 0,
-              left: "-50%",
-              width: "200%",
-              height: "100%",
-              background:
-                "linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent)",
-              transform: "translateX(-100%)",
-              transition: "transform 0.8s ease",
-            },
-            "&:hover:before": {
-              transform: "translateX(100%)",
-            },
           }}
         >
           <Typography
@@ -619,7 +657,7 @@ export default function About() {
         </Box>
 
         {/* بخش ویژه مرحوم اصغر هشی */}
-        <Box sx={{ textAlign: "center", my: 8, px: 2 }}>
+        <Box sx={{ textAlign: "center", my: 8, px: 2, position: "relative" }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -634,167 +672,226 @@ export default function About() {
                 mb: 4,
               }}
             >
-              {/* تصویر مرحوم اصغر هشی */}
+              {/* کارت مرحوم اصغر هشی */}
               <motion.div
-                whileHover={{ scale: isMobile ? 1 : 0.9 }}
-                whileTap={{ scale: 0.85 }}
-                onHoverStart={() => !isMobile && setFounderHovered(true)}
-                onHoverEnd={() => !isMobile && setFounderHovered(false)}
+                whileHover={{ scale: isMobile ? 1 : 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onMouseEnter={() => handleFounderHover(true)}
+                onMouseLeave={() => handleFounderHover(false)}
                 onClick={handleFounderClick}
                 style={{
                   position: "relative",
-                  cursor: isMobile ? "pointer" : "default",
+                  cursor: "pointer",
+                  width: "100%",
+                  maxWidth: 500,
                 }}
               >
-                <Box
+                <Card
                   sx={{
-                    position: "relative",
-                    borderRadius: 3,
-                    overflow: "hidden",
-                    p: 0,
-                    display: "inline-block",
+                    width: "100%",
+                    maxWidth: 500,
+                    minHeight: 300,
+                    p: { xs: 3, md: 4 },
+                    borderRadius: 5,
+                    textAlign: "center",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
                     transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                    background: "transparent",
+                    overflow: "visible",
+                    background: founderHovered
+                      ? "linear-gradient(135deg, rgba(46,125,50,0.1), rgba(76,175,80,0.08))"
+                      : "rgba(255,255,255,0.12)",
+                    backdropFilter: "blur(12px)",
+                    border: founderHovered
+                      ? "2px solid rgba(46,125,50,0.3)"
+                      : "1px solid rgba(255,255,255,0.25)",
+                    boxShadow: founderHovered
+                      ? "0 15px 35px rgba(46,125,50,0.2), 0 0 25px rgba(76,175,80,0.15)"
+                      : "0 8px 25px rgba(0,0,0,0.15), 0 0 15px rgba(0,150,255,0.1)",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                    },
                   }}
                 >
+                  {/* تصویر مرحوم اصغر هشی */}
                   <Box
-                    component="img"
-                    src={asghar}
-                    alt={t("about.founder.name")}
                     sx={{
-                      display: "block",
-                      width: "100%",
-                      height: "auto",
-                      maxWidth: { xs: 280, sm: 340, md: 400 },
-                      borderRadius: 3,
-                      transition: "all 0.4s ease",
-                      filter: founderHovered
-                        ? "brightness(1.05) contrast(1.1) saturate(1.1)"
-                        : "brightness(1) contrast(1) saturate(1)",
+                      position: "relative",
+                      mb: 4,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
-                  />
-                </Box>
-              </motion.div>
+                  >
+                    <Box
+                      sx={{
+                        width: { xs: 140, sm: 160, md: 180 },
+                        height: { xs: 140, sm: 160, md: 180 },
+                        borderRadius: "50%",
+                        overflow: "hidden",
+                        border: "4px solid rgba(255,255,255,0.7)",
+                        boxShadow: founderHovered
+                          ? "0 0 25px rgba(46,125,50,0.4), 0 8px 25px rgba(0,0,0,0.25)"
+                          : "0 0 15px rgba(0,150,255,0.3), 0 4px 20px rgba(0,0,0,0.2)",
+                        transition: "all 0.4s ease",
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={asghar}
+                        alt={founderInfo.name[language]}
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          filter: founderHovered
+                            ? "brightness(1.05) contrast(1.1)"
+                            : "brightness(1) contrast(1)",
+                          transition: "all 0.4s ease",
+                        }}
+                      />
+                    </Box>
+                  </Box>
 
-              {/* نام */}
-              <Typography
-                variant="h4"
-                sx={{
-                  fontWeight: 800,
-                  background: "linear-gradient(90deg, #1b5e20, #66bb6a)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  textShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                  fontSize: { xs: "1.8rem", sm: "2.2rem" },
-                }}
-              >
-                {t("about.founder.name")}
-              </Typography>
+                  {/* نام و عنوان */}
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontWeight: 800,
+                      background: "linear-gradient(90deg, #1b5e20, #4caf50)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      textShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                      fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.2rem" },
+                      mb: 1,
+                    }}
+                  >
+                    {founderInfo.name[language]}
+                  </Typography>
+
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      color: "#2e7d32",
+                      fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" },
+                      mb: 2,
+                    }}
+                  >
+                    {founderInfo.role[language]}
+                  </Typography>
+
+                  {/* متن پایینی کوچکتر */}
+                  {/*<Typography*/}
+                  {/*  variant="body2"*/}
+                  {/*  sx={{*/}
+                  {/*    color: "#555",*/}
+                  {/*    fontSize: { xs: "0.75rem", sm: "0.85rem" },*/}
+                  {/*    maxWidth: 400,*/}
+                  {/*    mx: "auto",*/}
+                  {/*    fontStyle: "italic",*/}
+                  {/*  }}*/}
+                  {/*>*/}
+                  {/*  {language === "fa"*/}
+                  {/*    ? "بنیان گذار و پیشکسوت صنعت حسابداری ایران"*/}
+                  {/*    : "Founder and pioneer of Iran's accounting industry"}*/}
+                  {/*</Typography>*/}
+                </Card>
+              </motion.div>
             </Box>
           </motion.div>
 
-          {/* توضیحات با انیمیشن مدرن - فقط برای دسکتاپ */}
-          {!isMobile && (
-            <AnimatePresence>
-              {founderHovered && (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.95,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.95,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 30,
-                  }}
-                  style={{
-                    width: "100%",
-                    maxWidth: 800,
-                    margin: "0 auto",
+          {/* کارت توضیحات روی هاور (دسکتاپ) */}
+          {!isMobile && founderHovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+              }}
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "90%",
+                maxWidth: 600,
+                zIndex: 1000,
+                marginTop: 20,
+              }}
+            >
+              <Card
+                sx={{
+                  borderRadius: 3,
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,245,245,0.95))",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(46,125,50,0.2)",
+                  boxShadow:
+                    "0 25px 50px rgba(0,0,0,0.25), 0 0 40px rgba(76,175,80,0.15)",
+                  overflow: "hidden",
+                }}
+              >
+                {/* هدر کارت */}
+                <Box
+                  sx={{
+                    background:
+                      "linear-gradient(135deg, #2e7d32 0%, #4caf50 100%)",
+                    color: "white",
+                    py: 2,
+                    px: 3,
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  <Box
-                    sx={{
-                      background:
-                        "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,245,0.98))",
-                      backdropFilter: "blur(20px)",
-                      borderRadius: 3,
-                      p: { xs: 3, sm: 4 },
-                      boxShadow:
-                        "0 20px 60px rgba(0,0,0,0.15), 0 0 40px rgba(76,175,80,0.1)",
-                      border: "1px solid rgba(76,175,80,0.3)",
-                      position: "relative",
-                      overflow: "hidden",
-                      mb: 4,
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        textAlign: "justify",
-                        lineHeight: 1.8,
-                        fontSize: { xs: "0.9rem", sm: "1rem" },
-                        fontWeight: 500,
-                        color: "#000000", // متن مشکی
-                      }}
-                    >
-                      {t("about.founder.bio")}
+                  <Box>
+                    <Typography variant="h6" fontWeight={700}>
+                      {founderInfo.name[language]}
+                    </Typography>
+                    <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                      {founderInfo.role[language]}
                     </Typography>
                   </Box>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          )}
+                  <IconButton
+                    size="small"
+                    onClick={() => setFounderHovered(false)}
+                    sx={{
+                      color: "white",
+                      "&:hover": {
+                        backgroundColor: "rgba(255,255,255,0.1)",
+                      },
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
 
-          {/*<motion.div*/}
-          {/*  initial={{ opacity: 0, y: 40 }}*/}
-          {/*  animate={{ opacity: 1, y: 0 }}*/}
-          {/*  transition={{ duration: 0.6, delay: 0.4 }}*/}
-          {/*>*/}
-          {/*  <Typography*/}
-          {/*    variant="h4"*/}
-          {/*    align="center"*/}
-          {/*    gutterBottom*/}
-          {/*    sx={{*/}
-          {/*      fontWeight: 800,*/}
-          {/*      mb: { xs: 4, md: 6 },*/}
-          {/*      mt: { xs: 8, md: 15 },*/}
-          {/*      background: "linear-gradient(90deg, #1b5e20, #66bb6a)",*/}
-          {/*      WebkitBackgroundClip: "text",*/}
-          {/*      WebkitTextFillColor: "transparent",*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    {t("about.currentPartners.title")}*/}
-          {/*  </Typography>*/}
-          {/*  <Typography*/}
-          {/*    sx={{*/}
-          {/*      maxWidth: 900,*/}
-          {/*      mx: "auto",*/}
-          {/*      textAlign: "justify",*/}
-          {/*      lineHeight: 2,*/}
-          {/*      fontWeight: 700,*/}
-          {/*      fontSize: { xs: "0.9rem", md: "1rem" },*/}
-          {/*      mb: { xs: 6, md: 10 },*/}
-          {/*      px: { xs: 2, md: 0 },*/}
-          {/*      color: "#000000", // متن مشکی*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    {t("about.currentPartners.description")}*/}
-          {/*  </Typography>*/}
-          {/*</motion.div>*/}
+                {/* محتوای کارت */}
+                <Box sx={{ p: 3 }}>
+                  <Typography
+                    sx={{
+                      whiteSpace: "pre-wrap",
+                      fontFamily: "inherit",
+                      lineHeight: 1.8,
+                      fontSize: "0.95rem",
+                      color: "#000000",
+                    }}
+                  >
+                    {founderInfo.details[language]}
+                  </Typography>
+                </Box>
+              </Card>
+            </motion.div>
+          )}
         </Box>
 
-        {/* بخش هیئت مدیره - دقیقاً مانند قبل */}
+        {/* بخش هیئت مدیره */}
         <Box sx={{ mt: 10 }}>
           <Typography
             variant="h4"
@@ -851,7 +948,7 @@ export default function About() {
           <OrganizationalChart language={language} />
         </Box>
 
-        {/* Dialog جزئیات اعضا با طراحی مدرن */}
+        {/* Dialog جزئیات اعضا */}
         <Dialog
           open={open}
           onClose={handleClose}
@@ -861,7 +958,7 @@ export default function About() {
             "& .MuiDialog-paper": {
               borderRadius: 3,
               background:
-                "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,245,0.9))",
+                "linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,245,245,0.95))",
               backdropFilter: "blur(20px)",
               border: "1px solid rgba(76,175,80,0.2)",
               boxShadow: "0 25px 50px rgba(0,0,0,0.25)",
@@ -939,7 +1036,7 @@ export default function About() {
                     borderRadius: 2,
                     background: "rgba(245,245,245,0.6)",
                     border: "1px solid rgba(76,175,80,0.2)",
-                    color: "#000000", // متن مشکی
+                    color: "#000000",
                     boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
                   }}
                 >
@@ -950,7 +1047,7 @@ export default function About() {
           </DialogContent>
         </Dialog>
 
-        {/* Dialog مخصوص مرحوم اصغر هشی برای موبایل */}
+        {/* Dialog مخصوص مرحوم اصغر هشی */}
         <Dialog
           open={founderDialogOpen}
           onClose={handleFounderDialogClose}
@@ -960,7 +1057,7 @@ export default function About() {
             "& .MuiDialog-paper": {
               borderRadius: 3,
               background:
-                "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,245,0.9))",
+                "linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,245,245,0.95))",
               backdropFilter: "blur(20px)",
               border: "1px solid rgba(76,175,80,0.2)",
               boxShadow: "0 25px 50px rgba(0,0,0,0.25)",
@@ -980,9 +1077,14 @@ export default function About() {
               px: 4,
             }}
           >
-            <Typography variant="h5" fontWeight={700}>
-              {t("about.founder.name")}
-            </Typography>
+            <Box>
+              <Typography variant="h5" fontWeight={700}>
+                {founderInfo.name[language]}
+              </Typography>
+              <Typography variant="body1" sx={{ opacity: 0.9, mt: 0.5 }}>
+                {founderInfo.role[language]}
+              </Typography>
+            </Box>
             <IconButton
               onClick={handleFounderDialogClose}
               sx={{
@@ -1005,10 +1107,10 @@ export default function About() {
               >
                 <Avatar
                   src={asghar}
-                  alt={t("about.founder.name")}
+                  alt={founderInfo.name[language]}
                   sx={{
-                    width: 140,
-                    height: 140,
+                    width: 150,
+                    height: 150,
                     border: "4px solid rgba(76, 175, 80, 0.3)",
                     boxShadow: "0 8px 25px rgba(56,142,60,0.15)",
                   }}
@@ -1026,11 +1128,11 @@ export default function About() {
                   borderRadius: 2,
                   background: "rgba(245,245,245,0.6)",
                   border: "1px solid rgba(76,175,80,0.2)",
-                  color: "#000000", // متن مشکی
+                  color: "#000000",
                   boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
                 }}
               >
-                {t("about.founder.bio")}
+                {founderInfo.details[language]}
               </Box>
             </Stack>
           </DialogContent>
