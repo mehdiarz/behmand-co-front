@@ -48,6 +48,7 @@ import gallery8 from "../assets/gallery-8.jpg";
 // import bg8 from "../assets/bg-5.jpg";
 import bg6 from "../assets/bg-3.jpg";
 import bg9 from "../assets/bg-6.jpg";
+import bg10 from "../assets/bg-10.jpg";
 
 
 
@@ -68,6 +69,7 @@ import bg9 from "../assets/bg-6.jpg";
 
 const GALLERY_IMAGES = [
     bg4,
+    bg10,
     bg5,
     bg3,
     bg2,
