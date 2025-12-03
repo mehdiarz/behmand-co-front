@@ -252,7 +252,7 @@ const teamMembers = [
     },
     role: {
       fa: "شریک و عضو هیات مدیره",
-      en: "Partner and Board Member",
+      em: "Partner and Board Member",
     },
     avatar: emami,
     details: {
@@ -308,7 +308,7 @@ const teamMembers = [
 - Bachelor of Accounting from Islamic Azad University (2001)
 
 💼 Professional Experience:
-- Auditor at Behmand Audit Firm  since 2001 (Partner)
+- Auditor at Behmand Audit Firm since 2001 (Partner)
 
 👥 Professional Memberships:
 - Certified Public Accountant - Member of Iranian Association of Certified Public Accountants
@@ -394,40 +394,30 @@ const founderInfo = {
     en: "The Late Asghar Hoshi",
   },
   role: {
-    fa: "بنیان گذار مؤسسه حسابرسی بهمند",
+    fa: "موسس",
     en: "Founder of Behmand Audit Firm",
   },
   details: {
-    fa: `🎓 مدارک تحصیلی:
-- کارشناسی حسابداری از دانشکده امور اقتصادی و دارائی در سال ۱۳۳۸
+    fa: `مرحوم اصغر هشی در سال ۱۳۲۹ در اصفهان متولد شد. تحصیلات ابتدائی و متوسطه را در مدرسه مفید و دبیرستان سعدی اصفهان به اتمام رساند. تحصیلات دانشگاهی را از سال ۱۳۴۸ در دانشکده حسابداری شرکت نفت تهران ادامه داد و در سال ۱۳۵۳ موفق به اخذ درجه فوق لیسانس حسابداری گردید. از زمان دانشجویی در مؤسسه حسابرسی دقیق، زیر نظر استادانی چون آقای شاهرخ بهنام و مرحوم سجادی نژاد، مشغول به کار شد و تا سمت مدیریت و شراکت موسسه پیشرفت نمود.
 
-💼 سوابق کاری و افتخارات:
-- تاسیس مؤسسه حسابرسی بهمند در سال ۱۳۵۸
-- بیش از ۴ دهه فعالیت مستمر در حوزه حسابرسی و حسابداری
-- آموزش و پرورش چندین نسل از حسابداران و حسابرسان برجسته کشور
-- عضو مؤسس جامعه حسابداران رسمی ایران
-- مشاور مالی و مالیاتی بسیاری از شرکت‌های بزرگ و دولتی
+در سال ۱۳۵۸ با همکاری دیگر اساتید مؤسسه حسابرسی بهمند را تاسیس کرد و تا پایان عمر، مدیریت موسسه رابعهده داشت. مرحوم اصغر هشی یکی از اساتید حسابداری و حسابرسی کشور بود. وی از سال ۱۳۵۳ تدریس دروس حسابداری را در مدرسه عالی بازرگانی شروع و در دانشگاههای علامه، الزهرا، شهید بهشتی و دانشکده امور اقتصادی و دارائی ادامه داد.
 
-👥 تأثیرگذاری:
-مرحوم اصغر هشی با تأسیس مؤسسه حسابرسی بهمند، نه تنها یک مؤسسه معتبر حسابرسی را پایه‌گذاری کرد، بلکه با پرورش استعدادها و تأکید بر اخلاق حرفه‌ای، تأثیر عمیقی بر صنعت حسابداری و حسابرسی ایران گذاشت. رویکرد دانش‌محور و تعهد به کیفیت کاری ایشان، بهماند را به یکی از معتبرترین مؤسسات حسابرسی کشور تبدیل نمود.
+مرحوم اصغر هشی چه در دانشگاه و چه در مؤسسات دقیق و بهمند، نقش مؤثری در آموزش و تربیت نسلهای متعددی از دانشجویان حسابداری و حسابرسی کشور داشت. در این مدت، بعنوان بازرس و حسابرس، با صدها شرکت بزرگ و کوچک و مؤسسات عمومی و خصوصی همکاری نمود و در بهبود اداره مؤثر این شرکتها و مؤسسات نقش داشت.
 
-📈 میراث:
-امروز مؤسسه حسابرسی بهمند با بیش از ۴۰ سال سابقه درخشان، ادامه‌دهنده راه ایشان با همان اصول اخلاقی و حرفه‌ای است.`,
-    en: `🎓 Education:
-- Bachelor of Accounting from Faculty of Economics and Finance (1959)
+ایشان از سال ۱۳۵۳ به بعد عضو انجمن حسابداران خبره ایران، کانون حسابداران رسمی، جامعه حسابداران رسمی ایران، انجمن حسابداری ایران و کانون کارشناسان رسمی دادگستری بود و در امور مربوط به حرفه و تدوین قوانین مالیاتی نقش مؤثری ایفا نمود. وی از پیشگامان و پیشکسوتان حرفه حسابداری و حسابرسی کشور محسوب می شود.
 
-💼 Professional Experience and Honors:
-- Founded Behmand Audit Firm in 1979
-- Over 4 decades of continuous activity in auditing and accounting
-- Trained and mentored several generations of prominent Iranian accountants and auditors
-- Founding member of Iranian Association of Certified Public Accountants
-- Financial and tax consultant for many large companies and government entities
+اصغر هشی در تمام عمر فردی مستقل و پایبند به اصول اخلاقی و حرفه ای بود و منافع عموم و اصول حرفه ای را همواره در صدر ملاحظات خویش قرار می داد و از این طریق به بالا بردن نقش مستقل حسابرس کمک نمود.`,
+    en: `The late Asghar Hoshi was born in 1950 in Isfahan. He completed his primary and secondary education at Mofid School and Saadi High School in Isfahan. He continued his university studies in 1969 at the Accounting Department of the National Iranian Oil Company in Tehran and obtained a master's degree in accounting in 1974.
 
-👥 Influence:
-The late Asghar Hoshi, by establishing Behmand Audit Firm, not only founded a reputable audit institution but also had a profound impact on Iran's accounting and auditing industry through talent development and emphasis on professional ethics. His knowledge-based approach and commitment to quality work turned Behmand into one of the most prestigious audit firms in the country.
+During his student years, he started working at the Daghigh Audit Firm under the supervision of professors such as Mr. Shahrokh Behnam and the late Sajjadi Nejad, and progressed to the position of manager and partner of the firm.
 
-📈 Legacy:
-Today, Behmand Audit Firm with over 40 years of brilliant history continues his path with the same ethical and professional principles.`,
+In 1979, in cooperation with other professors, he founded the Behmand Audit Firm and managed the firm until the end of his life. The late Asghar Hoshi was one of the prominent professors of accounting and auditing in Iran. He started teaching accounting courses in 1974 at the Higher School of Commerce and continued at Allameh University, Al-Zahra University, Shahid Beheshti University, and the Faculty of Economics and Finance.
+
+The late Asghar Hoshi played an effective role in educating and training multiple generations of accounting and auditing students, both at universities and at Daghigh and Behmand institutions. During this period, as an inspector and auditor, he collaborated with hundreds of large and small companies and public and private institutions and played a role in improving the effective management of these companies and institutions.
+
+He was a member of the Iranian Association of Chartered Accountants, the Society of Certified Public Accountants, the Iranian Association of Certified Public Accountants, the Iranian Accounting Association, and the Association of Official Judicial Experts since 1974, and played an effective role in professional matters and the formulation of tax laws. He is considered one of the pioneers and veterans of the accounting and auditing profession in Iran.
+
+Throughout his life, Asghar Hoshi was an independent person committed to ethical and professional principles, always prioritizing public interests and professional principles, thereby contributing to the enhancement of the independent auditor's role.`,
   },
 };
 
@@ -555,7 +545,6 @@ function TeamRow({ members, handleOpen, language }) {
 export default function About() {
   const [open, setOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
-  const [founderHovered, setFounderHovered] = useState(false);
   const [founderDialogOpen, setFounderDialogOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const language = i18n.language;
@@ -572,24 +561,12 @@ export default function About() {
     setSelectedMember(null);
   };
 
-  const handleFounderHover = (isHovering) => {
-    if (!isMobile) {
-      setFounderHovered(isHovering);
-    }
-  };
-
   const handleFounderClick = () => {
-    if (isMobile) {
-      setFounderDialogOpen(true);
-    } else {
-      // در دسکتاپ هم با کلیک باز شود
-      setFounderDialogOpen(true);
-    }
+    setFounderDialogOpen(true);
   };
 
   const handleFounderDialogClose = () => {
     setFounderDialogOpen(false);
-    setFounderHovered(false);
   };
 
   return (
@@ -656,239 +633,130 @@ export default function About() {
           </Typography>
         </Box>
 
-        {/* بخش ویژه مرحوم اصغر هشی */}
-        <Box sx={{ textAlign: "center", my: 8, px: 2, position: "relative" }}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+        {/* بخش مرحوم اصغر هشی - کارت به اندازه شرکا */}
+        <Box sx={{ textAlign: "center", my: 8, px: 2 }}>
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{
+              fontWeight: 800,
+              mb: 6,
+              background: "linear-gradient(90deg, #1b5e20, #4caf50)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
-            <Box
+            {language === "fa" ? "موسس موسسه حسابرسی بهمند" : "Founder of the Behmand Audit Firm"}
+          </Typography>
+
+          <Grid
+            container
+            spacing={{ xs: 2, sm: 3, md: 4 }}
+            justifyContent="center"
+            sx={{
+              mb: { xs: 4, md: 6 },
+              px: { xs: 1, sm: 2, md: 4 },
+            }}
+          >
+            <Grid
+              size={{
+                xs: 6,
+                sm: 4,
+                md: 3,
+              }}
               sx={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 3,
-                mb: 4,
+                justifyContent: "center",
+                alignItems: "stretch",
               }}
             >
-              {/* کارت مرحوم اصغر هشی */}
               <motion.div
-                whileHover={{ scale: isMobile ? 1 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onMouseEnter={() => handleFounderHover(true)}
-                onMouseLeave={() => handleFounderHover(false)}
-                onClick={handleFounderClick}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35 }}
                 style={{
-                  position: "relative",
-                  cursor: "pointer",
                   width: "100%",
-                  maxWidth: 500,
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
                 <Card
+                  onClick={handleFounderClick}
                   sx={{
                     width: "100%",
-                    maxWidth: 500,
-                    minHeight: 300,
-                    p: { xs: 3, md: 4 },
+                    maxWidth: 260,
+                    minHeight: { xs: 180, sm: 220 },
+                    pl: { xs: 2, sm: 3 },
+                    pr: { xs: 2, sm: 3 },
+                    pt: { xs: 2, sm: 3 },
                     borderRadius: 5,
                     textAlign: "center",
+                    cursor: "pointer",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center",
-                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                    justifyContent: "flex-start",
+                    transition: "all 0.35s ease",
                     overflow: "visible",
-                    background: founderHovered
-                      ? "linear-gradient(135deg, rgba(46,125,50,0.1), rgba(76,175,80,0.08))"
-                      : "rgba(255,255,255,0.12)",
-                    backdropFilter: "blur(12px)",
-                    border: founderHovered
-                      ? "2px solid rgba(46,125,50,0.3)"
-                      : "1px solid rgba(255,255,255,0.25)",
-                    boxShadow: founderHovered
-                      ? "0 15px 35px rgba(46,125,50,0.2), 0 0 25px rgba(76,175,80,0.15)"
-                      : "0 8px 25px rgba(0,0,0,0.15), 0 0 15px rgba(0,150,255,0.1)",
+                    background: "rgba(255,255,255,0.15)",
+                    backdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255,255,255,0.25)",
+                    boxShadow:
+                      "0 4px 20px rgba(0,0,0,0.25), 0 0 20px rgba(0,150,255,0.2)",
                     "&:hover": {
-                      transform: "translateY(-8px)",
+                      background:
+                        "linear-gradient(135deg, rgba(255,255,255,0.25), rgba(240,240,240,0.15))",
+                      transform: "translateY(-6px)",
+                      boxShadow:
+                        "0 8px 30px rgba(0,0,0,0.3), 0 0 35px rgba(0,170,255,0.35)",
                     },
                   }}
                 >
-                  {/* تصویر مرحوم اصغر هشی */}
-                  <Box
+                  <Avatar
+                    src={asghar}
+                    alt={founderInfo.name[language]}
                     sx={{
-                      position: "relative",
-                      mb: 4,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      width: { xs: 70, sm: 85, md: 95 },
+                      height: { xs: 70, sm: 85, md: 95 },
+                      mb: 2,
+                      border: "3px solid rgba(255,255,255,0.6)",
+                      boxShadow:
+                        "0 0 12px rgba(0,150,255,0.3), 0 4px 15px rgba(0,0,0,0.25)",
+                      "& .MuiAvatar-img": {
+                        objectFit: "contain",
+                      },
                     }}
-                  >
-                    <Box
-                      sx={{
-                        width: { xs: 140, sm: 160, md: 180 },
-                        height: { xs: 140, sm: 160, md: 180 },
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                        border: "4px solid rgba(255,255,255,0.7)",
-                        boxShadow: founderHovered
-                          ? "0 0 25px rgba(46,125,50,0.4), 0 8px 25px rgba(0,0,0,0.25)"
-                          : "0 0 15px rgba(0,150,255,0.3), 0 4px 20px rgba(0,0,0,0.2)",
-                        transition: "all 0.4s ease",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={asghar}
-                        alt={founderInfo.name[language]}
-                        sx={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          filter: founderHovered
-                            ? "brightness(1.05) contrast(1.1)"
-                            : "brightness(1) contrast(1)",
-                          transition: "all 0.4s ease",
-                        }}
-                      />
-                    </Box>
-                  </Box>
-
-                  {/* نام و عنوان */}
+                  />
                   <Typography
-                    variant="h4"
+                    variant="subtitle1"
+                    fontWeight={700}
                     sx={{
-                      fontWeight: 800,
-                      background: "linear-gradient(90deg, #1b5e20, #4caf50)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      textShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                      fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2.2rem" },
-                      mb: 1,
+                      fontSize: { xs: "0.9rem", md: "1rem" },
+                      textShadow: "0 0 6px rgba(0,0,0,0.3)",
+                      mb: 0.5,
+                      color: "#000000",
                     }}
                   >
                     {founderInfo.name[language]}
                   </Typography>
-
                   <Typography
-                    variant="h6"
+                    variant="body2"
                     sx={{
-                      fontWeight: 600,
-                      color: "#2e7d32",
-                      fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" },
-                      mb: 2,
+                      fontSize: { xs: "0.75rem", md: "0.9rem" },
+                      mt: 1,
+                      textShadow: "0 0 4px rgba(0,0,0,0.25)",
+                      color: "#000000",
                     }}
                   >
                     {founderInfo.role[language]}
                   </Typography>
-
-                  {/* متن پایینی کوچکتر */}
-                  {/*<Typography*/}
-                  {/*  variant="body2"*/}
-                  {/*  sx={{*/}
-                  {/*    color: "#555",*/}
-                  {/*    fontSize: { xs: "0.75rem", sm: "0.85rem" },*/}
-                  {/*    maxWidth: 400,*/}
-                  {/*    mx: "auto",*/}
-                  {/*    fontStyle: "italic",*/}
-                  {/*  }}*/}
-                  {/*>*/}
-                  {/*  {language === "fa"*/}
-                  {/*    ? "بنیان گذار و پیشکسوت صنعت حسابداری ایران"*/}
-                  {/*    : "Founder and pioneer of Iran's accounting industry"}*/}
-                  {/*</Typography>*/}
                 </Card>
               </motion.div>
-            </Box>
-          </motion.div>
-
-          {/* کارت توضیحات روی هاور (دسکتاپ) */}
-          {!isMobile && founderHovered && (
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 25,
-              }}
-              style={{
-                position: "absolute",
-                top: "100%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "90%",
-                maxWidth: 600,
-                zIndex: 1000,
-                marginTop: 20,
-              }}
-            >
-              <Card
-                sx={{
-                  borderRadius: 3,
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,245,245,0.95))",
-                  backdropFilter: "blur(20px)",
-                  border: "1px solid rgba(46,125,50,0.2)",
-                  boxShadow:
-                    "0 25px 50px rgba(0,0,0,0.25), 0 0 40px rgba(76,175,80,0.15)",
-                  overflow: "hidden",
-                }}
-              >
-                {/* هدر کارت */}
-                <Box
-                  sx={{
-                    background:
-                      "linear-gradient(135deg, #2e7d32 0%, #4caf50 100%)",
-                    color: "white",
-                    py: 2,
-                    px: 3,
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <Box>
-                    <Typography variant="h6" fontWeight={700}>
-                      {founderInfo.name[language]}
-                    </Typography>
-                    <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                      {founderInfo.role[language]}
-                    </Typography>
-                  </Box>
-                  <IconButton
-                    size="small"
-                    onClick={() => setFounderHovered(false)}
-                    sx={{
-                      color: "white",
-                      "&:hover": {
-                        backgroundColor: "rgba(255,255,255,0.1)",
-                      },
-                    }}
-                  >
-                    <CloseIcon />
-                  </IconButton>
-                </Box>
-
-                {/* محتوای کارت */}
-                <Box sx={{ p: 3 }}>
-                  <Typography
-                    sx={{
-                      whiteSpace: "pre-wrap",
-                      fontFamily: "inherit",
-                      lineHeight: 1.8,
-                      fontSize: "0.95rem",
-                      color: "#000000",
-                    }}
-                  >
-                    {founderInfo.details[language]}
-                  </Typography>
-                </Box>
-              </Card>
-            </motion.div>
-          )}
+            </Grid>
+          </Grid>
         </Box>
 
         {/* بخش هیئت مدیره */}
@@ -1099,18 +967,19 @@ export default function About() {
           </DialogTitle>
 
           <DialogContent sx={{ p: 0 }}>
-            <Stack spacing={3} alignItems="center" sx={{ p: 4 }}>
+            <Stack spacing={3} sx={{ p: 4 }}>
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4 }}
+                style={{ display: "flex", justifyContent: "center" }}
               >
                 <Avatar
                   src={asghar}
                   alt={founderInfo.name[language]}
                   sx={{
-                    width: 150,
-                    height: 150,
+                    width: 120,
+                    height: 120,
                     border: "4px solid rgba(76, 175, 80, 0.3)",
                     boxShadow: "0 8px 25px rgba(56,142,60,0.15)",
                   }}
@@ -1130,6 +999,7 @@ export default function About() {
                   border: "1px solid rgba(76,175,80,0.2)",
                   color: "#000000",
                   boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+
                 }}
               >
                 {founderInfo.details[language]}
