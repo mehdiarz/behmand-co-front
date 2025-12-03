@@ -36,12 +36,21 @@ import bg3 from "../assets/bg-building.jpg";
 import bg4 from "../assets/bg-1.jpg";
 import bg5 from "../assets/bg-2.jpg";
 import bg7 from "../assets/bg-4.jpg";
+import gallery1 from "../assets/gallery-1.jpg";
+import gallery2 from "../assets/gallery-2.jpg";
+import gallery3 from "../assets/gallery-3.jpg";
+import gallery4 from "../assets/gallery-4.jpg";
+import gallery5 from "../assets/gallery-5.jpg";
+import gallery6 from "../assets/gallery-6.jpg";
+import gallery7 from "../assets/gallery-7.jpg";
+import gallery8 from "../assets/gallery-8.jpg";
+
 // import bg8 from "../assets/bg-5.jpg";
 import bg6 from "../assets/bg-3.jpg";
 import bg9 from "../assets/bg-6.jpg";
 
 
-import gallery1 from "../assets/gallery-1.jpg";
+
 
 
 // تصاویر نمونه
@@ -67,7 +76,15 @@ const GALLERY_IMAGES = [
     bg6,
     bg7,
     // bg8,
-    bg9
+    bg9,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery6,
+    gallery7,
+    gallery8,
+
 ];
 
 
