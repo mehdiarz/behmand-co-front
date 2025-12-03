@@ -635,20 +635,20 @@ export default function About() {
 
         {/* بخش مرحوم اصغر هشی - کارت به اندازه شرکا */}
         <Box sx={{ textAlign: "center", my: 8, px: 2 }}>
-          <Typography
-            variant="h4"
-            align="center"
-            gutterBottom
-            sx={{
-              fontWeight: 800,
-              mb: 6,
-              background: "linear-gradient(90deg, #1b5e20, #4caf50)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {language === "fa" ? "موسس موسسه حسابرسی بهمند" : "Founder of the Behmand Audit Firm"}
-          </Typography>
+          {/*<Typography*/}
+          {/*  variant="h4"*/}
+          {/*  align="center"*/}
+          {/*  gutterBottom*/}
+          {/*  sx={{*/}
+          {/*    fontWeight: 800,*/}
+          {/*    mb: 6,*/}
+          {/*    background: "linear-gradient(90deg, #1b5e20, #4caf50)",*/}
+          {/*    WebkitBackgroundClip: "text",*/}
+          {/*    WebkitTextFillColor: "transparent",*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  {language === "fa" ? "موسس موسسه حسابرسی بهمند" : "Founder of the Behmand Audit Firm"}*/}
+          {/*</Typography>*/}
 
           <Grid
             container
